@@ -1,3 +1,0 @@
-﻿  e579.cpp
-C:\Users\pc\Desktop\入門到入墳\e579\e579.cpp(30,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  e579.vcxproj -> C:\Users\pc\Desktop\入門到入墳\e579\x64\Debug\e579.exe

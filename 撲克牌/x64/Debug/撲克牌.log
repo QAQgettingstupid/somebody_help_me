@@ -1,3 +1,0 @@
-﻿  撲克牌.cpp
-C:\Users\pc\Desktop\入門到入墳\撲克牌\撲克牌.cpp(9,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  撲克牌.vcxproj -> C:\Users\pc\Desktop\入門到入墳\撲克牌\x64\Debug\撲克牌.exe
