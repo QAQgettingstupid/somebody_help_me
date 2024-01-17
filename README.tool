@@ -1,4 +1,4 @@
-switch
+# switch
 
 switch(變數名稱或運算式) {
     case 符合數字或字元:
