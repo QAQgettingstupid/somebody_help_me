@@ -7,10 +7,14 @@ int main()
     long long int  D, day, S;
     while (cin >> S >> D) {
         day = 0;
-        do {
-            for (int i = 0; i < S; i++)
-                day++;
-        } while (day < D);
+        while (1) {
+            if (D <= day + S) {
+                cout << S << '\n';
+                break;
+            }
+            day += S;
+            S++;
+        }
         
     }
 
