@@ -27,9 +27,17 @@ private:
     
 };
 
+class Cout {
+
+public:
+    Cout() {
+        cout << "Hello World!\n";
+    }
+};
+
 int main()
 {
-    
+    Cout test2;
     oop test(0, 12, 0, 5);
     test.distance();
     test.print();
