@@ -4,31 +4,34 @@ using namespace std;
 
 int main()
 {
-    int n,step,top;//east->0 south->1 west->2 north->3
-    int dice[7][4] = { 0,0,0,0,
-                       3,2,4,5,
-                       3,6,4,1,
-                       6,2,1,5,
-                       1,2,6,5,
-                       3,1,4,6,
-                       3,5,4,2, };
+    int n;
     string s;
     while (cin >> n) {
         if (!n)
             break;
-        top = 1;
+        int top=1, right=4, front=2,temp;
         while (n--) {
             cin >> s;
-            if (s == "east")
-                step = 0;
-            else if(s == "south")
-                step = 1;
-            else if(s == "west")
-                step = 2;
-            else
-                step = 3;
-            top = dice[top][step];
-            cout << top;
+            if (s == "east") {
+                temp = right;
+                right = top;
+                top = 7-temp;
+            }
+            else if (s == "south") {
+                temp = front;
+                front = 7 - top;
+                top = temp;
+            }
+            else if (s == "west") {
+                temp = right;
+                right = 7 - top;
+                top = temp;
+            }
+            else {
+                temp = front;
+                front = top;
+                top = 7 - temp;
+            }
         }
         cout << top << '\n';
     }
