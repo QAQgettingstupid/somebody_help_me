@@ -8,7 +8,7 @@ int main()
 {
     int n;
     map<string, int> country;
-    string need,s;
+    string need, s;
     cin >> n;
     getline(cin, s);
     while (n--) {
