@@ -8,6 +8,10 @@ int main()
     while (1) {
         cout << "please enter a number: ";
         cin >> num;
+        if (num <= 0) {
+            cout << "this number must be larger than 0\n";
+            continue;
+        }
         int ans[55] = { 0 }, flag = 1, count; // flag->陣列ans目前用到的位數 
         ans[0] = 1;                           // count->每一層運算用到的位數
 
