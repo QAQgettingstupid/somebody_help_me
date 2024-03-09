@@ -57,6 +57,19 @@ int main()
             end = p;
         }
     }
+
+    /*  以下為中間插入新數字
+    node* mid_front = head;
+    node* mid_back = head;
+    p = new node;
+    while (mid_front->get_number() != 3) {
+        mid_front = mid_front->get_next();
+    }
+    mid_back = mid_front->get_next();
+    mid_front->set_next(p);
+    p->set_number(44444444);
+    p->set_next(mid_back);
+    */
     printlist(head);
 
     return 0;
