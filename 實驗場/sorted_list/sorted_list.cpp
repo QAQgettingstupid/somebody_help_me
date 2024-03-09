@@ -24,7 +24,7 @@ class node{
 
 void print(node* head) {
     cout << "head->";
-    if (!head) {
+    while (head) {
         cout << head->get_number() << "->";
         head = head->get_next();
     }
@@ -35,9 +35,11 @@ int main()
 {
     node* head = NULL;
     node* mid;
+    node* find;
     node* p;
     int n;
     while (1) {
+        cout << "Please enter number:\n";
         cin >> n;
         if (!n)
             break;
@@ -48,9 +50,27 @@ int main()
         }
         else {
             p = new node;
-            if (head->get_number() >= 1) {
-                mid = head;
+            p->set_number(n);
+            if (head->get_number() >= n) {
+                p->set_next(head);
+                head = p;
             }
+            else {
+                find = head;
+                while (find->get_next()) {
+                    if ((find->get_next())->get_number() >= n) {
+                        mid = find->get_next();
+                        find->set_next(p);
+                        p->set_next(mid);
+                        break;
+                    }
+                    find = find->get_next();
+                }
+                if (!(find->get_next())) {
+                    find->set_next(p);
+                    p->set_next(NULL);
+                }
+            }           
         }
     }
     print(head);
