@@ -40,7 +40,7 @@ int main()
     while (1) {
         cout << "Please enter a number:\n";
         cin >> n;
-        if (!n)
+        if (n<=0)
             break;
         p = new node;
         p->set_number(n);

@@ -41,7 +41,7 @@ int main()
     while (1) {
         cout << "Please enter number:\n";
         cin >> n;
-        if (!n)
+        if (n<=0)
             break;
         if (!head) {
             head = new node;
