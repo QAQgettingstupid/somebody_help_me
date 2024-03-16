@@ -1,0 +1,4 @@
+﻿  menu_example.cpp
+C:\Users\pc\Desktop\入門到入墳\作業不好玩\menu_example\menu_example.cpp(78,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\pc\Desktop\入門到入墳\作業不好玩\menu_example\menu_example.cpp(19): warning C4715: 'color': not all control paths return a value
+  menu_example.vcxproj -> C:\Users\pc\Desktop\入門到入墳\作業不好玩\menu_example\x64\Debug\menu_example.exe
