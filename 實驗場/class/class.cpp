@@ -5,16 +5,22 @@ using namespace std;
 class node {
     private:
         int number;//成員
-        node* next;
     public:
-        int get_number();//函式功能
+
+        node(int number) {
+            this->number = number;
+        }
+
+        int operator+(node a) {
+            return a.number + number;
+        }
 
 };
 
 int main()
 {
-    cout << "Hello World!\n";
-
+    node test(11111),test2(11111);
+    cout << test + test2;
     return 0;
 }
 
