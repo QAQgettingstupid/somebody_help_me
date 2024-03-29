@@ -102,16 +102,14 @@ int main(){
             bool flag = false;
             p = new node;
             p->set_number(n);
-            if (head->get_number() >= n) {
-                if (head->get_number() == n)
-                    flag = true;
-                else {
-                    p->set_next(head);
-                    p->set_prg();
-                    p->set_cmp();
-                    p->set_name();
-                    head = p;
-                }
+            if (head->get_number() == n)
+                flag = true;
+            else if (head->get_number() > n) {
+                p->set_next(head);
+                p->set_prg();
+                p->set_cmp();
+                p->set_name();
+                head = p;
             }
             else {
                 find = head;
