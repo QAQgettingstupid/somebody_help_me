@@ -4,20 +4,22 @@ using namespace std;
 
 class node {
 private:
-    int number, prg, cmp;
+    int number, prg, cmp, total;
     node* next;
-    char name[10]; 
+    char name[20]; 
 public:
     //輸入
     void set_number(int a);
     void set_prg();
     void set_cmp();
+    void set_total();
     void set_name();
     void set_next(node* p);
     //輸出
     int get_number();
     int get_prg();
     int get_cmp();
+    int get_total();
     node* get_next();
     char* get_name();
     int operator+(node p) {
@@ -32,24 +34,38 @@ void node::set_number(int a) {
     number = a;
 }
 
+void node::set_total() {
+    total = prg + cmp;
+}
+
 void node::set_prg() {
     int a;
     cout << "請輸入程設分數:\n";
     cin >> a;
-    prg = a;
+    if (a >= 0 && a <= 100)
+        prg = a;
+    else {
+        cout << "沒有這種分數,請重新輸入\n";
+        set_prg();
+    }
 }
 
 void node::set_cmp() {
     int a;
     cout << "請輸入計概分數:\n";
     cin >> a;
-    cmp = a;
+    if (a >= 0 && a <= 100)
+        cmp = a;
+    else {
+        cout << "沒有這種分數,請重新輸入\n";
+        set_cmp();
+    }
 }
 
 void node::set_name() {
     cout << "請輸入名字:\n";
     cin >> name;
-    name[10] = '\0'; //保證存10個 設name[10]為'\0'成終止符號
+    name[20] = '\0'; //保證存10個 設name[10]為'\0'成終止符號
 }
 
 void node::set_next(node* p) {
@@ -66,6 +82,10 @@ int node::get_prg() {
 
 int node::get_cmp() {
     return cmp;
+}
+
+int node::get_total() {
+    return total;
 }
 
 node* node::get_next() {
@@ -91,13 +111,18 @@ int menu() {
 
 void enter(node*& head) {
     int n;
-    cout << "請輸入要新增的數字:\n";
+    cout << "請輸入要新增的座號:\n";
     cin >> n;
+    while (n <= 0) {
+        cout << "座號要大於0,請重新輸入\n";
+        cin >> n;
+    }
     if (!head) {
         head = new node;
         head->set_number(n);
         head->set_prg();
         head->set_cmp();
+        head->set_total();
         head->set_name();
         head->set_next(NULL);
     }
@@ -112,6 +137,7 @@ void enter(node*& head) {
             p->set_next(head);
             p->set_prg();
             p->set_cmp();
+            p->set_total();
             p->set_name();
             head = p;
         }
@@ -125,6 +151,7 @@ void enter(node*& head) {
                 find->set_next(p);
                 p->set_prg();
                 p->set_cmp();
+                p->set_total();
                 p->set_name();
                 p->set_next(NULL);
             }
@@ -137,6 +164,7 @@ void enter(node*& head) {
                 find->set_next(p);
                 p->set_prg();
                 p->set_cmp();
+                p->set_total();
                 p->set_name();
                 p->set_next(temp);
             }
@@ -178,23 +206,28 @@ void Delete(node*& head) {
 }
 
 void see_node(node* head) {
-    int n;
-    cout << "請輸入要找的編號:\n";
-    cin >> n;
-    node* find = head;
-    while (find) {
-        if (find->get_number() == n) {
-            cout << "編號:" << find->get_number() << '\n';
-            cout << "姓名:" << find->get_name() << '\n';
-            cout << "程設分數:" << find->get_prg() << '\n';
-            cout << "計概分數:" << find->get_cmp() << "\n\n";
-            break;
+    if(!head)
+        cout << "空串列無資料\n";
+    else{
+        int n;
+        cout << "請輸入要找的編號:\n";
+        cin >> n;
+        node* find = head;
+        while (find) {
+            if (find->get_number() == n) {
+                cout << "編號:" << find->get_number() << '\n';
+                cout << "姓名:" << find->get_name() << '\n';
+                cout << "程設分數:" << find->get_prg() << '\n';
+                cout << "計概分數:" << find->get_cmp() << "\n";
+                cout << "總分:" << find->get_total() << "\n\n";
+                break;
+            }
+            else
+                find = find->get_next();
         }
-        else
-            find = find->get_next();
+        if (!find)
+            cout << "無此人物\n\n";
     }
-    if(!find)
-        cout << "無此人物\n\n";
 }
 
 void print(node* head) {
