@@ -11,16 +11,23 @@ class node {
             this->number = number;
         }
 
-        int operator+(node a) {
-            return a.number + number;
+        int get_number() {
+            return number;
         }
 
+        int operator+(node a);
+
 };
+
+int node::operator+(node a) {
+    return a.number + number;
+}
 
 int main()
 {
     node test(11111),test2(11111);
-    cout << test + test2;
+    char name[10] = "abcd";
+    cout << sizeof(name);
     return 0;
 }
 

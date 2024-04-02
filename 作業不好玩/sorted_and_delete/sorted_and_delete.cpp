@@ -6,7 +6,7 @@ class node {
 private:
     int number, prg, cmp;
     node* next;
-    char name[10]; // 裡面有結束字元/0 故只能存9個char
+    char name[10]; 
 public:
     //輸入
     void set_number(int a);
@@ -49,6 +49,7 @@ void node::set_cmp() {
 void node::set_name() {
     cout << "請輸入名字:\n";
     cin >> name;
+    name[10] = '\0'; //保證存10個 設name[10]為'\0'成終止符號
 }
 
 void node::set_next(node* p) {

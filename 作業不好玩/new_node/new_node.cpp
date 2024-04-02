@@ -5,7 +5,7 @@ using namespace std;
 class node {
 private:
     int number, prg, cmp;
-    char name[10];
+    char name[10];  
     node* next;
 public:
     //輸入
@@ -44,6 +44,7 @@ void node::set_cmp() {
 void node::set_name() {
     cout << "Please enter name:\n";
     cin >> name;
+    name[10] = '\0';
 }
 
 void node::set_next(node* p) {
@@ -73,7 +74,7 @@ char* node::get_name() {
 void print(node* head) {
     cout << "head->";
     while (head) {
-        cout << head->get_number() << "->";
+        cout << head->get_number()<<"名字:"<<head->get_name() << "->";
         head = head->get_next();
     }
     cout << "||\n";
