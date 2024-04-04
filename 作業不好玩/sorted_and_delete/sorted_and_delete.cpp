@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <cstring>
 
 using namespace std;
 
@@ -6,7 +7,7 @@ class node {
 private:
     int number, prg, cmp, total;
     node* next;
-    char name[20]; 
+    char name[20];
 public:
     //輸入
     void set_number(int a);
@@ -35,7 +36,7 @@ void node::set_number(int a) {
 }
 
 void node::set_total() {
-    total = prg + cmp;
+    total = (prg + cmp) / 2;
 }
 
 void node::set_prg() {
@@ -64,8 +65,8 @@ void node::set_cmp() {
 
 void node::set_name() {
     cout << "請輸入名字:\n";
-    cin >> name;
-    name[20] = '\0'; //保證存10個 設name[10]為'\0'成終止符號
+    cin.get();
+    cin.getline(name, 20);
 }
 
 void node::set_next(node* p) {
@@ -102,7 +103,8 @@ int menu() {
     cout << "1 新增:\n";
     cout << "2 刪除:\n";
     cout << "3 檢視串列:\n";
-    cout << "4 檢視節點資料:\n\n";
+    cout << "4 檢視節點資料(以座號):\n";
+    cout << "5 檢視節點資料(以姓名):\n\n";
     cout << "請從中選一個:\n";
     cin >> n;
     cout << '\n';
@@ -172,7 +174,7 @@ void enter(node*& head) {
     }
 }
 
-void Delete(node*& head) { 
+void Delete(node*& head) {
     if (!head)
         cout << "此串列為空\n\n";
     else {
@@ -206,9 +208,9 @@ void Delete(node*& head) {
 }
 
 void see_node(node* head) {
-    if(!head)
+    if (!head)
         cout << "空串列無資料\n";
-    else{
+    else {
         int n;
         cout << "請輸入要找的編號:\n";
         cin >> n;
@@ -228,6 +230,37 @@ void see_node(node* head) {
         if (!find)
             cout << "無此人物\n\n";
     }
+}
+
+void see_name(node* head) {
+    if (!head)
+        cout << "空串列無資料\n";
+    else {
+        char name[20];
+        cout << "請輸入名字\n";
+        cin.get();
+        cin.getline(name, 20);
+        node* find = head;
+        bool flag = true;
+        while (find) {
+            if (!strcmp(find->get_name(), name)) {
+                cout << "編號:" << find->get_number() << '\n';
+                cout << "姓名:" << find->get_name() << '\n';
+                cout << "程設分數:" << find->get_prg() << '\n';
+                cout << "計概分數:" << find->get_cmp() << "\n";
+                cout << "總分:" << find->get_total() << "\n\n";
+                flag = false;
+            }
+            find = find->get_next();
+        }
+        if (flag) {
+            cout << "無此人物\n";
+        }
+    }
+}
+
+void sort_by_score(node* head) {
+    node* sort_head = NULL;
 }
 
 void print(node* head) {
@@ -261,6 +294,9 @@ int main()
             break;
         case 4:
             see_node(head);
+            break;
+        case 5:
+            see_name(head);
             break;
         default:
             cout << "錯誤...請再輸入一次\n";
