@@ -1,2 +1,0 @@
-C:\Users\pc\Desktop\入門到入墳\實驗場\sorted_and_delete\x64\Debug\sorted_and_delete.exe
-C:\Users\pc\Desktop\入門到入墳\作業不好玩\sorted_and_delete\x64\Debug\sorted_and_delete.exe
