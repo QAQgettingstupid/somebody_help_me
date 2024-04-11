@@ -6,7 +6,8 @@ using namespace std;
 
 class node {
 private:
-    int number, prg, cmp, total;
+    int number, prg, cmp;
+    double total;
     node* next;
     string name;
 public:
@@ -106,7 +107,7 @@ int menu() {
     cout << "0 Exit:\n";
     cout << "1 Insert:\n";
     cout << "2 Delete(by no):\n";
-    cout << "3 Delete(by name): 維修中別摸!!!!!\n";
+    cout << "3 Delete(by name):\n";
     cout << "4 檢視串列:\n";
     cout << "5 Search(by no):\n";
     cout << "6 Search(by name):\n";
@@ -180,7 +181,7 @@ void enter(node*& head) {
     }
 }
 
-/*int check(node* p) {
+int check(node* p) {
     cout << "no:" << p->get_number() << '\n';
     cout << "name:" << p->get_name() << '\n';
     cout << "prg score:" << p->get_prg() << '\n';
@@ -190,11 +191,15 @@ void enter(node*& head) {
     int n;
     cout << "delete data? (yes -> enter 1 /no -> enter 0)" << '\n';
     cin >> n;
+    while (n != 0 && n != 1) {
+        cout << "error...Please enter again" << '\n';
+        cin >> n;
+    }
     if (n)
         return true;
     else
         return false;
-}*/
+}
 
 void Delete_no(node*& head) {
     if (!head)
@@ -202,12 +207,14 @@ void Delete_no(node*& head) {
     else {
         int n;
         node* temp;
+        bool flag = true;
         cout << "Please enter student no:\n";
         cin >> n;
         if (head->get_number() == n) {
             temp = head;
             head = head->get_next();
             delete temp;
+            flag = false;
             cout << "data deleted\n\n";
         }
         else {
@@ -217,61 +224,53 @@ void Delete_no(node*& head) {
                     temp = find->get_next();
                     find->set_next(find->get_next()->get_next());
                     delete temp;
-                    cout << "data deleted\n";
+                    flag = false;
+                    cout << "data deleted\n\n";
                     break;
                 }
                 else
                     find = find->get_next();
             }
-            if (!find->get_next())
-                cout << "student doesn't exist\n";
+            if (!find->get_next() && flag)
+                cout << "student doesn't exist\n\n";
         }
     }
 }
 
-void Delete_name(node* head) {
+void Delete_name(node*& head) {
     if (!head)
         cout << "empty list\n\n";
-    /*else {
+    else {
         string n;
         node* temp;
+        bool flag = true;
         cout << "Please enter student name:\n";
         cin >> n;
-        if (head->get_name() == n) {
-            /*if (check(head)) {
-                temp = head;
-                head = head->get_next();
-                delete temp;
-             //   cout << "data deleted\n\n";
-            }
+        if (head->get_name() == n && check(head)) {
             temp = head;
             head = head->get_next();
-            delete temp;
+            delete head; //必要!!!
+            flag = false;
             cout << "data deleted\n\n";
         }
         else {
             node* find = head;
             while (find->get_next()) {
-                if (find->get_next()->get_name() == n) {
-                    /*if (check(head)) {
-                        temp = find->get_next();
-                        find->set_next(find->get_next()->get_next());
-                        delete temp;
-                        cout << "data deleted\n";
-                    //}
-                    temp = head;
-                    head = head->get_next();
+                if (find->get_next()->get_name() == n && check(find->get_next())) {
+                    temp = find->get_next();
+                    find->set_next(find->get_next()->get_next());
                     delete temp;
+                    flag = false;
                     cout << "data deleted\n\n";
+                    break;
                 }
                 else
                     find = find->get_next();
             }
-            if (!find->get_next())
-                cout << "student doesn't exist\n";
+            if (!find->get_next() && flag)
+                cout << "student doesn't exist\n\n";
         }
-    }*/
-    cout << "維修中~\n\n";
+    }
 }
 
 void see_node(node* head) {
@@ -327,6 +326,8 @@ void see_name(node* head) {
 }
 
 bool compare(node a, node b) { //a->後項 b->前項
+    if (a.get_total() == b.get_total())
+        return a.get_number() < b.get_number();
     return a.get_total() > b.get_total();
 }
 
@@ -345,6 +346,7 @@ void Transcript(node* head) {
 
         //第1
         cout << "ranking:" << 1 << '\n';
+        cout << "no:" << list[0].get_number() << '\n';
         cout << "name:" << list[0].get_name() << '\n';
         cout << "score:" << list[0].get_total() << '\n';
         cout << '\n';
@@ -358,6 +360,7 @@ void Transcript(node* head) {
                 count = 0;
             }
             cout << "ranking:" << ranking << '\n';
+            cout << "no:" << list[j].get_number() << '\n';
             cout << "name:" << list[j].get_name() << '\n';
             cout << "score:" << list[j].get_total() << '\n';
             cout << '\n';
@@ -367,10 +370,9 @@ void Transcript(node* head) {
 
 void print(node* head) {
     cout << "head->";
-    node* front = head;
-    while (front) {
-        cout << front->get_number() << "->";
-        front = front->get_next();
+    while (head) {
+        cout << head->get_number() << "->";
+        head = head->get_next();
     }
     cout << "||\n\n";
 }
