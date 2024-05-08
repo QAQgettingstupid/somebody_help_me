@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <iomanip>
 #include <algorithm>
 #include <string>
 
@@ -331,6 +332,7 @@ void linklist::enter() {
 }
 
 int check(STNODE1* p) {
+
     cout << "no:" << p->get_number() << '\n';
     cout << "name:" << p->get_name() << '\n';
     cout << "prg score:" << p->get_prg() << '\n';
@@ -351,6 +353,7 @@ int check(STNODE1* p) {
 }
 
 int check(STNODE2* p) {
+
     cout << "no:" << p->get_number() << '\n';
     cout << "name:" << p->get_name() << '\n';
     cout << "pe score:" << p->get_pe() << "\n\n";
@@ -693,11 +696,8 @@ void linklist::Transcript() {
 
             int i = 0, ranking = 1, count = 0;
             //第1
-            cout << "ranking:" << 1 << '\n';
-            cout << "no:" << p[0].get_number() << '\n';
-            cout << "name:" << p[0].get_name() << '\n';
-            cout << "total:" << p[0].get_total() << '\n';
-            cout << '\n';
+            cout << left << setw(10) << "ranking " << setw(21) << "name " << setw(5) << "no " << setw(5) << "total" << "\n\n";
+            cout << setw(10) << 1 << setw(21) << p[0].get_name() << setw(5) << p[0].get_number() << setw(5) << p[0].get_total() << "\n";
             //後續
             for (int j = 1; j < pcount; j++) {
                 if (p[j].get_total() == p[j - 1].get_total())
@@ -707,12 +707,9 @@ void linklist::Transcript() {
                     ranking += count;
                     count = 0;
                 }
-                cout << "ranking:" << ranking << '\n';
-                cout << "no:" << p[j].get_number() << '\n';
-                cout << "name:" << p[j].get_name() << '\n';
-                cout << "score:" << p[j].get_total() << '\n';
-                cout << '\n';
+                cout << setw(10) << ranking << setw(21) << p[j].get_name() << setw(5) << p[j].get_number() << setw(5) << p[j].get_total() << "\n";
             }
+            cout << '\n';
         }
     }
     else {
@@ -737,11 +734,8 @@ void linklist::Transcript() {
 
             int i = 0, ranking = 1, count = 0;
             //第1
-            cout << "ranking:" << 1 << '\n';
-            cout << "no:" << p[0].get_number() << '\n';
-            cout << "name:" << p[0].get_name() << '\n';
-            cout << "pe score:" << p[0].get_pe() << '\n';
-            cout << '\n';
+            cout << left << setw(10) << "ranking " << setw(21) << "name " << setw(5) << "no " << setw(5) << "score" << "\n\n";
+            cout << setw(10) << 1 << setw(21) << p[0].get_name() << setw(5) << p[0].get_number() << setw(5) << p[0].get_pe() << "\n";
             //後續
             for (int j = 1; j < pcount; j++) {
                 if (p[j].get_pe() == p[j - 1].get_pe())
@@ -751,12 +745,9 @@ void linklist::Transcript() {
                     ranking += count;
                     count = 0;
                 }
-                cout << "ranking:" << ranking << '\n';
-                cout << "no:" << p[j].get_number() << '\n';
-                cout << "name:" << p[j].get_name() << '\n';
-                cout << "pe score:" << p[j].get_pe() << '\n';
-                cout << '\n';
+                cout << setw(10) << 1 << setw(21) << p[j].get_name() << setw(5) << p[j].get_number() << setw(5) << p[j].get_pe() << "\n";
             }
+            cout << '\n';
         }
     }
 }
