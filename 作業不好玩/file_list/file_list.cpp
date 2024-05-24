@@ -505,7 +505,11 @@ void linklist::Delete_name() {
             STNODE1* temp;
             bool flag = true;
             cout << "Please enter student name:\n";
-            cin >> n;
+            cin.get();
+            getline(cin, n);
+            while (n[n.size() - 1] == ' ') {
+                n.erase(n.size() - 1, 1);
+            }
             if (head->get_name() == n && check(head)) {
                 temp = head;
                 head = head->get_next();
@@ -540,7 +544,11 @@ void linklist::Delete_name() {
             STNODE2* temp;
             bool flag = true;
             cout << "Please enter student name:\n";
-            cin >> n;
+            cin.get();
+            getline(cin, n);
+            while (n[n.size() - 1] == ' ') {
+                n.erase(n.size() - 1, 1);
+            }
             if (head_pe->get_name() == n && check(head_pe)) {
                 temp = head_pe;
                 head_pe = head_pe->get_next();
