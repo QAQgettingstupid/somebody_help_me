@@ -829,7 +829,8 @@ void linklist::in_file() {
     STNODE2* now_pe = head_pe;
     ifstream in_cs("cs.txt");
     ifstream in_pe("pe.txt");
-    while (in_cs >> number && !in_cs.eof()) { // number name prg cmp total
+    while (in_cs >> number && !in_cs.eof()) { //少了!in_cs.eof()會像zerojudge一樣無限輸入不會停止
+        // number name prg cmp total
         getline(in_cs, name);
         getline(in_cs, name);
         in_cs >> prg;
