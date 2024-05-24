@@ -783,7 +783,7 @@ void linklist::Transcript() {
                     ranking += count;
                     count = 0;
                 }
-                cout << setw(10) << 1 << setw(21) << p[j].get_name() << setw(5) << p[j].get_number() << setw(5) << p[j].get_pe() << "\n";
+                cout << setw(10) << ranking << setw(21) << p[j].get_name() << setw(5) << p[j].get_number() << setw(5) << p[j].get_pe() << "\n";
             }
             cout << '\n';
         }
@@ -821,7 +821,7 @@ void linklist::in_file() {
     STNODE2* now_pe = head_pe;
     ifstream in_cs("cs.txt");
     ifstream in_pe("pe.txt");
-    while (in_cs >> number) { // number name prg cmp total
+    while (in_cs >> number && !in_cs.eof()) { // number name prg cmp total
         getline(in_cs, name);
         getline(in_cs, name);
         in_cs >> prg;
@@ -835,6 +835,7 @@ void linklist::in_file() {
             head->set_cmp(cmp);
             head->set_total(total);
             head->set_next(NULL);
+            getline(in_cs, name); //讀掉多餘enter和空白鍵
             now = head;
         }
         else {
@@ -845,12 +846,13 @@ void linklist::in_file() {
             p->set_prg(prg);
             p->set_cmp(cmp);
             p->set_total(total);
+            getline(in_cs, name); //讀掉多餘enter和空白鍵
             p->set_next(NULL);
             now = p;
         }
     }
     in_cs.close();
-    while (in_pe >> number) { // number name pe
+    while (in_pe >> number && !in_pe.eof()) { // number name pe
         getline(in_pe, name);
         getline(in_pe, name);
         in_pe >> pe;
@@ -860,8 +862,8 @@ void linklist::in_file() {
             head_pe->set_name(name);
             head_pe->set_pe(pe);
             head_pe->set_next(NULL);
+            getline(in_pe, name); //讀掉多餘enter和空白鍵
             now_pe = head_pe;
-            cout << "!!!!!\n";
         }
         else {
             STNODE2* p = new STNODE2;
@@ -870,8 +872,8 @@ void linklist::in_file() {
             p->set_name(name);
             p->set_pe(pe);
             p->set_next(NULL);
+            getline(in_pe, name); //讀掉多餘enter和空白鍵
             now_pe = p;
-            cout << "????\n";
         }
     }
     in_pe.close();
