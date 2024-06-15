@@ -3,48 +3,55 @@
   "WorkspaceRootPath": "C:\\Users\\pc\\Desktop\\\u5165\u9580\u5230\u5165\u58B3\\\u500B\u4EBA\u6109\u6085\u7528\\snake2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{55914A89-5882-41C3-984F-3DB9D867C9FA}|snake2.vcxproj|C:\\Users\\pc\\Desktop\\\u5165\u9580\u5230\u5165\u58B3\\\u500B\u4EBA\u6109\u6085\u7528\\snake2\\snake2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{55914A89-5882-41C3-984F-3DB9D867C9FA}|snake2.vcxproj|solutionrelative:snake2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{55914A89-5882-41C3-984F-3DB9D867C9FA}|snake2.vcxproj|C:\\Users\\pc\\Desktop\\\u5165\u9580\u5230\u5165\u58B3\\\u500B\u4EBA\u6109\u6085\u7528\\snake2\\pch.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{55914A89-5882-41C3-984F-3DB9D867C9FA}|snake2.vcxproj|solutionrelative:pch.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{55914A89-5882-41C3-984F-3DB9D867C9FA}|snake2.vcxproj|C:\\Users\\pc\\Desktop\\\u5165\u9580\u5230\u5165\u58B3\\\u500B\u4EBA\u6109\u6085\u7528\\snake2\\snake2View.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{55914A89-5882-41C3-984F-3DB9D867C9FA}|snake2.vcxproj|solutionrelative:snake2View.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
-      "VerticalTabListWidth": 256,
+      "VerticalTabListWidth": 100,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
+          "DockedWidth": 32,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 160,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "snake2.cpp",
-              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\\u5165\u9580\u5230\u5165\u58B3\\\u500B\u4EBA\u6109\u6085\u7528\\snake2\\snake2.cpp",
-              "RelativeDocumentMoniker": "snake2.cpp",
-              "ToolTip": "C:\\Users\\pc\\Desktop\\\u5165\u9580\u5230\u5165\u58B3\\\u500B\u4EBA\u6109\u6085\u7528\\snake2\\snake2.cpp*",
-              "RelativeToolTip": "snake2.cpp*",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAQAAAA",
+              "Title": "snake2View.cpp",
+              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\\u5165\u9580\u5230\u5165\u58B3\\\u500B\u4EBA\u6109\u6085\u7528\\snake2\\snake2View.cpp",
+              "RelativeDocumentMoniker": "snake2View.cpp",
+              "ToolTip": "C:\\Users\\pc\\Desktop\\\u5165\u9580\u5230\u5165\u58B3\\\u500B\u4EBA\u6109\u6085\u7528\\snake2\\snake2View.cpp",
+              "RelativeToolTip": "snake2View.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-12T17:50:47.932Z",
+              "WhenOpened": "2024-06-13T10:00:55.537Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "pch.cpp",
-              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\\u5165\u9580\u5230\u5165\u58B3\\\u500B\u4EBA\u6109\u6085\u7528\\snake2\\pch.cpp",
-              "RelativeDocumentMoniker": "pch.cpp",
-              "ToolTip": "C:\\Users\\pc\\Desktop\\\u5165\u9580\u5230\u5165\u58B3\\\u500B\u4EBA\u6109\u6085\u7528\\snake2\\pch.cpp",
-              "RelativeToolTip": "pch.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-12T17:50:45.639Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 474,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             }
           ]
         }
