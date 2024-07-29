@@ -1,0 +1,61 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\pc\\Desktop\\\u5165\u9580\u5230\u5165\u58B3\\zerojudge\u662F\u4EC0\u9EBC\u80FD\u5403\u55CE\\d366\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F67D053C-08AD-4096-A85D-D9F5D432DC14}|d366.vcxproj|C:\\Users\\pc\\Desktop\\\u5165\u9580\u5230\u5165\u58B3\\zerojudge\u662F\u4EC0\u9EBC\u80FD\u5403\u55CE\\d366\\d366.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F67D053C-08AD-4096-A85D-D9F5D432DC14}|d366.vcxproj|solutionrelative:d366.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "d366.cpp",
+              "DocumentMoniker": "C:\\Users\\pc\\Desktop\\\u5165\u9580\u5230\u5165\u58B3\\zerojudge\u662F\u4EC0\u9EBC\u80FD\u5403\u55CE\\d366\\d366.cpp",
+              "RelativeDocumentMoniker": "d366.cpp",
+              "ToolTip": "C:\\Users\\pc\\Desktop\\\u5165\u9580\u5230\u5165\u58B3\\zerojudge\u662F\u4EC0\u9EBC\u80FD\u5403\u55CE\\d366\\d366.cpp",
+              "RelativeToolTip": "d366.cpp",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA0AAABjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-07-28T02:41:05.449Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 160,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 474,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
