@@ -2,6 +2,7 @@
 public class Ch2_1{     // 定義public類別Ch2_1
     public static void main(String[] args){    // main() 函數，主程式開始
         int num=2;		// 宣告整數num
-        System.out.println(num+" cats are running");  // 印出字串及變數內容
+        System.out.println(num+" cats are running");  // ln -->換行
+        System.out.println(num+" cats are running");
     }
 }
