@@ -52,6 +52,7 @@ int main()
         cout << "Scenario #";
         cout << count << '\n';
         cout << "Frog Distance = " << fixed << setprecision(3) << Max << '\n';
+        cout << '\n';
     }
 
     return 0;
