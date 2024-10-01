@@ -1,7 +1,3 @@
-## java編譯->直譯過程
-![視窗程式設計-1](https://github.com/user-attachments/assets/92dd5a6a-5750-4bc4-981f-12cdd185a44d)
-
-
 ## L (long type)
 
 -   **用途 :** 當資料型態大於int **(-2,147,483,648 ~ 2,147,483,647)** 需在數值尾端加上**L**
@@ -24,6 +20,13 @@
 -   **用途 :** 當資料型態為float時需在數值尾端加上**f**
 
 ## printf()
+
+
+## 理論篇
+
+### java編譯->直譯過程
+![視窗程式設計-1](https://github.com/user-attachments/assets/92dd5a6a-5750-4bc4-981f-12cdd185a44d)
+
 
 -   **原因 :** 小數點型態java會自動用double存,float精度小於double只好手動在數值尾端加上**f**強行轉換用float存取
 
