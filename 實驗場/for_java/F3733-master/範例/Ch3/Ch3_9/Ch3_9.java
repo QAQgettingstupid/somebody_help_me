@@ -4,10 +4,10 @@ public class Ch3_9{
         char c1='G';    	// 將字面值'G'設定給c1存放
         char c2=71;   		// 利用Unicode設定c2為字元'G'
         char c3='\u0047'; 	// 利用16進位的Unicode設定c3為字元'G'
-        int uni='好';      	// 取得 '好' 字的Unicode
+        char uni='好';      	// 取得 '好' 字的Unicode
 
         System.out.println("c1="+c1+", c2="+c2+" ,c3="+c3);
-        System.out.println("uni="+uni);
-        System.out.println((int)'好');  // 印出字元的Uincode
+        System.out.println(uni);
+        System.out.println((int)uni);  // 印出字元的Uincode
     }
 }
