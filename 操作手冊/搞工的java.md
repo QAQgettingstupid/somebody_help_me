@@ -33,8 +33,6 @@
     **除了 "%" 和型別字元其他均為選填!!!!**
     
 -   **用法 :** System.out.printf("格式碼", 要控制的資料或資料來源);
-    
-    **例 :** System.out.printf("%d", 45); 或 System.out.printf("%d", b); // int b = 45;
 
 -   **例子 :**
 
