@@ -1,3 +1,29 @@
+## Scanner (java版的cin、cout)
+
+- **import java.util.Scanner;** 要先引入
+
+- **用法 :**
+
+  ```
+  Scanner 名稱 = new Scanner(System.in);  // 宣告Scanner類別的物件
+
+  型態別 name = Scanner物件的名稱.next(放入的資料型態)();  // 接收資料
+
+  scn.close();   // 將scn關閉(建議,但沒做也不會發生什麼事www)
+  ```
+
+-   **例子 :**
+
+    ```
+    Scanner scn=new Scanner(System.in);  // 宣告Scanner類別的物件
+
+    String name=scn.next();     // 輸入字串
+    int age=scn.nextInt();      // 輸入整數
+
+    scn.close();                 // 將scn關閉
+    ```
+![螢幕擷取畫面 2024-10-02 143808](https://github.com/user-attachments/assets/ff4ce987-cbea-44e3-88dc-0c73d85aaad3)
+
 ## L (long type)
 
 -   **用途 :** 當資料型態大於int **(-2,147,483,648 ~ 2,147,483,647)** 需在數值尾端加上**L**
