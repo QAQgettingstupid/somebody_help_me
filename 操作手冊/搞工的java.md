@@ -20,6 +20,7 @@
 -   **用途 :** 當資料型態為float時需在數值尾端加上**f**
 
 ## printf()
+![螢幕擷取畫面 2024-10-02 140317](https://github.com/user-attachments/assets/05fe05df-caf5-4c86-a25a-06632ec85697)
 
 
 ## 理論篇
