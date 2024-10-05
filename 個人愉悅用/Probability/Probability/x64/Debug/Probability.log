@@ -1,3 +1,0 @@
-﻿  Probability.cpp
-C:\Users\pc\Desktop\入門到入墳\個人愉悅用\Probability\Probability.cpp(10,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Probability.vcxproj -> C:\Users\pc\Desktop\入門到入墳\個人愉悅用\Probability\x64\Debug\Probability.exe
