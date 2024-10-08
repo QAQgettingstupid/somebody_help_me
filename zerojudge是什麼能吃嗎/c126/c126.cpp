@@ -63,23 +63,20 @@ node* build_tree(string inorder, string preorder) {
             break;
         }
 
-    if (in_Index + 1 >= inorder.size())
-        return NULL;
-
-    size_t pos = preorder.find(inorder[in_Index + 1]);
-    cout << "in_Index + 1= " << inorder[in_Index + 1] << '\n';
-    string right_inorder = inorder.substr(pos);
-    string right_preorder = preorder.substr(pos);
-    cout << "get_right_inorder= " << right_inorder << '\n';
-    cout << "get_right_preorder= " << right_preorder << '\n';
-
     string left_inorder = inorder.substr(0, in_Index);
     string left_preorder= preorder.substr(1, preorder.size() - 1);
 
 
     next->set_left(build_tree(left_inorder, left_preorder));
     cout << "change~~~~~~~~\n";
-    next->set_right(build_tree(right_inorder, right_preorder));
+
+    if (in_Index + 1 < inorder.size()) {
+
+        size_t pos = preorder.find(inorder[in_Index + 1]);
+        string right_inorder = inorder.substr(pos);
+        string right_preorder = preorder.substr(pos);
+        next->set_right(build_tree(right_inorder, right_preorder));
+    }
 }
 
 void postorder(node* now) {
