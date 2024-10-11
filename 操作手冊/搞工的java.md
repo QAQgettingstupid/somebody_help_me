@@ -45,6 +45,15 @@
 
 -   **用途 :** 當資料型態為float時需在數值尾端加上**f**
 
+-   **原因 :** 小數點型態java會自動用double存,float精度小於double只好手動在數值尾端加上**f**強行轉換用float存取
+
+-   **例子 :**
+
+    ```
+    float num = 6.123456;  //錯誤-->float型態用double儲存矛盾
+    float num = 6.123456f; //正確
+    ```
+
 ## printf() (格式碼控制)
 ![螢幕擷取畫面 2024-10-02 140317](https://github.com/user-attachments/assets/05fe05df-caf5-4c86-a25a-06632ec85697)
     
