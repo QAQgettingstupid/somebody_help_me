@@ -21,7 +21,7 @@
 
 - **內部原理 :**
  
-    ![阿我就沒白紙-1](https://github.com/user-attachments/assets/911a368d-7bbb-40b8-a3d9-15f32de5c01a)
+    ![阿我就沒白紙-1](https://github.com/user-attachments/assets/965b33e3-e155-43ce-9825-2d75611fc7a3)
   
 -   **垃圾特點 :**
 
