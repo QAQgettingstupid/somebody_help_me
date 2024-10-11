@@ -1,10 +1,12 @@
 // Ch6_2, 設定陣列初值並計算平均
 public class Ch6_2 {
     public static void main(String[] args) {
-        int sum = 0;
-        int[] a = {}; // 宣告整數陣列a並設定初值
+        int[] a;
+        a = new int[4];
+        int[] b = {0,1,2,3,5,4}; 
 
-        System.out.print(a.length);
+
+        System.out.print(b[4]);
 
         // for(int i=0;i<a.length;i++) // 計算陣列元素的和
         // sum+=a[i];
