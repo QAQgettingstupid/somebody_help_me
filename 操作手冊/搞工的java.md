@@ -57,9 +57,18 @@
     for (int temp : a)
         System.out.print(temp + " ");
         //輸出結果--> 0 1 5 4
-    ```  
+    ```
 
+   二維
 
+   ```
+   int[][] a = { { 32, 35, 26, 30 }, { 34, 30, 33, 31 } };
+
+   for (int[] r : a)
+       for (int c : r)
+           System.out.print(c + " ");
+           //輸出結果--> 32 35 26 30 34 30 33 31
+   ```
 
 ## ? :
 
