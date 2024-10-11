@@ -1,3 +1,18 @@
+## ? :
+
+-   **用途 :** 更簡略的判斷式(c++也有)
+
+-   **用法 :** 要放入結果的變數 = 判斷式 ? 結果1 : 結果2; **(當判斷式為true取結果1的值, false則取結果2的值)**
+
+-   **例子 :**
+
+    ```
+    int b = (2*2 == 4) ? 35 : 53;
+    
+    System.out.print(b);
+    //輸出結果--> 35
+    ```  
+
 ## Scanner (java版的cin、cout)
 
 - **import java.util.Scanner;** 要先引入
@@ -45,6 +60,15 @@
 
 -   **用途 :** 當資料型態為float時需在數值尾端加上**f**
 
+-   **原因 :** 小數點型態java會自動用double存,float精度小於double只好手動在數值尾端加上**f**強行轉換用float存取
+
+-   **例子 :**
+
+    ```
+    float num = 6.123456;  //錯誤-->float型態用double儲存矛盾
+    float num = 6.123456f; //正確
+    ```
+
 ## printf() (格式碼控制)
 ![螢幕擷取畫面 2024-10-02 140317](https://github.com/user-attachments/assets/05fe05df-caf5-4c86-a25a-06632ec85697)
     
@@ -72,18 +96,15 @@
     System.out.printf("%-5d %-5d %-5d %-5d %-5d %-5d %-5d\n",30,1,2,3,4,5,6); //沒加 ","
     //輸出結果--> 30    1     2     3     4     5     6
     ```
+## 跟c++比更機車的差異
 
+- **bool要打全名boolean**
+
+- **while(1)無法執行**
+  
+    不能在while()或if()括弧內放入單純數字, java不會自行轉換成boolean ~~*(超廢www)*~~
+  
 ## 理論篇
 
 ### java編譯->直譯過程
 ![視窗程式設計-1](https://github.com/user-attachments/assets/92dd5a6a-5750-4bc4-981f-12cdd185a44d)
-
-
--   **原因 :** 小數點型態java會自動用double存,float精度小於double只好手動在數值尾端加上**f**強行轉換用float存取
-
--   **例子 :**
-
-    ```
-    float num = 6.123456;  //錯誤-->float型態用double儲存矛盾
-    float num = 6.123456f; //正確
-    ```
