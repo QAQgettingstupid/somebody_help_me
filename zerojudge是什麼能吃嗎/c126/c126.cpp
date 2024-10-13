@@ -46,37 +46,26 @@ public:
 
 node* build_tree(string inorder, string preorder) {
 
-    cout << "preorder= " << preorder << " inorder= " << inorder << '\n';
-
     if (preorder == "" || inorder == "")
         return NULL;
 
     node* next = new node;
     next->set_name(preorder[0]);
+
     //偷當前節點在中序字串位置
-    int in_Index;
+    int in_Index = inorder.find(preorder[0]);
 
-    for (int i = 0; i < inorder.size(); i++)
-        if (inorder[i] == preorder[0]) {
-            in_Index = i;
-            cout << "in_Index= " << in_Index << '\n';
-            break;
-        }
-
+    //in_Index同時也代表當前左子樹有多少節點
     string left_inorder = inorder.substr(0, in_Index);
-    string left_preorder= preorder.substr(1, preorder.size() - 1);
+    string left_preorder= preorder.substr(1, in_Index);
 
+    string right_inorder = inorder.substr(in_Index + 1);
+    string right_preorder = preorder.substr(in_Index + 1);
 
     next->set_left(build_tree(left_inorder, left_preorder));
-    cout << "change~~~~~~~~\n";
+    next->set_right(build_tree(right_inorder, right_preorder));
 
-    if (in_Index + 1 < inorder.size()) {
-
-        size_t pos = preorder.find(inorder[in_Index + 1]);
-        string right_inorder = inorder.substr(pos);
-        string right_preorder = preorder.substr(pos);
-        next->set_right(build_tree(right_inorder, right_preorder));
-    }
+    return next;
 }
 
 void postorder(node* now) {
@@ -96,6 +85,7 @@ int main()
     while (cin >> preorder >> inorder) {
         node* root = build_tree(inorder, preorder);
         postorder(root);
+        cout << '\n';
     }
 
     return 0;
