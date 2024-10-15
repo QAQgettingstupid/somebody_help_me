@@ -85,7 +85,7 @@
     //輸出結果--> 35
     ```  
 
-## Scanner (java版的cin、cout)
+## Scanner (java版的cin)
 
 - **import java.util.Scanner;** 要先引入
 
@@ -110,6 +110,14 @@
     scn.close();                 // 將scn關閉
     ```
 ![螢幕擷取畫面 2024-10-02 143808](https://github.com/user-attachments/assets/ff4ce987-cbea-44e3-88dc-0c73d85aaad3)
+
+## 自動型別轉換
+
+- **使用時機 :** 通常在數值運算時
+
+- **規則 :** 僅可由較大的資料型態傳換到較小的資料型態 (**ex.** short可轉int ,但int不可轉short)
+
+- **特殊 :** char(character)不可轉short **(char->0~65535)** **(short->-32768~32767)**
 
 ## L (long type)
 
