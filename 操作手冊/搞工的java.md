@@ -85,7 +85,7 @@
     //輸出結果--> 35
     ```  
 
-## Scanner (java版的cin、cout)
+## Scanner (java版的cin)
 
 - **import java.util.Scanner;** 要先引入
 
