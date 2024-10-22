@@ -1,17 +1,34 @@
+class CCircle {
+  private static double pi = 3.14;
+  private double radius;
+
+  public CCircle() {
+      this(4.5);
+  }
+
+  public CCircle(double r) {
+    radius = r;
+  }
+
+  public void setRadius(double r) {
+    radius = r;
+    System.out.println("radius=" + radius);
+  }
+}
+
+class CCoin extends CCircle {
+  private int value;
+
+  public CCoin(double r, int v) {
+    setRadius(r);
+    value = v;
+  }
+}
+
 public class App {
   public static void main(String args[]) {
-    int a[] = { 1, 2, 3, 4, 5 };
-    add(a);
-    for (int i : a)
-      System.out.print(i + " ");
+    CCoin coin1 = new CCoin(2.5, 10);
+
   }
 
-  public static void add(int a[]) {
-
-    for (int i = 0; i < a.length; i++)
-      a[i] += 10;
-
-    for (int i : a)
-      i += 10;
-  }
 }
