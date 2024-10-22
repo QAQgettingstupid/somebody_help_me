@@ -1,17 +1,26 @@
+
+
 public class App {
   public static void main(String args[]) {
-    int a[] = { 1, 2, 3, 4, 5 };
-    add(a);
-    for (int i : a)
-      System.out.print(i + " ");
+    int a=100,b=14;
+    expre(a, b, '-');
+
   }
-
-  public static void add(int a[]) {
-
-    for (int i = 0; i < a.length; i++)
-      a[i] += 10;
-
-    for (int i : a)
-      i += 10;
-  }
+  public static void expre(int a, int b, char oper){
+		switch (oper)	{
+			case '+':
+				System.out.println(a+"+"+b+"="+(a+b));
+				break;
+			case '-':
+				System.out.println(a+"-"+b+"="+(a-b));
+			case '*':
+				System.out.println(a+"*"+b+"="+(a*b));				
+			case '/':
+				System.out.println(a+"/"+b+"="+(a/b));
+			default:
+				System.out.println("Unknown expression!!");
+		}
+    }
 }
+
+
