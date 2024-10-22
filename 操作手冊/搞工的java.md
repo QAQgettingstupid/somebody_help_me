@@ -1,3 +1,23 @@
+## class
+
+### instance : 由class型態所建立的object(物件)
+
+### static
+
+- 相同class下由不同instance共用
+
+- static函式可由class或instance調用
+
+- 由class調用static函式不需先建立instance
+
+- static函式不可調用沒有static的函式(即instance專用),因為調用static函式不一定會有instance(如由class調用)
+
+### 無static
+
+- 相同class下不同instance不共用各自獨立
+
+- 若函式沒有static,則只能由instance調用 **(需先new一個instance)**
+
 ## 函式(不需建物件就可直接使用)
 
 - **用法 :**
