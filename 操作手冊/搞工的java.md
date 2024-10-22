@@ -5,18 +5,51 @@
 ### static
 
 - 相同class下由不同instance共用
+  
+#### 函式
 
-- static函式可由class或instance調用
+- 可由class或instance調用
 
-- 由class調用static函式不需先建立instance
+- 由class調用不需先建立instance
 
-- static函式不可調用沒有static的函式(即instance專用),因為調用static函式不一定會有instance(如由class調用)
+- 不可調用沒有static的函式(即instance專用),因為調用static函式不一定會有instance(如由class調用)
 
-### 無static
+****************************************
+
+### 無static 
 
 - 相同class下不同instance不共用各自獨立
 
-- 若函式沒有static,則只能由instance調用 **(需先new一個instance)**
+### this
+
+-   **用途 :** 在class中指出當前的instance
+
+### 建構子互相調用
+
+   **this()和super()不可同時使用!!!!!!!!!**
+
+   **this()和super()使用時需放在第一行!!!!!!!!!**
+
+-   **例子:**
+  
+  ```
+  class CCircle {
+    private double radius;
+  
+    public CCircle() {
+        this(4.5); //不可寫成CCircle(4.5);
+    }
+  
+    public CCircle(double r) {
+      radius = r;
+    }
+  }
+  ```
+
+
+#### 函式
+
+- 只能由instance調用 **(需先new一個instance)**
 
 ## 函式(不需建物件就可直接使用)
 
