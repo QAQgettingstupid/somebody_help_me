@@ -26,27 +26,28 @@
 
 ### 建構子互相調用
 
--   **this()和super()不可同時使用!!!!!!!!!**
 
--   **this()和super()使用時需放在第一行!!!!!!!!!**
+
+-    **this()和super()不可同時使用!!!!!!!!!**
+
+-    **this()和super()使用時需放在第一行!!!!!!!!!**
 
 
 -   **例子:**
   
-  ```
-  class CCircle {
-    private double radius;
-  
-    public CCircle() {
-        this(4.5); //不可寫成CCircle(4.5);
+    ```
+    class CCircle {
+      private double radius;
+    
+      public CCircle() {
+          this(4.5); //不可寫成CCircle(4.5);
+      }
+    
+      public CCircle(double r) {
+        radius = r;
+      }
     }
-  
-    public CCircle(double r) {
-      radius = r;
-    }
-  }
-  ```
-
+    ```
 
 #### 函式
 
