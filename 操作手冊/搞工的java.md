@@ -20,6 +20,10 @@
 
 - 相同class下不同instance不共用各自獨立
 
+#### 函式
+
+- 只能由instance調用 **(需先new一個instance)**
+
 ### this
 
 -   **用途 :** 在class中指出當前的instance
@@ -48,10 +52,6 @@
       }
     }
     ```
-
-#### 函式
-
-- 只能由instance調用 **(需先new一個instance)**
 
 ## 函式(不需建物件就可直接使用)
 
