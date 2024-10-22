@@ -76,6 +76,12 @@
         a[i] += 10;
   }
   ```
+### 繼承
+
+- **無public、protected、private開頭:** 限同package使用
+
+- 繼承的子class使用建構子時,父class的建構子若有設定則必須包含最基礎的父class()建構子
+
 ## 陣列
 
 - **用法 :**
