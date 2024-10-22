@@ -1,34 +1,26 @@
-class CCircle {
-  private static double pi = 3.14;
-  private double radius;
 
-  public CCircle() {
-      this(4.5);
-  }
-
-  public CCircle(double r) {
-    radius = r;
-  }
-
-  public void setRadius(double r) {
-    radius = r;
-    System.out.println("radius=" + radius);
-  }
-}
-
-class CCoin extends CCircle {
-  private int value;
-
-  public CCoin(double r, int v) {
-    setRadius(r);
-    value = v;
-  }
-}
 
 public class App {
   public static void main(String args[]) {
-    CCoin coin1 = new CCoin(2.5, 10);
+    int a=100,b=14;
+    expre(a, b, '-');
 
   }
-
+  public static void expre(int a, int b, char oper){
+		switch (oper)	{
+			case '+':
+				System.out.println(a+"+"+b+"="+(a+b));
+				break;
+			case '-':
+				System.out.println(a+"-"+b+"="+(a-b));
+			case '*':
+				System.out.println(a+"*"+b+"="+(a*b));				
+			case '/':
+				System.out.println(a+"/"+b+"="+(a/b));
+			default:
+				System.out.println("Unknown expression!!");
+		}
+    }
 }
+
+
