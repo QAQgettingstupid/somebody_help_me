@@ -1,26 +1,17 @@
+class CCircle {
+	private double pi = 3.14;
+	public double radius;
 
-
-public class App {
-  public static void main(String args[]) {
-    int a=100,b=14;
-    expre(a, b, '-');
-
-  }
-  public static void expre(int a, int b, char oper){
-		switch (oper)	{
-			case '+':
-				System.out.println(a+"+"+b+"="+(a+b));
-				break;
-			case '-':
-				System.out.println(a+"-"+b+"="+(a-b));
-			case '*':
-				System.out.println(a+"*"+b+"="+(a*b));				
-			case '/':
-				System.out.println(a+"/"+b+"="+(a/b));
-			default:
-				System.out.println("Unknown expression!!");
-		}
-    }
+	void showarea() {
+		System.out.println("area=" + pi * radius * radius);
+	}
 }
 
+public class App {
+	public static void main(String args[]) {
+		CCircle cir1 = new CCircle();
+		System.out.println("radius=" + cir1.radius);
+		cir1.showarea();
+	}
 
+}
