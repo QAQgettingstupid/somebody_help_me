@@ -9,6 +9,9 @@ class Circle{    			// 父類別Circle
     public void show(){		// 父類別裡的show() 函數   
        System.out.println("radius="+radius);
     }
+    public void test(){
+        System.out.println("AUA");
+    }
 }   
 class Coin extends Circle{	// 子類別Circle
     private int value;
@@ -27,7 +30,11 @@ class Coin extends Circle{	// 子類別Circle
 public class Ch10_7{
     public static void main(String args[]){
         Circle cir=new Coin(2.0,5); // 宣告父類別變數cir，並將它指向物件
+        Circle c2=new Circle(1.0);
+        System.out.println(cir.getClass());
+        System.out.println(c2.getClass());
         cir.show();                   // 利用父類別變數cir呼叫show()
-        // cir.showValue();
+        //c2.showValue();
+        c2.show();
     }
 }   

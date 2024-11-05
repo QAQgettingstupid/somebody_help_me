@@ -101,7 +101,7 @@ public class H3_111216019 {
             check = false;
             int[] check_input = new int[10];
 
-            if (input < 1000 || input >= 10000) {
+            if (input < 1000 || input >= 10000) {//輸入0924會出事!!!!!!
                 System.out.println("wrong input,please enter again");
                 check = true;
             } else {
