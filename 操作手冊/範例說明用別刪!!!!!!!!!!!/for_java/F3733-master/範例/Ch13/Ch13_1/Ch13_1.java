@@ -1,4 +1,5 @@
 // Ch13_1, 索引值超出範圍
+import.until;
 public class Ch13_1{
     public static void main(String[] args){
         int arr[]=new int[5];      		    // 容許5個元素
