@@ -40,7 +40,7 @@ public class H4_111216019 {
             int first_day = doomsday - (month_day[0][month] - 1) % 7;
             if (first_day < 0)
                 first_day += 7;
-            int space = (first_day >= 2) ? 3 * first_day : 0;
+            int space = (first_day >= 1) ? 3 * first_day : 0;
 
             // 一個國字3格數字位
             System.out.println("日 " + "一 " + "二 " + "三 " + "四 " + "五 " + "六");
