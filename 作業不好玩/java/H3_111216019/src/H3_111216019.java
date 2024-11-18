@@ -1,13 +1,14 @@
 import java.util.Random;
 import java.util.Scanner;
 
+//作者:蔡芳宇
+//學號:111216019
+//自評:70%+20%+5%
+//特殊功能:第6輪開始,輸入後除了幾A幾B還會提示哪些數字符合A,哪些數字符合B,不加這個試玩覺得有點難猜www
+
 public class H3_111216019 {
     public static void main(String[] args) {
-        System.out.println("作者:蔡芳宇");
-        System.out.println("學號:111216019");
-        System.out.println("自評:70%+20%+5%");
-        System.out.println("特殊功能:第6輪開始,輸入後除了幾A幾B還會提示哪些數字符合A,哪些數字符合B,不加這個試玩覺得有點難猜www");
-        System.out.println();
+
         boolean not_finish = true;
         int chance = 10;
 
@@ -97,24 +98,25 @@ public class H3_111216019 {
             else
                 System.out.println("please enter you answer: (last chance)");
 
-            int input = scn.nextInt();
+            String input = scn.next();
             check = false;
             int[] check_input = new int[10];
 
-            if (input < 1000 || input >= 10000) {//輸入0924會出事!!!!!!
+            if (input.length() != 4) {// 輸入0924會出事!!!!!!
                 System.out.println("wrong input,please enter again");
                 check = true;
             } else {
                 // 檢驗是否有重複數字,同時將輸入轉換成陣列
+                int input_to_int = Integer.parseInt(input);
                 for (int i = 3; i >= 0; i--) {
-                    arr[i] = input % 10;
-                    if (check_input[input % 10] == 1) {
+                    arr[i] = input_to_int % 10;
+                    if (check_input[input_to_int % 10] == 1) {
                         System.out.println("wrong input,please enter again");
                         check = true;
                         break;
                     }
-                    check_input[input % 10]++;
-                    input = input / 10;
+                    check_input[input_to_int % 10]++;
+                    input_to_int /= 10;
                 }
             }
         } while (check);
