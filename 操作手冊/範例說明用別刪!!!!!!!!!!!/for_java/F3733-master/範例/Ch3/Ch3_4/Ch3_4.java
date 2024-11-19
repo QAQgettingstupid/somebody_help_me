@@ -1,14 +1,9 @@
 // Ch3_4, 印出Java定義的整數常數之最大值
 public class Ch3_4{
+    int a=5;
     public static void main(String[] args){
-        long lmax=Long.MAX_VALUE;	  // long型別的最大值
-        int imax=Integer.MAX_VALUE;	  // int型別的最大值
-        short smax=Short.MAX_VALUE;   // 省略類別庫java.lang
-        byte bmax=Byte.MAX_VALUE;     // 省略類別庫java.lang
+        Ch3_4 b=new Ch3_4 ();
+        System.out.println(b.a);
 
-        System.out.println("Max value of long  : "+lmax);
-        System.out.println("Max value of int   : "+imax);
-        System.out.println("Max value of short : "+smax);
-        System.out.println("Max value of byte  : "+bmax);
     }
 }
