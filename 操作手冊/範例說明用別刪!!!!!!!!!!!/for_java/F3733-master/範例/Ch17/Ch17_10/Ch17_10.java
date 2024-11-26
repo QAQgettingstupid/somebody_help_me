@@ -11,7 +11,7 @@ public class Ch17_10{
     static JCheckBox ckb3=new JCheckBox("Others");
 
     public static void main(String args[]){        
-        rb1.setBounds(30,20,90,20);
+        rb1.setBounds(30,20,90,20); 
         rb2.setBounds(140,20,78,20);
         ckb1.setBounds(50,60,140,20);    
         ckb2.setBounds(50,80,140,20);
@@ -27,7 +27,7 @@ public class Ch17_10{
         pne.add(ckb1);   
         pne.add(ckb2);
         pne.add(ckb3);
-        pne.setLayout(null);        
+        pne.setLayout(null);   //setBounds 不會與 layout 同時用, 所以關閉 Layout 功能
         frm.add(pne);
         frm.setSize(270,180);
         frm.setVisible(true);
