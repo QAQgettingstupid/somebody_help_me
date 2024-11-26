@@ -4,9 +4,9 @@ public class Ch17_2{
     static JFrame frm=new JFrame("JButton 測試");
     static JPanel pne=new JPanel();  
    
-    static ImageIcon general=new ImageIcon("C:\\MyJava\\Ch17\\Ch17_2\\img1.png");
-    static ImageIcon rollover=new ImageIcon("C:\\MyJava\\Ch17\\Ch17_2\\img2.png");
-    static ImageIcon pressed=new ImageIcon("C:\\MyJava\\Ch17\\Ch17_2\\img3.png");
+    static ImageIcon general=new ImageIcon("C:\\Users\\藤井夕夜\\Desktop\\somebody_help_me\\操作手冊\\範例說明用別刪!!!!!!!!!!!\\for_java\\F3733-master\\範例\\Ch17\\Ch17_2\\img1.png");
+    static ImageIcon rollover=new ImageIcon("C:\\Users\\藤井夕夜\\Desktop\\somebody_help_me\\操作手冊\\範例說明用別刪!!!!!!!!!!!\\for_java\\F3733-master\\範例\\Ch17\\Ch17_2\\img2.png");
+    static ImageIcon pressed=new ImageIcon("C:\\Users\\藤井夕夜\\Desktop\\somebody_help_me\\操作手冊\\範例說明用別刪!!!!!!!!!!!\\for_java\\F3733-master\\範例\\Ch17\\Ch17_2\\img3.png");
     static JButton btn=new JButton("Kitten");  // 建立JButton物件
 
     public static void main(String args[]){        

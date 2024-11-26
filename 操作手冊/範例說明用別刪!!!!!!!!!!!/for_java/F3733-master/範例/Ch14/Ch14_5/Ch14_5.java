@@ -11,9 +11,7 @@ public class Ch14_5 {
         byte ba[] = new byte[256]; // 建立byte陣列
 
         while (readed < fi.available()) {
-            System.out.println("fi.available() =" + fi.available()); // 印出陣列ba的內容
             readed += fi.read(ba);
-            System.out.println("fi.available() =" + fi.available()); // 印出陣列ba的內容
             System.out.println(new String(ba)); // 印出陣列ba的內容
             System.out.println("fi.available() =" + fi.available()); // 印出陣列ba的內容
         }

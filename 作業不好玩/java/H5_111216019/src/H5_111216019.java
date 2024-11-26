@@ -3,7 +3,6 @@ import java.util.HashMap;
 import java.util.Stack;
 import java.util.Map;
 
-
 //作者:蔡芳宇
 //學號:111216019
 //自評:20%+60%+20% (不支援負數運算)
@@ -32,7 +31,7 @@ public class H5_111216019 {
                     temp_num *= 10;
                     temp_num += imput.charAt(index) - '0';
                 } else if (imput.charAt(index) == '+' || imput.charAt(index) == '-' || imput.charAt(index) == '*'
-                        || imput.charAt(index) == '/') {
+                        || imput.charAt(index) == '/' || imput.charAt(index) == '(' || imput.charAt(index) == ')') {
 
                     // 放入數字
                     if (temp_num != 0) {
@@ -50,7 +49,6 @@ public class H5_111216019 {
                         // 對operator裡在'('之前的運算子進行運算
                         while (operator.peek() != '(') {
                             operand.push(count(operand, operator.peek()));
-                            System.out.println("now top-> " + operand.peek());
                             operator.pop();
                         }
                         operator.pop();
@@ -63,7 +61,6 @@ public class H5_111216019 {
                         while (!operator.empty()
                                 && priority.get(operator.peek()) >= priority.get(imput.charAt(index))) {
                             operand.push(count(operand, operator.peek()));
-                            System.out.println("now top-> " + operand.peek());
                             operator.pop();
                         }
                         operator.push(imput.charAt(index));
