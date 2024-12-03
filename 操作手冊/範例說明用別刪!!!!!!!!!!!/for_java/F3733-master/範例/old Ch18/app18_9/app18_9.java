@@ -1,43 +1,51 @@
-// app18_9, ¥HMouseListener¤¶­±³B²zMouseEvent¨Æ¥ó
+
+// app18_9, ï¿½HMouseListenerï¿½ï¿½ï¿½ï¿½ï¿½Bï¿½zMouseEventï¿½Æ¥ï¿½
 import java.awt.*;
 import java.awt.event.*;
-public class app18_9 extends Frame implements MouseListener
-{
-   static app18_9 frm=new app18_9(); 
-   static Button btn=new Button(" Click Me!! ");
-   static TextArea txa=new TextArea("",2,5,TextArea.SCROLLBARS_NONE);
-   
-   public static void main(String args[])
-   {
-      BorderLayout br=new BorderLayout(2,5);
-      frm.setSize(200,150);
+
+public class app18_9 extends Frame implements MouseListener {
+   static app18_9 frm = new app18_9();
+   static Button btn = new Button(" Click Me!! ");
+   static TextArea txa = new TextArea("", 2, 5, TextArea.SCROLLBARS_NONE);
+
+   public static void main(String args[]) {
+      BorderLayout br = new BorderLayout(2, 5);
+      frm.setSize(200, 150);
       frm.setTitle("Mouse Event");
       frm.setLayout(br);
-      btn.addMouseListener(frm);     // ³]©wfrm¬°btnªº¶ÉÅ¥ªÌ
-      txa.setEditable(false); 
-      frm.add(btn,br.WEST); 
-      frm.add(txa,br.CENTER);
-      frm.setVisible(true); 
+      btn.addMouseListener(frm); // ï¿½]ï¿½wfrmï¿½ï¿½btnï¿½ï¿½ï¿½ï¿½Å¥ï¿½ï¿½
+      txa.setEditable(false);
+      frm.add(btn, br.WEST);
+      frm.add(txa, br.CENTER);
+      frm.setVisible(true);
    }
-   
-   public void mouseEntered(MouseEvent e) // ·Æ¹«ªº«ü¼Ð¶i¤Jbtn¤W¤è
+
+   public void mouseEntered(MouseEvent e) // ï¿½Æ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶iï¿½Jbtnï¿½Wï¿½ï¿½
    {
       txa.setText("Mouse entered\n");
-   } 
-   public void mouseClicked(MouseEvent e) // «ö¤U¨Ã©ñ¶}·Æ¹««ö¶s
+      frm.setBackground(Color.MAGENTA);
+   }
+
+   public void mouseClicked(MouseEvent e) // ï¿½ï¿½ï¿½Uï¿½Ã©ï¿½}ï¿½Æ¹ï¿½ï¿½ï¿½ï¿½s
    {
       txa.append("Mouse clicked\n");
    }
-   public void mouseExited(MouseEvent e)   // ·Æ¹«ªº«ü¼Ð²¾¶}btn¤W¤è
-   { 
+
+   public void mouseExited(MouseEvent e) // ï¿½Æ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð²ï¿½ï¿½}btnï¿½Wï¿½ï¿½
+   {
       txa.append("Mouse exited\n");
-   } 
-   public void mousePressed(MouseEvent e) // «ö¤U·Æ¹««ö¶s
+      frm.setBackground(Color.WHITE);
+   }
+
+   public void mousePressed(MouseEvent e) // ï¿½ï¿½ï¿½Uï¿½Æ¹ï¿½ï¿½ï¿½ï¿½s
    {
       txa.append("Mouse pressed\n");
-   } 
-   public void mouseReleased(MouseEvent e) // ©ñ¶}·Æ¹««ö¶s
+      txa.setBackground(Color.ORANGE);
+   }
+
+   public void mouseReleased(MouseEvent e) // ï¿½ï¿½}ï¿½Æ¹ï¿½ï¿½ï¿½ï¿½s
    {
       txa.append("Mouse released\n");
+      txa.setBackground(Color.WHITE);
    }
 }
