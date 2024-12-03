@@ -24,24 +24,26 @@ public class H5_111216019 {
             Stack<Character> operator = new Stack<>();
             Stack<Integer> operand = new Stack<>();
             int index = 0, temp_num = 0;
-            boolean negative = false, devide_0 = false;
+            boolean negative = false, devide_0 = false, changed = false;
 
             // 逐個讀取輸入字元
             while (index < input.length()) {
                 if (input.charAt(index) <= '9' && input.charAt(index) >= '0') {
                     temp_num *= 10;
                     temp_num += input.charAt(index) - '0';
+                    changed = true;
                 } else if (input.charAt(index) == '+' || input.charAt(index) == '-' || input.charAt(index) == '*'
                         || input.charAt(index) == '/' || input.charAt(index) == '(' || input.charAt(index) == ')') {
 
                     // 放入數字
-                    if (temp_num != 0) {
+                    if (changed) {
                         if (negative) {
                             operand.push(temp_num * (-1));
                             negative = false;
                         } else
                             operand.push(temp_num);
                         temp_num = 0;
+                        changed = false;
                     }
 
                     // 負號
@@ -96,7 +98,7 @@ public class H5_111216019 {
                 }
                 index++;
             }
-            if (temp_num != 0)
+            if (changed)
                 if (negative) {
                     operand.push(temp_num * (-1));
                     negative = false;
