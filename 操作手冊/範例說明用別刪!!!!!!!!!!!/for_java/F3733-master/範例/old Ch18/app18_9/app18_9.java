@@ -47,5 +47,6 @@ public class app18_9 extends Frame implements MouseListener {
    {
       txa.append("Mouse released\n");
       txa.setBackground(Color.WHITE);
+      frm.dispose();  
    }
 }
