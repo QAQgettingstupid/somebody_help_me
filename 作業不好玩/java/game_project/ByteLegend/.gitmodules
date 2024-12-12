@@ -1,9 +1,0 @@
-[submodule "server"]
-	path = server
-	url = https://github.com/ByteLegend/server
-[submodule "game-data"]
-	path = game-data
-	url = https://github.com/ByteLegend/game-data
-[submodule "github1s"]
-	path = github1s
-	url = https://github.com/ByteLegend/github1s
