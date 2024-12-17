@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.imageio.ImageIO;
@@ -30,7 +31,7 @@ public class Bird {
     private int y; // 小鸟的坐标
     private int wingState; // 翅膀状态
     private boolean drawnew = false; // 判斷畫箭頭
-    private List<Arrows> arrowList = new ArrayList<>();
+    private List<Arrows> arrowList = new LinkedList<Arrows>();
 
     // 图片资源
     private BufferedImage image; // 实时的小鸟图片

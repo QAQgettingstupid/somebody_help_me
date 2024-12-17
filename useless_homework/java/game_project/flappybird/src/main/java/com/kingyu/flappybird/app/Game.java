@@ -164,6 +164,8 @@ public class Game extends Frame {
         }
         bird.draw(bufG);
         bird.updateattack();
+        g.drawImage(bufImg, 0, 0, null);
+
         g.drawImage(bufImg, 0, 0, null); // 一次性将图片绘制到屏幕上
     }
 
