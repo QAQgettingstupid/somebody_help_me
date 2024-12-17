@@ -12,6 +12,7 @@ public class H7_111216019 extends JFrame implements ActionListener {
     static JPanel pne = new JPanel();
     static JTextField text = new JTextField("0");
     static JButton btns[] = new JButton[16];
+    static JButton btn_ce = new JButton("CE");
     static String btname[] = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "+", "-", "*", "/", "=" };
     static String input = "";
 
@@ -33,7 +34,12 @@ public class H7_111216019 extends JFrame implements ActionListener {
         // 輸入框
         text.setBounds(0, 0, 350, 50);
         text.setHorizontalAlignment(SwingConstants.RIGHT);
+
+        btn_ce.setBounds(0, 170, 360, 30);
+        btn_ce.addActionListener(frm);
+
         pne.add(text);
+        pne.add(btn_ce);
 
         // frm設定
         frm.add(pne);
@@ -50,7 +56,10 @@ public class H7_111216019 extends JFrame implements ActionListener {
 
         if (((JButton) btn).getText() == "=")
             calculate();
-        else {
+        else if (((JButton) btn).getText() == "CE") {
+            input = "0";
+            text.setText(input);
+        } else {
             input += ((JButton) btn).getText();
             text.setText(input);
         }
@@ -163,7 +172,7 @@ public class H7_111216019 extends JFrame implements ActionListener {
         }
 
         if (!devide_0) {
-            input=Integer.toString(operand.peek());
+            input = Integer.toString(operand.peek());
             operand.pop();
         }
         text.setText(input);
