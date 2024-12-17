@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 游戏主体，管理游戏的组件和窗口绘制 
+ * 游戏主体，管理游戏的组件和窗口绘制
  *
  * @author Kingyu
  */
@@ -86,7 +86,7 @@ public class Game extends Frame {
                         bird.birdFlap();
                         bird.birdFall();
                     }
-                    if (keycode == KeyEvent.VK_J) {
+                    if (keycode == KeyEvent.VK_RIGHT) {
                         // 攻擊!!!!!!!
                         bird.birdattack();
                     }
@@ -110,13 +110,14 @@ public class Game extends Frame {
         // 按键松开，更改按键状态标志
         public void keyReleased(KeyEvent e) {
             int keycode = e.getKeyChar();
-            if (keycode == KeyEvent.VK_SPACE) {
+            if (keycode == KeyEvent.VK_SPACE || keycode == KeyEvent.VK_UP) {
                 bird.keyReleased();
             }
         }
 
         public void keyTyped(KeyEvent e) {
         }
+
     }
 
     // 初始化游戏中的各个对象

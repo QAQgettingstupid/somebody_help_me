@@ -26,4 +26,19 @@ public class Arrows {
     public boolean get_status() {
         return live;
     }
+
+    /*圖片貼上大法
+
+
+        // 讀入attackimage(箭頭)
+
+        private BufferedImage attackimage;
+
+        try {
+            attackimage = ImageIO.read(Bird.class.getResourceAsStream("/img/attack.png"));
+        } catch (IOException e) {
+
+        }
+
+    */
 }
