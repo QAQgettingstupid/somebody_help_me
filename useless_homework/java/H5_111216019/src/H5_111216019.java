@@ -22,27 +22,30 @@ public class H5_111216019 {
         while (scn.hasNext()) {
             String input = scn.nextLine();
             Stack<Character> operator = new Stack<>();
-            Stack<Integer> operand = new Stack<>();
-            int index = 0, temp_num = 0;
+            Stack<Double> operand = new Stack<>();
+            Double temp_num;
+            int index = 0, numfront = 0;
             boolean negative = false, devide_0 = false, changed = false;
 
             // 逐個讀取輸入字元
             while (index < input.length()) {
-                if (input.charAt(index) <= '9' && input.charAt(index) >= '0') {
-                    temp_num *= 10;
-                    temp_num += input.charAt(index) - '0';
+                if (changed == false
+                        && (input.charAt(index) == '.' || (input.charAt(index) <= '9' && input.charAt(index) >= '0'))) {
+                    numfront = index;
                     changed = true;
                 } else if (input.charAt(index) == '+' || input.charAt(index) == '-' || input.charAt(index) == '*'
                         || input.charAt(index) == '/' || input.charAt(index) == '(' || input.charAt(index) == ')') {
 
                     // 放入數字
                     if (changed) {
+                        temp_num = Double.parseDouble(input.substring(numfront, index));
+                        System.out.println("numfront= " + numfront);
+                        System.out.printf("input num=%.1f\n", temp_num);
                         if (negative) {
                             operand.push(temp_num * (-1));
                             negative = false;
                         } else
                             operand.push(temp_num);
-                        temp_num = 0;
                         changed = false;
                     }
 
@@ -67,6 +70,8 @@ public class H5_111216019 {
 
                         // 對operator裡在'('之前的運算子進行運算
                         while (!devide_0 && operator.peek() != '(') {
+
+                            //try catch限整數需要
                             try {
                                 operand.push(count(operand, operator.peek()));
                             } catch (ArithmeticException e) {
@@ -98,12 +103,14 @@ public class H5_111216019 {
                 }
                 index++;
             }
-            if (changed)
+            if (changed) {
+                temp_num = Double.parseDouble(input.substring(numfront, index));
                 if (negative) {
                     operand.push(temp_num * (-1));
                     negative = false;
                 } else
                     operand.push(temp_num);
+            }
 
             // 檢查是否還有運算子尚未運算
             while (!devide_0 && !operator.empty()) {
@@ -127,11 +134,11 @@ public class H5_111216019 {
     }
 
     // 運算函式實作
-    public static Integer count(Stack<Integer> s, Character c) throws ArithmeticException {
-        int result = 0;
-        int back = s.peek();
+    public static Double count(Stack<Double> s, Character c) throws ArithmeticException {
+        Double result = 0.0;
+        Double back = s.peek();
         s.pop();
-        int front = s.peek();
+        Double front = s.peek();
         s.pop();
 
         switch (c) {
