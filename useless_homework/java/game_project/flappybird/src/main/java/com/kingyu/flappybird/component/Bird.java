@@ -164,7 +164,12 @@ public class Bird {
     // 更新箭頭位置
     public void updateattack() {
         for (Arrows a : arrowList) {
-            a.move_x(a.get_speed());
+
+            if (a.get_falling())
+                a.move_y(a.get_falling_speed());
+            else
+                a.move_x(a.get_speed());
+
             if (a.get_x() >= Constant.FRAME_WIDTH)
                 arrowList.remove(a);
         }
@@ -234,6 +239,10 @@ public class Bird {
 
     public int getBirdX() {
         return x;
+    }
+
+    public List<Arrows> getarrows() {
+        return arrowList;
     }
 
     // 获取小鸟的碰撞矩形

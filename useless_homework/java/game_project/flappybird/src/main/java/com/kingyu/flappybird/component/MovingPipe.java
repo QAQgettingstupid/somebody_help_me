@@ -41,8 +41,9 @@ public class MovingPipe extends Pipe {
         }
     }
 
-    public void setAttribute(int x, int y, int height, int type, boolean visible, boolean ismid) {
-        super.setAttribute(x, y, height, type, visible, ismid);
+    // 中間龜裂專屬
+    public void setAttribute(int x, int y, int height, int topheight, int type, boolean visible) {
+        super.setAttribute(x, y, height, topheight, type, visible);
         dealtY = 0;
         direction = DIR_UP;
     }
@@ -103,11 +104,9 @@ public class MovingPipe extends Pipe {
     private void drawcrackHard(Graphics g) {
 
         // height為從天花板到上水管下端頭的位置
-        int count = (Constant.FRAME_HEIGHT - height - PIPE_HEAD_HEIGHT - Constant.GROUND_HEIGHT)
-                / PIPE_HEIGHT + 1;
+        int count = height / PIPE_HEIGHT + 1;
         for (int i = 0; i < count; i++) {
-            g.drawImage(imgs[3], x, height - Constant.TOP_PIPE_LENGTHENING + i * PIPE_HEIGHT + dealtY,
-                    null);
+            g.drawImage(imgs[3], x, y + i * PIPE_HEIGHT + dealtY, null);
         }
     }
 

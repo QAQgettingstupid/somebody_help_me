@@ -29,9 +29,12 @@ public class Pipe {
     public static final int PIPE_HEAD_HEIGHT = imgs[1].getHeight();
 
     int x, y; // 水管的坐标，相对于元素层
-    int width, height; // 水管的宽，高
+    int width, height, topheight; // 水管的宽，高 topheight中間水管專屬
+    int falling_speed = 2;
 
     boolean visible; // 水管可见状态，true为可见，false表示可归还至对象池
+    private boolean falling = false;
+
     // 水管的类型
     int type;
     public static final int TYPE_TOP_NORMAL = 0;
@@ -75,14 +78,19 @@ public class Pipe {
         setRectangle(this.x, this.y, this.height);
     }
 
-    //中間龜裂專屬
-    public void setAttribute(int x, int y, int height, int type, boolean visible, boolean ismid) {
+    // 中間龜裂專屬
+    public void setAttribute(int x, int y, int height, int topheight, int type, boolean visible) {
         this.x = x;
         this.y = y;
         this.height = height;
+        this.topheight = topheight;
         this.type = type;
         this.visible = visible;
-        setRectangle(this.x, this.y, Constant.FRAME_HEIGHT - this.height - PIPE_HEAD_HEIGHT - Constant.GROUND_HEIGHT);
+        // setRectangle(this.x, this.y, this.height);
+    }
+
+    public void set_falling(Boolean a) {
+        falling = a;
     }
 
     /**
@@ -140,11 +148,9 @@ public class Pipe {
     private void drawcrackNormal(Graphics g) {
 
         // height為從天花板到上水管下端頭的位置
-        int count = (Constant.FRAME_HEIGHT - height - PIPE_HEAD_HEIGHT - Constant.GROUND_HEIGHT)
-                / PIPE_HEIGHT + 1;
+        int count = height / PIPE_HEIGHT + 1;
         for (int i = 0; i < count; i++) {
-            g.drawImage(imgs[3], x, height - Constant.TOP_PIPE_LENGTHENING + i * PIPE_HEIGHT,
-                    null);
+            g.drawImage(imgs[3], x, y + i * PIPE_HEIGHT, null);
         }
     }
 

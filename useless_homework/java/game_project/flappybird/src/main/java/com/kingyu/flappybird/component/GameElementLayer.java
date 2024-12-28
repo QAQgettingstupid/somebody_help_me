@@ -36,6 +36,7 @@ public class GameElementLayer {
         }
         // 碰撞检测
         isCollideBird(bird);
+        isCollideArrows(bird);
         pipeBornLogic(bird);
     }
 
@@ -61,17 +62,16 @@ public class GameElementLayer {
             top.setAttribute(Constant.FRAME_WIDTH, -Constant.TOP_PIPE_LENGTHENING,
                     topHeight + Constant.TOP_PIPE_LENGTHENING, Pipe.TYPE_TOP_NORMAL, true);
 
-            /*Pipe mid = PipePool.get("Pipe");
-            mid.setAttribute(Constant.FRAME_WIDTH,
-                    -Constant.TOP_PIPE_LENGTHENING + topHeight - Constant.TOP_PIPE_LENGTHENING,
-                    topHeight + Constant.TOP_PIPE_LENGTHENING, Pipe.TYPE_TOP_NORMAL, true, true);*/
+            Pipe mid = PipePool.get("Pipe");
+            mid.setAttribute(Constant.FRAME_WIDTH, topHeight, VERTICAL_INTERVAL,
+                    topHeight, Pipe.TYPE_CRACK_NORMAL, true);
 
             Pipe bottom = PipePool.get("Pipe");
             bottom.setAttribute(Constant.FRAME_WIDTH, topHeight + VERTICAL_INTERVAL,
                     Constant.FRAME_HEIGHT - topHeight - VERTICAL_INTERVAL, Pipe.TYPE_BOTTOM_NORMAL, true);
 
             pipes.add(top);
-            //pipes.add(mid);
+            pipes.add(mid);
             pipes.add(bottom);
         } else {
             // 判断最后一对水管是否完全进入游戏窗口，若进入则添加水管
@@ -121,8 +121,7 @@ public class GameElementLayer {
                 Pipe.TYPE_TOP_NORMAL, true);
 
         Pipe mid = PipePool.get("Pipe");
-        mid.setAttribute(x, -Constant.TOP_PIPE_LENGTHENING, topHeight + Constant.TOP_PIPE_LENGTHENING,
-                Pipe.TYPE_CRACK_NORMAL, true, true);
+        mid.setAttribute(x, topHeight, VERTICAL_INTERVAL, topHeight, Pipe.TYPE_CRACK_NORMAL, true);
 
         Pipe bottom = PipePool.get("Pipe");
         bottom.setAttribute(x, topHeight + VERTICAL_INTERVAL, Constant.FRAME_HEIGHT - topHeight - VERTICAL_INTERVAL,
@@ -203,8 +202,7 @@ public class GameElementLayer {
                 Pipe.TYPE_TOP_HARD, true);
 
         Pipe mid = PipePool.get("MovingPipe");
-        mid.setAttribute(x, -Constant.TOP_PIPE_LENGTHENING, topHeight + Constant.TOP_PIPE_LENGTHENING,
-                Pipe.TYPE_CRACK_HARD, true, true);
+        mid.setAttribute(x, topHeight, VERTICAL_INTERVAL, topHeight, Pipe.TYPE_CRACK_HARD, true);
 
         Pipe bottom = PipePool.get("MovingPipe");
         bottom.setAttribute(x, topHeight + VERTICAL_INTERVAL, Constant.FRAME_HEIGHT - topHeight - VERTICAL_INTERVAL,
@@ -232,6 +230,16 @@ public class GameElementLayer {
                 bird.deadBirdFall();
                 return;
             }
+        }
+    }
+
+    public void isCollideArrows(Bird bird) {
+        // 遍历水管容器
+        for (Pipe pipe : pipes) {
+            // 判断碰撞矩形是否有交集
+            for (Arrows arrow : bird.getarrows())
+                if (pipe.getPipeRect().intersects(arrow.arrowRectangle()))
+                    arrow.set_falling(true);
         }
     }
 

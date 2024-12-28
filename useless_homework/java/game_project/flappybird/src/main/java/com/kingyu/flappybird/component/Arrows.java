@@ -9,7 +9,7 @@ public class Arrows {
     private int arrowx;
     private int arrowy;
     private static int speed = 10;
-    private static int falling_speed = 2;
+    private static int falling_speed = 10;
     private static int arrow_WIDTH;
     private static int arrow_HEIGHT;
     private static BufferedImage attackimage;
@@ -34,6 +34,10 @@ public class Arrows {
         arrowx += add;
     }
 
+    public void move_y(int add) {
+        arrowy += add;
+    }
+
     public int get_x() {
         return arrowx;
     }
@@ -46,8 +50,16 @@ public class Arrows {
         return speed;
     }
 
+    public int get_falling_speed() {
+        return falling_speed;
+    }
+
     public boolean get_status() {
         return live;
+    }
+
+    public boolean get_falling() {
+        return falling;
     }
 
     public BufferedImage get_Image() {
@@ -56,6 +68,7 @@ public class Arrows {
 
     public void set_falling(boolean a) {
         falling = a;
+        System.out.println("NOOOOOO~");
     }
 
     public Rectangle arrowRectangle() {
