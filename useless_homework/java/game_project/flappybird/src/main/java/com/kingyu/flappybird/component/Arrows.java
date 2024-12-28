@@ -1,14 +1,33 @@
 package com.kingyu.flappybird.component;
 
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import java.io.IOException;
+import java.awt.Rectangle;
+
 public class Arrows {
     private int arrowx;
     private int arrowy;
+    private static int speed = 10;
+    private static int falling_speed = 2;
+    private static int arrow_WIDTH;
+    private static int arrow_HEIGHT;
+    private static BufferedImage attackimage;
     private boolean live;
+    private boolean falling;
 
     Arrows(int x, int y) {
         arrowx = x;
         arrowy = y;
         live = true;
+        falling = false;
+        try {
+            attackimage = ImageIO.read(Bird.class.getResourceAsStream("/img/attack.png"));
+            arrow_WIDTH = attackimage.getWidth();
+            arrow_HEIGHT = attackimage.getHeight();
+        } catch (IOException e) {
+
+        }
     }
 
     public void move_x(int add) {
@@ -23,22 +42,40 @@ public class Arrows {
         return arrowy;
     }
 
+    public int get_speed() {
+        return speed;
+    }
+
     public boolean get_status() {
         return live;
     }
 
-    /*圖片貼上大法
+    public BufferedImage get_Image() {
+        return attackimage;
+    }
 
+    public void set_falling(boolean a) {
+        falling = a;
+    }
 
-        // 讀入attackimage(箭頭)
+    public Rectangle arrowRectangle() {
+        return new Rectangle(arrowx, arrowy, arrow_WIDTH, arrow_HEIGHT);
+    }
 
-        private BufferedImage attackimage;
-
-        try {
-            attackimage = ImageIO.read(Bird.class.getResourceAsStream("/img/attack.png"));
-        } catch (IOException e) {
-
-        }
-
-    */
+    /*
+     * 圖片貼上大法
+     * 
+     * 
+     * // 讀入attackimage(箭頭)
+     * 
+     * private BufferedImage attackimage;
+     * 
+     * try {
+     * attackimage =
+     * ImageIO.read(Bird.class.getResourceAsStream("/img/attack.png"));
+     * } catch (IOException e) {
+     * 
+     * }
+     * 
+     */
 }

@@ -7,7 +7,6 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -35,7 +34,6 @@ public class Bird {
 
     // 图片资源
     private BufferedImage image; // 实时的小鸟图片
-    private BufferedImage attackimage;
 
     // 小鸟的状态
     private int state;
@@ -65,13 +63,6 @@ public class Bird {
             for (int i = 0; i < IMG_COUNT; i++) {
                 birdImages[j][i] = GameUtil.loadBufferedImage(Constant.BIRDS_IMG_PATH[j][i]);
             }
-        }
-
-        // 讀入attackimage(箭頭)
-        try {
-            attackimage = ImageIO.read(Bird.class.getResourceAsStream("/img/attack.png"));
-        } catch (IOException e) {
-
         }
 
         assert birdImages[0][0] != null;
@@ -110,9 +101,9 @@ public class Bird {
         // birdRect.getWidth(), (int) birdRect.getHeight());
 
         // 畫攻擊箭頭
-        for(Arrows a: arrowList){
-            if(a.get_status())
-                g.drawImage(attackimage, a.get_x(), a.get_y(), null);
+        for (Arrows a : arrowList) {
+            if (a.get_status())
+                g.drawImage(a.get_Image(), a.get_x(), a.get_y(), null);
         }
     }
 
@@ -171,13 +162,13 @@ public class Bird {
         if (isDead())
             return;
         drawnew = true;
-        arrowList.add(new Arrows(x,y));
+        arrowList.add(new Arrows(x, y));
     }
 
     // 更新箭頭位置
     public void updateattack() {
         for (Arrows a : arrowList) {
-            a.move_x(10);
+            a.move_x(a.get_speed());
             if (a.get_x() >= Constant.FRAME_WIDTH)
                 arrowList.remove(a);
         }
