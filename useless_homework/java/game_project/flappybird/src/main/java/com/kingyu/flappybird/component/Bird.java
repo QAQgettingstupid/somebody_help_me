@@ -95,10 +95,6 @@ public class Bird {
             gameOverAnimation.draw(g, this);
         else if (state != BIRD_DEAD_FALL)
             drawScore(g);
-        // 绘制碰撞矩形
-        // g.setColor(Color.black);
-        // g.drawRect((int) birdRect.getX(), (int) birdRect.getY(), (int)
-        // birdRect.getWidth(), (int) birdRect.getHeight());
 
         // 畫攻擊箭頭
         for (Arrows a : arrowList) {

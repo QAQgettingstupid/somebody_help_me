@@ -41,6 +41,12 @@ public class MovingPipe extends Pipe {
         }
     }
 
+    public void setAttribute(int x, int y, int height, int type, boolean visible, boolean ismid) {
+        super.setAttribute(x, y, height, type, visible, ismid);
+        dealtY = 0;
+        direction = DIR_UP;
+    }
+
     // 绘制方法
     public void draw(Graphics g, Bird bird) {
         switch (type) {
@@ -49,6 +55,8 @@ public class MovingPipe extends Pipe {
                 break;
             case TYPE_TOP_HARD:
                 drawTopHard(g);
+                break;
+            case TYPE_CRACK_HARD:
                 drawcrackHard(g);
                 break;
             case TYPE_BOTTOM_HARD:
@@ -93,8 +101,8 @@ public class MovingPipe extends Pipe {
 
     // 畫中間龜裂的移動水管
     private void drawcrackHard(Graphics g) {
-        
-        //height為從天花板到上水管下端頭的位置
+
+        // height為從天花板到上水管下端頭的位置
         int count = (Constant.FRAME_HEIGHT - height - PIPE_HEAD_HEIGHT - Constant.GROUND_HEIGHT)
                 / PIPE_HEIGHT + 1;
         for (int i = 0; i < count; i++) {
@@ -119,14 +127,14 @@ public class MovingPipe extends Pipe {
      * 可动水管的运动逻辑
      */
     private void movement() {
-        //x坐标的运动逻辑与普通水管相同
+        // x坐标的运动逻辑与普通水管相同
         x -= speed;
         pipeRect.x -= speed;
         if (x < -1 * PIPE_HEAD_WIDTH) {// 水管完全离开了窗口
             visible = false;
         }
 
-        //水管上下移动的逻辑
+        // 水管上下移动的逻辑
         if (direction == DIR_DOWN) {
             dealtY++;
             if (dealtY > MAX_DELTA) {

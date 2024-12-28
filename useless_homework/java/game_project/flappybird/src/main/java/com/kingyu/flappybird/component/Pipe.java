@@ -31,10 +31,6 @@ public class Pipe {
     int x, y; // 水管的坐标，相对于元素层
     int width, height; // 水管的宽，高
 
-    // 龜裂水管相關
-    int crack_top;
-    int crack_down;
-
     boolean visible; // 水管可见状态，true为可见，false表示可归还至对象池
     // 水管的类型
     int type;
@@ -42,6 +38,8 @@ public class Pipe {
     public static final int TYPE_TOP_HARD = 1;
     public static final int TYPE_BOTTOM_NORMAL = 2;
     public static final int TYPE_BOTTOM_HARD = 3;
+    public static final int TYPE_CRACK_NORMAL = 6;
+    public static final int TYPE_CRACK_HARD = 7;
     public static final int TYPE_HOVER_NORMAL = 4;
     public static final int TYPE_HOVER_HARD = 5;
 
@@ -77,6 +75,16 @@ public class Pipe {
         setRectangle(this.x, this.y, this.height);
     }
 
+    //中間龜裂專屬
+    public void setAttribute(int x, int y, int height, int type, boolean visible, boolean ismid) {
+        this.x = x;
+        this.y = y;
+        this.height = height;
+        this.type = type;
+        this.visible = visible;
+        setRectangle(this.x, this.y, Constant.FRAME_HEIGHT - this.height - PIPE_HEAD_HEIGHT - Constant.GROUND_HEIGHT);
+    }
+
     /**
      * 设置碰撞矩形参数
      */
@@ -96,6 +104,8 @@ public class Pipe {
         switch (type) {
             case TYPE_TOP_NORMAL:
                 drawTopNormal(g);
+                break;
+            case TYPE_CRACK_NORMAL:
                 drawcrackNormal(g);
                 break;
             case TYPE_BOTTOM_NORMAL:
@@ -128,8 +138,8 @@ public class Pipe {
 
     // 畫中間龜裂
     private void drawcrackNormal(Graphics g) {
-        
-        //height為從天花板到上水管下端頭的位置
+
+        // height為從天花板到上水管下端頭的位置
         int count = (Constant.FRAME_HEIGHT - height - PIPE_HEAD_HEIGHT - Constant.GROUND_HEIGHT)
                 / PIPE_HEIGHT + 1;
         for (int i = 0; i < count; i++) {
