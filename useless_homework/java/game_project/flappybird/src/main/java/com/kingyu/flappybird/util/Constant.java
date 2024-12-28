@@ -42,7 +42,7 @@ public class Constant {
 
 	// 水管图片
 	public static final String[] PIPE_IMG_PATH = { "resources/img/pipe.png", "resources/img/pipe_top.png",
-			"resources/img/pipe_bottom.png" };
+			"resources/img/pipe_bottom.png", "resources/img/crack.png"};
 
 	public static final String TITLE_IMG_PATH = "resources/img/title.png";
 	public static final String NOTICE_IMG_PATH = "resources/img/start.png";

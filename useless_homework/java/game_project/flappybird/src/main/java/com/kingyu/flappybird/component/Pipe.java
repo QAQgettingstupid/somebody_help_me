@@ -15,7 +15,7 @@ public class Pipe {
     static BufferedImage[] imgs; // 水管的图片，static保证图片只加载一次
 
     static {// 静态代码块，类加载的时候，初始化图片
-        final int PIPE_IMAGE_COUNT = 3;
+        final int PIPE_IMAGE_COUNT = 4;
         imgs = new BufferedImage[PIPE_IMAGE_COUNT];
         for (int i = 0; i < PIPE_IMAGE_COUNT; i++) {
             imgs[i] = GameUtil.loadBufferedImage(Constant.PIPE_IMG_PATH[i]);
@@ -30,6 +30,10 @@ public class Pipe {
 
     int x, y; // 水管的坐标，相对于元素层
     int width, height; // 水管的宽，高
+
+    // 龜裂水管相關
+    int crack_top;
+    int crack_down;
 
     boolean visible; // 水管可见状态，true为可见，false表示可归还至对象池
     // 水管的类型
@@ -92,6 +96,7 @@ public class Pipe {
         switch (type) {
             case TYPE_TOP_NORMAL:
                 drawTopNormal(g);
+                drawcrackNormal(g);
                 break;
             case TYPE_BOTTOM_NORMAL:
                 drawBottomNormal(g);
@@ -100,11 +105,8 @@ public class Pipe {
                 drawHoverNormal(g);
                 break;
         }
-//      //绘制碰撞矩形
-//      g.setColor(Color.black);
-//      g.drawRect((int) pipeRect.getX(), (int) pipeRect.getY(), (int) pipeRect.getWidth(), (int) pipeRect.getHeight());
 
-        //鸟死后水管停止移动
+        // 鸟死后水管停止移动
         if (bird.isDead()) {
             return;
         }
@@ -122,6 +124,18 @@ public class Pipe {
         // 绘制水管的顶部
         g.drawImage(imgs[1], x - ((PIPE_HEAD_WIDTH - width) >> 1),
                 height - Constant.TOP_PIPE_LENGTHENING - PIPE_HEAD_HEIGHT, null); // 水管头部与水管主体的宽度不同，x坐标需要处理
+    }
+
+    // 畫中間龜裂
+    private void drawcrackNormal(Graphics g) {
+        
+        //height為從天花板到上水管下端頭的位置
+        int count = (Constant.FRAME_HEIGHT - height - PIPE_HEAD_HEIGHT - Constant.GROUND_HEIGHT)
+                / PIPE_HEIGHT + 1;
+        for (int i = 0; i < count; i++) {
+            g.drawImage(imgs[3], x, height - Constant.TOP_PIPE_LENGTHENING + i * PIPE_HEIGHT,
+                    null);
+        }
     }
 
     // 绘制从下往上的普通水管
@@ -147,6 +161,7 @@ public class Pipe {
         for (int i = 0; i < count; i++) {
             g.drawImage(imgs[0], x, y + i * PIPE_HEIGHT + PIPE_HEAD_HEIGHT, null);
         }
+
         // 绘制水管的下底部
         int y = this.y + height - PIPE_HEAD_HEIGHT;
         g.drawImage(imgs[1], x - ((PIPE_HEAD_WIDTH - width) >> 1), y, null);
