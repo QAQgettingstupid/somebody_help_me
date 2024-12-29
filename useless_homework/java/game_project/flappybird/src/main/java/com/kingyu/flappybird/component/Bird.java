@@ -167,8 +167,7 @@ public class Bird {
 
             if (a.get_falling())
                 a.move_y(a.get_falling_speed());
-            else
-                a.move_x(a.get_speed());
+            a.move_x(a.get_speed());
 
             if (a.get_x() >= Constant.FRAME_WIDTH)
                 arrowList.remove(a);
