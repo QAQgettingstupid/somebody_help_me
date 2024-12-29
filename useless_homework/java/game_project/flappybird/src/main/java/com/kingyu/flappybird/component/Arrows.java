@@ -8,7 +8,7 @@ import java.awt.Rectangle;
 public class Arrows {
     private int arrowx;
     private int arrowy;
-    private static int speed = 10;
+    private int speed = 10;
     private static int falling_speed = 10;
     private static int arrow_WIDTH;
     private static int arrow_HEIGHT;
@@ -68,7 +68,7 @@ public class Arrows {
 
     public void set_falling(boolean a) {
         falling = a;
-        System.out.println("NOOOOOO~");
+        speed = -4;
     }
 
     public Rectangle arrowRectangle() {

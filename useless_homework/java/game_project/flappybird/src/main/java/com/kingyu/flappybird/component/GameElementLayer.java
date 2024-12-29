@@ -238,8 +238,11 @@ public class GameElementLayer {
         for (Pipe pipe : pipes) {
             // 判断碰撞矩形是否有交集
             for (Arrows arrow : bird.getarrows())
-                if (pipe.getPipeRect().intersects(arrow.arrowRectangle()))
+                if ((pipe.get_type() <= 7 && pipe.get_type() >= 6)
+                        && pipe.getPipeRect().intersects(arrow.arrowRectangle())) {
+                    pipe.set_falling(true);
                     arrow.set_falling(true);
+                }
         }
     }
 

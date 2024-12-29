@@ -165,12 +165,12 @@ public class Bird {
     public void updateattack() {
         for (Arrows a : arrowList) {
 
-            if (a.get_falling())
+            if (a.get_falling())// 鉛直下落
                 a.move_y(a.get_falling_speed());
-            else
-                a.move_x(a.get_speed());
 
-            if (a.get_x() >= Constant.FRAME_WIDTH)
+            a.move_x(a.get_speed());
+
+            if (a.get_x() >= Constant.FRAME_WIDTH || a.get_y() >= Constant.FRAME_HEIGHT)
                 arrowList.remove(a);
         }
     }

@@ -126,6 +126,10 @@ public class MovingPipe extends Pipe {
      * 可动水管的运动逻辑
      */
     private void movement() {
+
+        if (falling)// 中間
+            speed = -10;
+
         // x坐标的运动逻辑与普通水管相同
         x -= speed;
         pipeRect.x -= speed;

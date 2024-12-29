@@ -33,7 +33,7 @@ public class Pipe {
     int falling_speed = 2;
 
     boolean visible; // 水管可见状态，true为可见，false表示可归还至对象池
-    private boolean falling = false;
+    protected boolean falling = false;
 
     // 水管的类型
     int type;
@@ -86,11 +86,12 @@ public class Pipe {
         this.topheight = topheight;
         this.type = type;
         this.visible = visible;
-        // setRectangle(this.x, this.y, this.height);
+        setRectangle(this.x, this.y, this.height);
     }
 
     public void set_falling(Boolean a) {
         falling = a;
+        speed = -10;
     }
 
     /**
@@ -105,6 +106,10 @@ public class Pipe {
     // 判断水管是否位于窗口
     public boolean isVisible() {
         return visible;
+    }
+
+    public int get_type() {
+        return type;
     }
 
     // 绘制方法
@@ -189,7 +194,8 @@ public class Pipe {
     private void movement() {
         x -= speed;
         pipeRect.x -= speed;
-        if (x < -1 * PIPE_HEAD_WIDTH) {// 水管完全离开了窗口
+
+        if (x < -1 * PIPE_HEAD_WIDTH /* || (x > 1 * PIPE_HEAD_WIDTH && falling) */) {// 水管完全离开了窗口
             visible = false;
         }
     }
