@@ -30,7 +30,6 @@ public class Pipe {
 
     int x, y; // 水管的坐标，相对于元素层
     int width, height, topheight; // 水管的宽，高 topheight中間水管專屬
-    int falling_speed = 2;
 
     boolean visible; // 水管可见状态，true为可见，false表示可归还至对象池
     protected boolean falling = false;
@@ -86,6 +85,8 @@ public class Pipe {
         this.topheight = topheight;
         this.type = type;
         this.visible = visible;
+        falling = false;
+        speed = Constant.GAME_SPEED;
         setRectangle(this.x, this.y, this.height);
     }
 
