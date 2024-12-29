@@ -130,6 +130,8 @@ public class GameElementLayer {
         pipes.add(top);
         pipes.add(mid);
         pipes.add(bottom);
+        
+
     }
 
     /**
