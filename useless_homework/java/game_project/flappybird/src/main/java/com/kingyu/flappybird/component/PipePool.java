@@ -13,7 +13,7 @@ import com.kingyu.flappybird.util.Constant;
  *
  */
 public class PipePool {
-	private static final List<Pipe> pool = new ArrayList<>(); // 池中对象的容器
+	public static final List<Pipe> pool = new ArrayList<>(); // 池中对象的容器
 	private static final List<MovingPipe> movingPool = new ArrayList<>(); // 池中对象的容器
 	public static final int MAX_PIPE_COUNT = 30; // 对象池中对象的最大个数，自行定义
 	public static final int FULL_PIPE = (Constant.FRAME_WIDTH

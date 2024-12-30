@@ -31,6 +31,7 @@ public class Bird {
     private int wingState; // 翅膀状态
     private boolean drawnew = false; // 判斷畫箭頭
     private List<Arrows> arrowList = new LinkedList<Arrows>();
+    private Coin coin;
 
     // 图片资源
     private BufferedImage image; // 实时的小鸟图片
@@ -172,6 +173,10 @@ public class Bird {
             if (a.get_x() >= Constant.FRAME_WIDTH)
                 arrowList.remove(a);
         }
+    }
+
+    public List<Arrows> getArrows(){
+        return arrowList;
     }
 
     // 小鸟下降

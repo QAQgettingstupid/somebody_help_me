@@ -4,8 +4,11 @@ import com.kingyu.flappybird.component.GameElementLayer;
 import com.kingyu.flappybird.component.Bird;
 import com.kingyu.flappybird.component.GameBackground;
 import com.kingyu.flappybird.component.GameForeground;
+import com.kingyu.flappybird.component.ScoreCounter;
 import com.kingyu.flappybird.component.WelcomeAnimation;
+import com.kingyu.flappybird.util.Constant;
 import com.kingyu.flappybird.component.Arrows;
+import com.kingyu.flappybird.component.Coin;
 
 import static com.kingyu.flappybird.util.Constant.FRAME_HEIGHT;
 import static com.kingyu.flappybird.util.Constant.FRAME_WIDTH;
@@ -38,6 +41,7 @@ public class Game extends Frame {
     private GameBackground background; // 游戏背景对象
     private GameForeground foreground; // 游戏前景对象
     private Bird bird; // 小鸟对象
+    private Coin coin;
     private GameElementLayer gameElement; // 游戏元素对象
     private WelcomeAnimation welcomeAnimation; // 游戏未开始时对象
 
@@ -127,6 +131,7 @@ public class Game extends Frame {
         foreground = new GameForeground();
         welcomeAnimation = new WelcomeAnimation();
         bird = new Bird();
+        coin = new Coin(500, (int) (Math.random() * (Constant.FRAME_HEIGHT / 2)) + Constant.FRAME_HEIGHT / 4);
         setGameState(GAME_READY);
 
         // 启动用于刷新窗口的线程
@@ -164,7 +169,10 @@ public class Game extends Frame {
         }
         bird.draw(bufG);
         bird.updateattack();
-        g.drawImage(bufImg, 0, 0, null);
+        coin.draw(bufG, bird);
+
+        ScoreCounter.getInstance().checkCoinCollision(bird, coin);
+        ScoreCounter.getInstance().checkCoin_ArrowCollision(bird.getArrows(), coin, bird);
 
         g.drawImage(bufImg, 0, 0, null); // 一次性将图片绘制到屏幕上
     }

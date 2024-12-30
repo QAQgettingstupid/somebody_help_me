@@ -5,6 +5,7 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.List;
 
 import com.kingyu.flappybird.util.Constant;
 import com.kingyu.flappybird.util.MusicUtil;
@@ -76,6 +77,28 @@ public class ScoreCounter {
 
 	public void reset() {
 		score = 0;
+	}
+
+	public void checkCoinCollision(Bird bird, Coin coin) {
+		if (!bird.isDead() && !coin.isCollected() && coin.getBounds().intersects(bird.getBirdCollisionRect())) {
+			coin.resetPosition(); // 重置金幣位置
+			coin.setCollected(true); // 設置金幣為已收集
+			score += 2; // 假設每個金幣加 2 分
+			MusicUtil.playScore(); // 播放加分音效（如果需要）
+		}
+	}
+
+	public void checkCoin_ArrowCollision(List<Arrows> arrows, Coin coin, Bird bird) {
+
+		for (Arrows a : arrows) {
+			if (!bird.isDead() && !coin.isCollected() && coin.getBounds().intersects(a.arrowRectangle())) {
+				a.set_falling(true); //箭頭下落
+				coin.resetPosition(); // 重置金幣位置
+				coin.setCollected(true); // 設置金幣為已收集
+				score += 2; // 假設每個金幣加 2 分
+				MusicUtil.playScore(); // 播放加分音效（如果需要）
+			}
+		}
 	}
 
 }
