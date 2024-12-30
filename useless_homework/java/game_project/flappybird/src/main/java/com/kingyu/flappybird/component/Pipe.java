@@ -3,6 +3,7 @@ package com.kingyu.flappybird.component;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
+import com.kingyu.flappybird.app.Game;
 import com.kingyu.flappybird.util.Constant;
 import com.kingyu.flappybird.util.GameUtil;
 
@@ -86,7 +87,9 @@ public class Pipe {
         this.topheight = topheight;
         this.type = type;
         this.visible = visible;
-         setRectangle(this.x, this.y, this.height);
+        setRectangle(this.x, this.y, this.height);
+
+        falling = false;
     }
 
     public void set_falling(Boolean a) {
@@ -197,6 +200,10 @@ public class Pipe {
         if (x < -1 * PIPE_HEAD_WIDTH) {// 水管完全离开了窗口
             visible = false;
         }
+        /*else if ((type == 6 || type == 7) && falling && x > Constant.FRAME_WIDTH) {// 水管完全离开了窗口
+            visible = false;
+            falling = false;
+        }*/
     }
 
     /**
