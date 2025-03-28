@@ -67,9 +67,11 @@ void loop() {
   forward();
   delay(2000);
   turnleft();
-  delay(750);
+  delay(700);
+  stopMotor();
+  delay(2000);
   turnright();
-  delay(1550);
+  delay(1200);
   stopMotor();
   delay(2000);
   forward();
