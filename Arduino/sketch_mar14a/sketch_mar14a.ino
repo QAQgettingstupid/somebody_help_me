@@ -9,42 +9,42 @@ const byte RIGHT1 = 7; //IN3
 const byte RIGHT2 = 6; //IN4
 const byte RIGHT_PWM = 5;
 //設定PWM輸出值(代表的是車子的速度)
-byte rightspeed = 170;
-byte leftspeed = 200;
-byte motorspeed = 180;
+byte rightspeed = 120;
+byte leftspeed = 100;
+byte motorspeed = 100;
 
-void forward(){
+void backward(){
   digitalWrite(LEFT1, HIGH);
   digitalWrite(LEFT2, LOW);
-  analogWrite(LEFT_PWM, rightspeed);
+  analogWrite(LEFT_PWM, leftspeed);
   //右輪·因在小車上馬達安装方向左右兩個是相
-  digitalWrite(RIGHT1, LOW);
-  digitalWrite (RIGHT2, HIGH);
-  analogWrite(RIGHT_PWM, leftspeed);
-}
-
-void backward(){ //後退
-  digitalWrite(LEFT1, LOW);
-  digitalWrite (LEFT2, HIGH);
-  analogWrite(LEFT_PWM, rightspeed);
-  digitalWrite(RIGHT1, HIGH);
-  digitalWrite(RIGHT2, LOW);
-  analogWrite(RIGHT_PWM, leftspeed);
-}
-
-void turnright(){//左轉
-  //左輪不動,右輪動(速度為0)
-  analogWrite(LEFT_PWM, 0);
   digitalWrite(RIGHT1, LOW);
   digitalWrite (RIGHT2, HIGH);
   analogWrite(RIGHT_PWM, rightspeed);
 }
 
-void turnleft(){//右轉
-  //右輪不動,左輪動(速度為0)
-  digitalWrite(LEFT1, HIGH);
-  digitalWrite(LEFT2, LOW);
+void forward(){ //
+  digitalWrite(LEFT1, LOW);
+  digitalWrite (LEFT2, HIGH);
   analogWrite(LEFT_PWM, leftspeed);
+  digitalWrite(RIGHT1, HIGH);
+  digitalWrite(RIGHT2, LOW);
+  analogWrite(RIGHT_PWM, rightspeed);
+}
+
+void turnleft(){//左轉
+  //左輪不動,右輪動(速度為0)
+  analogWrite(LEFT_PWM, 0);
+  digitalWrite(RIGHT1, HIGH);
+  digitalWrite (RIGHT2, LOW);
+  analogWrite(RIGHT_PWM, motorspeed);
+}
+
+void turnright(){//右轉
+  //右輪不動,左輪動(速度為0)
+  digitalWrite(LEFT1, LOW);
+  digitalWrite(LEFT2, HIGH);
+  analogWrite(LEFT_PWM, motorspeed);
   analogWrite(RIGHT_PWM, 0);
 }
 
@@ -67,6 +67,13 @@ void loop() {
   forward();
   delay(2000);
   turnleft();
-  delay(2000);
+  delay(750);
+  turnright();
+  delay(1550);
   stopMotor();
+  delay(2000);
+  forward();
+  delay(3000);
+  stopMotor();
+  delay(2000);
 }
