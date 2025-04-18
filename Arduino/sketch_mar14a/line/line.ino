@@ -61,47 +61,47 @@ void setup(){
   Serial.begin(9600);
 
 
-  pinMode(4,INPUT); //右側红外線威測器
-  pinMode(11,INPUT);//中間红外線威測器
+  pinMode(4,INPUT); //中間红外線威測器
+  pinMode(11,INPUT);//右側红外線威測器
   pinMode(12,INPUT);//左側红外線威測器
 }
 void loop() {
 
-  Serial.print("右"); Serial.println(digitalRead(4));
+  Serial.print("右"); Serial.println(digitalRead(11));
   Serial.print("左"); Serial.println(digitalRead(12));
-  Serial.print("中"); Serial.println(digitalRead(11));
+  Serial.print("中"); Serial.println(digitalRead(4));
   delay(2000);
 
   //0-> 非黑線 1-> 黑線
   // 空-> 111
 
   //正直走 010
-  if((digitalRead(12)==0 && digitalRead(11)==1 && digitalRead(4)==0) || (digitalRead(12)==1 && digitalRead(11)==0 && digitalRead(4)==1)){
+  if((digitalRead(12)==0 && digitalRead(4)==1 && digitalRead(11)==0) || (digitalRead(12)==1 && digitalRead(4)==0 && digitalRead(11)==1)){
     forward();
     delay(100);
   }
   //小左轉 011
-  else if(digitalRead(12)==0 && digitalRead(11)==1 && digitalRead(4)==1){
+  else if(digitalRead(12)==0 && digitalRead(4)==1 && digitalRead(11)==1){
     turnleft();
     delay(10);
   }
   //大左轉 100
-  else if(digitalRead(12)==1 && digitalRead(11)==0 && digitalRead(4)==0){
+  else if(digitalRead(12)==1 && digitalRead(4)==0 && digitalRead(11)==0){
     turnleft();
     delay(50);
   }
   //小右轉 110
-  else if(digitalRead(12)==1 && digitalRead(11)==1 && digitalRead(4)==0){
+  else if(digitalRead(12)==1 && digitalRead(4)==1 && digitalRead(11)==0){
     turnright();
     delay(10);
   }
   //大右轉 001
-  else if(digitalRead(12)==0 && digitalRead(11)==0 && digitalRead(4)==1){
+  else if(digitalRead(12)==0 && digitalRead(4)==0 && digitalRead(11)==1){
     turnright();
     delay(50);
   }
   //停下 000
-  else if(digitalRead(12)==0 && digitalRead(11)==0 && digitalRead(4)==0){
+  else if(digitalRead(12)==0 && digitalRead(4)==0 && digitalRead(11)==0){
     stopMotor();
     delay(2000);
   }
