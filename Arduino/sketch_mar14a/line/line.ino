@@ -6,9 +6,9 @@ const byte RIGHT1 = 7; //IN3
 const byte RIGHT2 = 6; //IN4
 const byte RIGHT_PWM = 5;
 //設定PWM輸出值(代表的是車子的速度)
-byte rightspeed = 120;
-byte leftspeed = 100;
-byte motorspeed = 100;
+byte rightspeed = 60;
+byte leftspeed = 60;
+byte motorspeed = 50;
 
 void backward(){
   digitalWrite(LEFT1, HIGH);
@@ -58,18 +58,51 @@ void setup(){
   pinMode(RIGHT1, OUTPUT);
   pinMode(RIGHT2, OUTPUT);
   pinMode(RIGHT_PWM, OUTPUT);
+  Serial.begin(9600);
 
-  pinMode(13,INPUT); //右側红外線威測器
+
+  pinMode(4,INPUT); //右側红外線威測器
+  pinMode(11,INPUT);//中間红外線威測器
   pinMode(12,INPUT);//左側红外線威測器
 }
 void loop() {
-  Serial.println(digitalRead(12));
-  if(digitalRead(12)==1){
+
+  Serial.print("右"); Serial.println(digitalRead(4));
+  Serial.print("左"); Serial.println(digitalRead(12));
+  Serial.print("中"); Serial.println(digitalRead(11));
+  delay(2000);
+
+  //0-> 非黑線 1-> 黑線
+  // 空-> 111
+
+  //正直走 010
+  if((digitalRead(12)==0 && digitalRead(11)==1 && digitalRead(4)==0) || (digitalRead(12)==1 && digitalRead(11)==0 && digitalRead(4)==1)){
     forward();
-    delay(2000);
+    delay(100);
   }
-  else{
+  //小左轉 011
+  else if(digitalRead(12)==0 && digitalRead(11)==1 && digitalRead(4)==1){
+    turnleft();
+    delay(10);
+  }
+  //大左轉 100
+  else if(digitalRead(12)==1 && digitalRead(11)==0 && digitalRead(4)==0){
+    turnleft();
+    delay(50);
+  }
+  //小右轉 110
+  else if(digitalRead(12)==1 && digitalRead(11)==1 && digitalRead(4)==0){
+    turnright();
+    delay(10);
+  }
+  //大右轉 001
+  else if(digitalRead(12)==0 && digitalRead(11)==0 && digitalRead(4)==1){
+    turnright();
+    delay(50);
+  }
+  //停下 000
+  else if(digitalRead(12)==0 && digitalRead(11)==0 && digitalRead(4)==0){
     stopMotor();
-    delay(9000);
+    delay(2000);
   }
 }
