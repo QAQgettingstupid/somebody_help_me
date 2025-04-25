@@ -6,8 +6,8 @@ const byte RIGHT1 = 7; //IN3
 const byte RIGHT2 = 6; //IN4
 const byte RIGHT_PWM = 5;
 //設定PWM輸出值(代表的是車子的速度)
-byte rightspeed = 60;
-byte leftspeed = 60;
+byte rightspeed = 110;
+byte leftspeed =110;
 byte motorspeed = 50;
 
 void backward(){
@@ -32,14 +32,14 @@ void forward(){ //
 void turnleft(){//左轉
   //左輪不動,右輪動(速度為0)
   analogWrite(LEFT_PWM, 0);
-  analogWrite(RIGHT_PWM, 90);
+  analogWrite(RIGHT_PWM, motorspeed);
   digitalWrite(RIGHT1, HIGH);
   digitalWrite (RIGHT2, LOW);
 }
 
 void turnright(){//右轉
   //右輪不動,左輪動(速度為0)
-  analogWrite(LEFT_PWM, leftspeed);
+  analogWrite(LEFT_PWM, motorspeed);
   analogWrite(RIGHT_PWM, 0);
   digitalWrite(LEFT1, LOW);
   digitalWrite(LEFT2, HIGH);
@@ -67,42 +67,36 @@ void setup(){
 }
 void loop() {
 
-  Serial.print("右"); Serial.println(digitalRead(11));
-  Serial.print("左"); Serial.println(digitalRead(12));
-  Serial.print("中"); Serial.println(digitalRead(4));
-  delay(2000);
+  //Serial.print("right"); Serial.println(digitalRead(11));
+  Serial.print("left"); Serial.println(digitalRead(12));
+  //7Serial.print("middle"); Serial.println(digitalRead(4));
 
   //0-> 非黑線 1-> 黑線
-  // 空-> 111
+  // 空-> 101
 
   //正直走 010
-  if((digitalRead(12)==0 && digitalRead(4)==1 && digitalRead(11)==0) || (digitalRead(12)==1 && digitalRead(4)==0 && digitalRead(11)==1)){
+  if((digitalRead(12)==0 && digitalRead(4)==1 && digitalRead(11)==0) || (digitalRead(12)==1 && digitalRead(4)==1 && digitalRead(11)==1)){
     forward();
-    delay(100);
   }
   //小左轉 011
-  else if(digitalRead(12)==0 && digitalRead(4)==1 && digitalRead(11)==1){
+  if(digitalRead(12)==0 && digitalRead(4)==1 && digitalRead(11)==1){
     turnleft();
-    delay(10);
   }
   //大左轉 100
-  else if(digitalRead(12)==1 && digitalRead(4)==0 && digitalRead(11)==0){
+  if(digitalRead(12)==1 && digitalRead(4)==0 && digitalRead(11)==0){
     turnleft();
-    delay(50);
+    Serial.println("here!!!!!!");
   }
   //小右轉 110
-  else if(digitalRead(12)==1 && digitalRead(4)==1 && digitalRead(11)==0){
+  if(digitalRead(12)==1 && digitalRead(4)==1 && digitalRead(11)==0){
     turnright();
-    delay(10);
   }
   //大右轉 001
-  else if(digitalRead(12)==0 && digitalRead(4)==0 && digitalRead(11)==1){
+  if(digitalRead(12)==0 && digitalRead(4)==0 && digitalRead(11)==1){
     turnright();
-    delay(50);
   }
   //停下 000
-  else if(digitalRead(12)==0 && digitalRead(4)==0 && digitalRead(11)==0){
-    stopMotor();
-    delay(2000);
+  if(digitalRead(12)==0 && digitalRead(4)==0 && digitalRead(11)==0){
+    backward();
   }
 }
