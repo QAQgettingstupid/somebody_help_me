@@ -1,0 +1,29 @@
+<HTML>
+<HEAD>
+<TITLE>清單方塊的使用範例</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+<FONT SIZE = 5 COLOR = blue>清單方塊的使用範例</FONT>
+</CENTER>
+<HR>
+<P></P>	
+<!-- 下面的表單將以Post方法, 將資料傳遞給List.jsp檔 -->
+<FORM action="List.jsp" method=post name=FORM1>
+<P>姓名 : <INPUT type=text name=tbxName></P>
+我要訂購<BR>
+<!--供使用者選取書籍的單選型清單方塊-->
+<SELECT name=lbxBook size=5>
+	<OPTION value = "A9073" selected>Access 2003徹底研究</OPTION>
+	<OPTION value = "A9193" >Access 2003 程式設計</OPTION>
+	<OPTION value = "A0053" >Access 2003 網路應用</OPTION>
+	<OPTION value = "P3237" >Visual C++ .NET 入門進階</OPTION>
+	<OPTION value = "P3207" >精通視窗程式設計</OPTION>
+</SELECT>
+<BR>
+<INPUT type="submit" value="送出" name=submit1>
+<INPUT type="reset" value="清除" name=reset1>
+</FORM>
+
+</BODY>
+</HTML>

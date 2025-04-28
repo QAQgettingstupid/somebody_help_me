@@ -1,0 +1,27 @@
+<HTML>
+<HEAD>
+<TITLE>群組核取方塊的使用</TITLE>
+</HEAD>
+<BODY>
+<CENTER>
+<FONT SIZE = 5 COLOR = blue>群組核取方塊的使用</FONT>
+</CENTER>
+<HR>
+<P></P>
+<!-- 下面的表單將以Get方法, 將資料傳遞給Check.jsp檔 -->
+<FORM action="CheckGroup.jsp" method=get name=FORM1>
+	<P>如果參加國外旅遊您想到那些國家玩呢?</P>
+	<P>
+	<!--供選取地點的群組核取方塊-->
+	<INPUT type="checkbox" name=chkbx value="日本">日本
+	<INPUT type="checkbox" name=chkbx value="美國">美國
+	<INPUT type="checkbox" name=chkbx value="加拿大">加拿大
+	<INPUT type="checkbox" name=chkbx value="韓國">韓國
+	<INPUT type="checkbox" name=chkbx value="澳洲">澳洲
+	</P>
+	<INPUT type="submit" value="送出" name=submit1>
+	<INPUT type="reset" value="清除" name=reset1>
+</FORM>
+
+</BODY>
+</HTML>
