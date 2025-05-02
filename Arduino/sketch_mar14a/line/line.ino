@@ -6,18 +6,18 @@ const byte RIGHT1 = 7; //IN3
 const byte RIGHT2 = 6; //IN4
 const byte RIGHT_PWM = 5;
 //設定PWM輸出值(代表的是車子的速度)
-byte rightspeed = 110;
-byte leftspeed =110;
-byte motorspeed = 50;
+byte rightspeed = 120;
+byte leftspeed =120;
+byte motorspeed = 90;
 
 void backward(){
   digitalWrite(LEFT1, HIGH);
   digitalWrite(LEFT2, LOW);
-  analogWrite(LEFT_PWM, leftspeed);
+  analogWrite(LEFT_PWM, leftspeed-30);
   //右輪·因在小車上馬達安装方向左右兩個是相
   digitalWrite(RIGHT1, LOW);
   digitalWrite (RIGHT2, HIGH);
-  analogWrite(RIGHT_PWM, rightspeed);
+  analogWrite(RIGHT_PWM, rightspeed-30);
 }
 
 void forward(){ //
@@ -35,6 +35,14 @@ void turnleft(){//左轉
   analogWrite(RIGHT_PWM, motorspeed);
   digitalWrite(RIGHT1, HIGH);
   digitalWrite (RIGHT2, LOW);
+
+}
+void bigturnleft(){//大左轉
+  //左輪不動,右輪動(速度為0)
+  analogWrite(LEFT_PWM, 0);
+  analogWrite(RIGHT_PWM, motorspeed+20);
+  digitalWrite(RIGHT1, HIGH);
+  digitalWrite (RIGHT2, LOW);
 }
 
 void turnright(){//右轉
@@ -45,6 +53,13 @@ void turnright(){//右轉
   digitalWrite(LEFT2, HIGH);
 }
 
+void bigturnright(){//大右轉
+  //右輪不動,左輪動(速度為0)
+  analogWrite(LEFT_PWM, motorspeed+20);
+  analogWrite(RIGHT_PWM, 0);
+  digitalWrite(LEFT1, LOW);
+  digitalWrite(LEFT2, HIGH);
+}
 void stopMotor() {
   analogWrite(LEFT_PWM, 0);
   analogWrite(RIGHT_PWM, 0);
@@ -69,31 +84,31 @@ void loop() {
 
   //Serial.print("right"); Serial.println(digitalRead(11));
   Serial.print("left"); Serial.println(digitalRead(12));
-  //7Serial.print("middle"); Serial.println(digitalRead(4));
+  //Serial.print("middle"); Serial.println(digitalRead(4));
 
   //0-> 非黑線 1-> 黑線
   // 空-> 101
 
-  //正直走 010
-  if((digitalRead(12)==0 && digitalRead(4)==1 && digitalRead(11)==0) || (digitalRead(12)==1 && digitalRead(4)==1 && digitalRead(11)==1)){
+  //正直走 010 111 
+  if((digitalRead(12)==0 && digitalRead(4)==1 && digitalRead(11)==0) || (digitalRead(12)==1 && digitalRead(4)==1 && digitalRead(11)==1) || (digitalRead(12)==1 && digitalRead(4)==0 && digitalRead(11)==1)){
     forward();
   }
-  //小左轉 011
+  //小右轉 011
   if(digitalRead(12)==0 && digitalRead(4)==1 && digitalRead(11)==1){
-    turnleft();
+    turnright();
   }
   //大左轉 100
   if(digitalRead(12)==1 && digitalRead(4)==0 && digitalRead(11)==0){
-    turnleft();
+    bigturnleft();
     Serial.println("here!!!!!!");
   }
-  //小右轉 110
+  //小左轉 110
   if(digitalRead(12)==1 && digitalRead(4)==1 && digitalRead(11)==0){
-    turnright();
+    turnleft();
   }
   //大右轉 001
   if(digitalRead(12)==0 && digitalRead(4)==0 && digitalRead(11)==1){
-    turnright();
+    bigturnright();
   }
   //停下 000
   if(digitalRead(12)==0 && digitalRead(4)==0 && digitalRead(11)==0){
