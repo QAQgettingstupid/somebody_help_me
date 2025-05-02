@@ -1,0 +1,1694 @@
+01-May-2025 19:14:03.878 資訊 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+01-May-2025 19:14:03.878 資訊 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+01-May-2025 19:14:03.880 資訊 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@2b62442c')
+01-May-2025 19:14:30.391 嚴重 [http-nio-8080-exec-9] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [/calculator.jsp (line: [2], column: [8]) Invalid directive] with root cause
+	org.apache.jasper.JasperException: /calculator.jsp (line: [2], column: [8]) Invalid directive
+		at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:31)
+		at org.apache.jasper.compiler.ErrorDispatcher.dispatch(ErrorDispatcher.java:268)
+		at org.apache.jasper.compiler.ErrorDispatcher.jspError(ErrorDispatcher.java:91)
+		at org.apache.jasper.compiler.Parser.parseDirective(Parser.java:488)
+		at org.apache.jasper.compiler.Parser.parseFileDirectives(Parser.java:1679)
+		at org.apache.jasper.compiler.Parser.parse(Parser.java:134)
+		at org.apache.jasper.compiler.ParserController.doParse(ParserController.java:243)
+		at org.apache.jasper.compiler.ParserController.parseDirectives(ParserController.java:126)
+		at org.apache.jasper.compiler.Compiler.generateJava(Compiler.java:189)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:366)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+01-May-2025 19:26:26.797 資訊 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+01-May-2025 19:26:26.797 資訊 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+01-May-2025 19:26:26.798 資訊 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@27a5328c')
+01-May-2025 19:26:33.508 嚴重 [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [/calculator.jsp (line: [2], column: [8]) Invalid directive] with root cause
+	org.apache.jasper.JasperException: /calculator.jsp (line: [2], column: [8]) Invalid directive
+		at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:31)
+		at org.apache.jasper.compiler.ErrorDispatcher.dispatch(ErrorDispatcher.java:268)
+		at org.apache.jasper.compiler.ErrorDispatcher.jspError(ErrorDispatcher.java:91)
+		at org.apache.jasper.compiler.Parser.parseDirective(Parser.java:488)
+		at org.apache.jasper.compiler.Parser.parseFileDirectives(Parser.java:1679)
+		at org.apache.jasper.compiler.Parser.parse(Parser.java:134)
+		at org.apache.jasper.compiler.ParserController.doParse(ParserController.java:243)
+		at org.apache.jasper.compiler.ParserController.parseDirectives(ParserController.java:126)
+		at org.apache.jasper.compiler.Compiler.generateJava(Compiler.java:189)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:366)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+01-May-2025 19:27:11.987 嚴重 [http-nio-8080-exec-7] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [2] in the jsp file: [/calculator.jsp]
+string cannot be resolved to a type
+1: <%@ page contentType="text/html; charset=UTF-8" %>
+2:     <%! string ans="12345" %>
+3:         <HTML>
+4: 
+5:         <HEAD>
+
+
+An error occurred at line: [2] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete ClassBodyDeclarations
+1: <%@ page contentType="text/html; charset=UTF-8" %>
+2:     <%! string ans="12345" %>
+3:         <HTML>
+4: 
+5:         <HEAD>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [2] in the jsp file: [/calculator.jsp]
+string cannot be resolved to a type
+1: <%@ page contentType="text/html; charset=UTF-8" %>
+2:     <%! string ans="12345" %>
+3:         <HTML>
+4: 
+5:         <HEAD>
+
+
+An error occurred at line: [2] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete ClassBodyDeclarations
+1: <%@ page contentType="text/html; charset=UTF-8" %>
+2:     <%! string ans="12345" %>
+3:         <HTML>
+4: 
+5:         <HEAD>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+01-May-2025 19:27:51.346 嚴重 [http-nio-8080-exec-9] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [2] in the jsp file: [/calculator.jsp]
+string cannot be resolved to a type
+1: <%@ page contentType="text/html; charset=UTF-8" %>
+2:     <%! string ans="12345" %>
+3:         <HTML>
+4: 
+5:         <HEAD>
+
+
+An error occurred at line: [2] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete ClassBodyDeclarations
+1: <%@ page contentType="text/html; charset=UTF-8" %>
+2:     <%! string ans="12345" %>
+3:         <HTML>
+4: 
+5:         <HEAD>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [2] in the jsp file: [/calculator.jsp]
+string cannot be resolved to a type
+1: <%@ page contentType="text/html; charset=UTF-8" %>
+2:     <%! string ans="12345" %>
+3:         <HTML>
+4: 
+5:         <HEAD>
+
+
+An error occurred at line: [2] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete ClassBodyDeclarations
+1: <%@ page contentType="text/html; charset=UTF-8" %>
+2:     <%! string ans="12345" %>
+3:         <HTML>
+4: 
+5:         <HEAD>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+01-May-2025 19:28:18.608 嚴重 [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [2] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete ClassBodyDeclarations
+1: <%@ page contentType="text/html; charset=UTF-8" %>
+2:     <%! String ans="12345" %>
+3:         <HTML>
+4: 
+5:         <HEAD>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [2] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete ClassBodyDeclarations
+1: <%@ page contentType="text/html; charset=UTF-8" %>
+2:     <%! String ans="12345" %>
+3:         <HTML>
+4: 
+5:         <HEAD>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+01-May-2025 20:22:21.782 嚴重 [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [2] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete ClassBodyDeclarations
+1: <%@ page contentType="text/html; charset=UTF-8" %>
+2:     <%! String ans="12345" %>
+3:         <HTML>
+4: 
+5:         <HEAD>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [2] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete ClassBodyDeclarations
+1: <%@ page contentType="text/html; charset=UTF-8" %>
+2:     <%! String ans="12345" %>
+3:         <HTML>
+4: 
+5:         <HEAD>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+01-May-2025 20:24:35.283 嚴重 [http-nio-8080-exec-6] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+NULL cannot be resolved to a variable
+9:         <BODY>
+10:             <form method="post" action="calculator.jsp">
+11: 
+12:                 <% if(request.getParameterValues("bt")!=NULL) ans+=request.getParameterValues("bt"); %>
+13:                     <%--隞--%>
+14:                         <p><input type="text" value=<%=ans %> ,name="ans"></p>
+15: 
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+NULL cannot be resolved to a variable
+9:         <BODY>
+10:             <form method="post" action="calculator.jsp">
+11: 
+12:                 <% if(request.getParameterValues("bt")!=NULL) ans+=request.getParameterValues("bt"); %>
+13:                     <%--隞--%>
+14:                         <p><input type="text" value=<%=ans %> ,name="ans"></p>
+15: 
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+01-May-2025 20:26:00.814 嚴重 [http-nio-8080-exec-7] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+The method getParameterValue(String) is undefined for the type HttpServletRequest
+9:         <BODY>
+10:             <form method="post" action="calculator.jsp">
+11: 
+12:                 <% if(request.getParameterValue("bt")!=NULL) ans+=request.getParameterValue("bt"); %>
+13:                     <%--隞--%>
+14:                         <p><input type="text" value=<%=ans %> ,name="ans"></p>
+15: 
+
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+NULL cannot be resolved to a variable
+9:         <BODY>
+10:             <form method="post" action="calculator.jsp">
+11: 
+12:                 <% if(request.getParameterValue("bt")!=NULL) ans+=request.getParameterValue("bt"); %>
+13:                     <%--隞--%>
+14:                         <p><input type="text" value=<%=ans %> ,name="ans"></p>
+15: 
+
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+The method getParameterValue(String) is undefined for the type HttpServletRequest
+9:         <BODY>
+10:             <form method="post" action="calculator.jsp">
+11: 
+12:                 <% if(request.getParameterValue("bt")!=NULL) ans+=request.getParameterValue("bt"); %>
+13:                     <%--隞--%>
+14:                         <p><input type="text" value=<%=ans %> ,name="ans"></p>
+15: 
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+The method getParameterValue(String) is undefined for the type HttpServletRequest
+9:         <BODY>
+10:             <form method="post" action="calculator.jsp">
+11: 
+12:                 <% if(request.getParameterValue("bt")!=NULL) ans+=request.getParameterValue("bt"); %>
+13:                     <%--隞--%>
+14:                         <p><input type="text" value=<%=ans %> ,name="ans"></p>
+15: 
+
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+NULL cannot be resolved to a variable
+9:         <BODY>
+10:             <form method="post" action="calculator.jsp">
+11: 
+12:                 <% if(request.getParameterValue("bt")!=NULL) ans+=request.getParameterValue("bt"); %>
+13:                     <%--隞--%>
+14:                         <p><input type="text" value=<%=ans %> ,name="ans"></p>
+15: 
+
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+The method getParameterValue(String) is undefined for the type HttpServletRequest
+9:         <BODY>
+10:             <form method="post" action="calculator.jsp">
+11: 
+12:                 <% if(request.getParameterValue("bt")!=NULL) ans+=request.getParameterValue("bt"); %>
+13:                     <%--隞--%>
+14:                         <p><input type="text" value=<%=ans %> ,name="ans"></p>
+15: 
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+01-May-2025 20:26:44.232 嚴重 [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+The method getParameterValue(String) is undefined for the type HttpServletRequest
+9:         <BODY>
+10:             <form method="post" action="calculator.jsp">
+11: 
+12:                 <% if(request.getParameterValue("bt")!=NULL) ans+=request.getParameterValue("bt"); %>
+13:                     <%--隞--%>
+14:                         <p><input type="text" value=<%=ans %> ,name="ans"></p>
+15: 
+
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+NULL cannot be resolved to a variable
+9:         <BODY>
+10:             <form method="post" action="calculator.jsp">
+11: 
+12:                 <% if(request.getParameterValue("bt")!=NULL) ans+=request.getParameterValue("bt"); %>
+13:                     <%--隞--%>
+14:                         <p><input type="text" value=<%=ans %> ,name="ans"></p>
+15: 
+
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+The method getParameterValue(String) is undefined for the type HttpServletRequest
+9:         <BODY>
+10:             <form method="post" action="calculator.jsp">
+11: 
+12:                 <% if(request.getParameterValue("bt")!=NULL) ans+=request.getParameterValue("bt"); %>
+13:                     <%--隞--%>
+14:                         <p><input type="text" value=<%=ans %> ,name="ans"></p>
+15: 
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+The method getParameterValue(String) is undefined for the type HttpServletRequest
+9:         <BODY>
+10:             <form method="post" action="calculator.jsp">
+11: 
+12:                 <% if(request.getParameterValue("bt")!=NULL) ans+=request.getParameterValue("bt"); %>
+13:                     <%--隞--%>
+14:                         <p><input type="text" value=<%=ans %> ,name="ans"></p>
+15: 
+
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+NULL cannot be resolved to a variable
+9:         <BODY>
+10:             <form method="post" action="calculator.jsp">
+11: 
+12:                 <% if(request.getParameterValue("bt")!=NULL) ans+=request.getParameterValue("bt"); %>
+13:                     <%--隞--%>
+14:                         <p><input type="text" value=<%=ans %> ,name="ans"></p>
+15: 
+
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+The method getParameterValue(String) is undefined for the type HttpServletRequest
+9:         <BODY>
+10:             <form method="post" action="calculator.jsp">
+11: 
+12:                 <% if(request.getParameterValue("bt")!=NULL) ans+=request.getParameterValue("bt"); %>
+13:                     <%--隞--%>
+14:                         <p><input type="text" value=<%=ans %> ,name="ans"></p>
+15: 
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+01-May-2025 20:27:00.446 嚴重 [http-nio-8080-exec-10] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+The method getParameterValue(String) is undefined for the type HttpServletRequest
+9:         <BODY>
+10:             <form method="post" action="calculator.jsp">
+11: 
+12:                 <% if(request.getParameterValue("bt")!= null) ans+=request.getParameterValue("bt"); %>
+13:                     <%--隞--%>
+14:                         <p><input type="text" value=<%=ans %> ,name="ans"></p>
+15: 
+
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+The method getParameterValue(String) is undefined for the type HttpServletRequest
+9:         <BODY>
+10:             <form method="post" action="calculator.jsp">
+11: 
+12:                 <% if(request.getParameterValue("bt")!= null) ans+=request.getParameterValue("bt"); %>
+13:                     <%--隞--%>
+14:                         <p><input type="text" value=<%=ans %> ,name="ans"></p>
+15: 
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+The method getParameterValue(String) is undefined for the type HttpServletRequest
+9:         <BODY>
+10:             <form method="post" action="calculator.jsp">
+11: 
+12:                 <% if(request.getParameterValue("bt")!= null) ans+=request.getParameterValue("bt"); %>
+13:                     <%--隞--%>
+14:                         <p><input type="text" value=<%=ans %> ,name="ans"></p>
+15: 
+
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+The method getParameterValue(String) is undefined for the type HttpServletRequest
+9:         <BODY>
+10:             <form method="post" action="calculator.jsp">
+11: 
+12:                 <% if(request.getParameterValue("bt")!= null) ans+=request.getParameterValue("bt"); %>
+13:                     <%--隞--%>
+14:                         <p><input type="text" value=<%=ans %> ,name="ans"></p>
+15: 
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+01-May-2025 20:34:50.350 嚴重 [http-nio-8080-exec-7] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+bt cannot be resolved to a variable
+10:             <BODY>
+11:                 <form method="post" action="calculator.jsp">
+12: 
+13:                     bt= <%= bt %>
+14:                         <%--隞--%>
+15:                             <p><input type="text" value=<%=ans %> ,name="ans"></p>
+16: 
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+bt cannot be resolved to a variable
+10:             <BODY>
+11:                 <form method="post" action="calculator.jsp">
+12: 
+13:                     bt= <%= bt %>
+14:                         <%--隞--%>
+15:                             <p><input type="text" value=<%=ans %> ,name="ans"></p>
+16: 
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+01-May-2025 20:43:12.662 嚴重 [http-nio-8080-exec-10] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [2] in the jsp file: [/calculator.jsp]
+Syntax error on token "<", invalid Expression
+1: <%@ page contentType="text/html; charset=UTF-8" %>
+2:     <% String ans=request.getParameter("text"); text= <%= ans %> if(ans==null) ans="" ;%>
+3:         <% String button=request.getParameter("bt"); if(button!=null) ans+=button; %>
+4:             <HTML>
+5: 
+
+
+An error occurred at line: [2] in the jsp file: [/calculator.jsp]
+Syntax error, insert ":: IdentifierOrNew" to complete ReferenceExpression
+1: <%@ page contentType="text/html; charset=UTF-8" %>
+2:     <% String ans=request.getParameter("text"); text= <%= ans %> if(ans==null) ans="" ;%>
+3:         <% String button=request.getParameter("bt"); if(button!=null) ans+=button; %>
+4:             <HTML>
+5: 
+
+
+An error occurred at line: [2] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete Statement
+1: <%@ page contentType="text/html; charset=UTF-8" %>
+2:     <% String ans=request.getParameter("text"); text= <%= ans %> if(ans==null) ans="" ;%>
+3:         <% String button=request.getParameter("bt"); if(button!=null) ans+=button; %>
+4:             <HTML>
+5: 
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [2] in the jsp file: [/calculator.jsp]
+Syntax error on token "<", invalid Expression
+1: <%@ page contentType="text/html; charset=UTF-8" %>
+2:     <% String ans=request.getParameter("text"); text= <%= ans %> if(ans==null) ans="" ;%>
+3:         <% String button=request.getParameter("bt"); if(button!=null) ans+=button; %>
+4:             <HTML>
+5: 
+
+
+An error occurred at line: [2] in the jsp file: [/calculator.jsp]
+Syntax error, insert ":: IdentifierOrNew" to complete ReferenceExpression
+1: <%@ page contentType="text/html; charset=UTF-8" %>
+2:     <% String ans=request.getParameter("text"); text= <%= ans %> if(ans==null) ans="" ;%>
+3:         <% String button=request.getParameter("bt"); if(button!=null) ans+=button; %>
+4:             <HTML>
+5: 
+
+
+An error occurred at line: [2] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete Statement
+1: <%@ page contentType="text/html; charset=UTF-8" %>
+2:     <% String ans=request.getParameter("text"); text= <%= ans %> if(ans==null) ans="" ;%>
+3:         <% String button=request.getParameter("bt"); if(button!=null) ans+=button; %>
+4:             <HTML>
+5: 
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+01-May-2025 20:52:36.503 嚴重 [http-nio-8080-exec-10] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [4] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete Statement
+1: <%@ page contentType="text/html; charset=UTF-8" %>
+2:     <% String ans=request.getParameter("text"); if(ans==null) ans="" ;
+3:     String button=request.getParameter("bt"); if(button!=null) ans+=button;
+4:     if(request.getParameter("clear")!=null) ans=""%>
+5:             <HTML>
+6: 
+7:             <HEAD>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [4] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete Statement
+1: <%@ page contentType="text/html; charset=UTF-8" %>
+2:     <% String ans=request.getParameter("text"); if(ans==null) ans="" ;
+3:     String button=request.getParameter("bt"); if(button!=null) ans+=button;
+4:     if(request.getParameter("clear")!=null) ans=""%>
+5:             <HTML>
+6: 
+7:             <HEAD>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+01-May-2025 21:00:27.475 嚴重 [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [/calculator.jsp (line: [2], column: [11]) equal symbol expected] with root cause
+	org.apache.jasper.JasperException: /calculator.jsp (line: [2], column: [11]) equal symbol expected
+		at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:31)
+		at org.apache.jasper.compiler.ErrorDispatcher.dispatch(ErrorDispatcher.java:268)
+		at org.apache.jasper.compiler.ErrorDispatcher.jspError(ErrorDispatcher.java:91)
+		at org.apache.jasper.compiler.Parser.parseAttribute(Parser.java:222)
+		at org.apache.jasper.compiler.Parser.parseAttributes(Parser.java:161)
+		at org.apache.jasper.compiler.Parser.parseAttributes(Parser.java:187)
+		at org.apache.jasper.compiler.ParserController.getPageEncodingForJspSyntax(ParserController.java:434)
+		at org.apache.jasper.compiler.ParserController.determineSyntaxAndEncoding(ParserController.java:380)
+		at org.apache.jasper.compiler.ParserController.doParse(ParserController.java:208)
+		at org.apache.jasper.compiler.ParserController.parseDirectives(ParserController.java:126)
+		at org.apache.jasper.compiler.Compiler.generateJava(Compiler.java:189)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:366)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+01-May-2025 21:01:47.014 嚴重 [http-nio-8080-exec-3] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [/calculator.jsp (line: [1], column: [2]) Unterminated [&lt;%@ page] tag] with root cause
+	org.apache.jasper.JasperException: /calculator.jsp (line: [1], column: [2]) Unterminated [&lt;%@ page] tag
+		at org.apache.jasper.compiler.DefaultErrorHandler.jspError(DefaultErrorHandler.java:31)
+		at org.apache.jasper.compiler.ErrorDispatcher.dispatch(ErrorDispatcher.java:268)
+		at org.apache.jasper.compiler.ErrorDispatcher.jspError(ErrorDispatcher.java:91)
+		at org.apache.jasper.compiler.Parser.parseDirective(Parser.java:493)
+		at org.apache.jasper.compiler.Parser.parseFileDirectives(Parser.java:1679)
+		at org.apache.jasper.compiler.Parser.parse(Parser.java:134)
+		at org.apache.jasper.compiler.ParserController.doParse(ParserController.java:243)
+		at org.apache.jasper.compiler.ParserController.parseDirectives(ParserController.java:126)
+		at org.apache.jasper.compiler.Compiler.generateJava(Compiler.java:189)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:366)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+01-May-2025 21:03:52.786 嚴重 [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Illegal modifier for the local class calculator; only abstract or final is permitted
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count)%>
+9:         <HTML>
+10: 
+11:         <HEAD>
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Syntax error on token "(", { expected
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count)%>
+9:         <HTML>
+10: 
+11:         <HEAD>
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+string cannot be resolved to a type
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count)%>
+9:         <HTML>
+10: 
+11:         <HEAD>
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Syntax error on token ")", = expected
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count)%>
+9:         <HTML>
+10: 
+11:         <HEAD>
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Syntax error, insert "Identifier (" to complete MethodHeaderName
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count)%>
+9:         <HTML>
+10: 
+11:         <HEAD>
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Syntax error, insert ")" to complete MethodDeclaration
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count)%>
+9:         <HTML>
+10: 
+11:         <HEAD>
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete MethodDeclaration
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count)%>
+9:         <HTML>
+10: 
+11:         <HEAD>
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Syntax error, insert "}" to complete ClassBody
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count)%>
+9:         <HTML>
+10: 
+11:         <HEAD>
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Syntax error, insert "AssignmentOperator Expression" to complete Expression
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count)%>
+9:         <HTML>
+10: 
+11:         <HEAD>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Illegal modifier for the local class calculator; only abstract or final is permitted
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count)%>
+9:         <HTML>
+10: 
+11:         <HEAD>
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Syntax error on token "(", { expected
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count)%>
+9:         <HTML>
+10: 
+11:         <HEAD>
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+string cannot be resolved to a type
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count)%>
+9:         <HTML>
+10: 
+11:         <HEAD>
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Syntax error on token ")", = expected
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count)%>
+9:         <HTML>
+10: 
+11:         <HEAD>
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Syntax error, insert "Identifier (" to complete MethodHeaderName
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count)%>
+9:         <HTML>
+10: 
+11:         <HEAD>
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Syntax error, insert ")" to complete MethodDeclaration
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count)%>
+9:         <HTML>
+10: 
+11:         <HEAD>
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete MethodDeclaration
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count)%>
+9:         <HTML>
+10: 
+11:         <HEAD>
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Syntax error, insert "}" to complete ClassBody
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count)%>
+9:         <HTML>
+10: 
+11:         <HEAD>
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Syntax error, insert "AssignmentOperator Expression" to complete Expression
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count)%>
+9:         <HTML>
+10: 
+11:         <HEAD>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+01-May-2025 21:04:28.661 嚴重 [http-nio-8080-exec-3] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Illegal modifier for the local class calculator; only abstract or final is permitted
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count){
+9:        
+10:     
+11:     
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Syntax error on token "(", { expected
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count){
+9:        
+10:     
+11:     
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+string cannot be resolved to a type
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count){
+9:        
+10:     
+11:     
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Syntax error on token "count", ( expected after this token
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count){
+9:        
+10:     
+11:     
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+Syntax error, insert "Identifier (" to complete MethodHeaderName
+10:     
+11:     
+12:     
+13:        }%>
+14:         <HTML>
+15: 
+16:         <HEAD>
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+Syntax error, insert ")" to complete MethodDeclaration
+10:     
+11:     
+12:     
+13:        }%>
+14:         <HTML>
+15: 
+16:         <HEAD>
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete MethodDeclaration
+10:     
+11:     
+12:     
+13:        }%>
+14:         <HTML>
+15: 
+16:         <HEAD>
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+Syntax error, insert "}" to complete ClassBody
+10:     
+11:     
+12:     
+13:        }%>
+14:         <HTML>
+15: 
+16:         <HEAD>
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+Syntax error, insert "AssignmentOperator Expression" to complete Expression
+10:     
+11:     
+12:     
+13:        }%>
+14:         <HTML>
+15: 
+16:         <HEAD>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Illegal modifier for the local class calculator; only abstract or final is permitted
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count){
+9:        
+10:     
+11:     
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Syntax error on token "(", { expected
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count){
+9:        
+10:     
+11:     
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+string cannot be resolved to a type
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count){
+9:        
+10:     
+11:     
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Syntax error on token "count", ( expected after this token
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        public class calculator(string count){
+9:        
+10:     
+11:     
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+Syntax error, insert "Identifier (" to complete MethodHeaderName
+10:     
+11:     
+12:     
+13:        }%>
+14:         <HTML>
+15: 
+16:         <HEAD>
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+Syntax error, insert ")" to complete MethodDeclaration
+10:     
+11:     
+12:     
+13:        }%>
+14:         <HTML>
+15: 
+16:         <HEAD>
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete MethodDeclaration
+10:     
+11:     
+12:     
+13:        }%>
+14:         <HTML>
+15: 
+16:         <HEAD>
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+Syntax error, insert "}" to complete ClassBody
+10:     
+11:     
+12:     
+13:        }%>
+14:         <HTML>
+15: 
+16:         <HEAD>
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+Syntax error, insert "AssignmentOperator Expression" to complete Expression
+10:     
+11:     
+12:     
+13:        }%>
+14:         <HTML>
+15: 
+16:         <HEAD>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+01-May-2025 21:38:10.672 嚴重 [http-nio-8080-exec-4] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Syntax error on token "(", { expected
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        class calculator(string count){
+9:        
+10:     
+11:     
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+string cannot be resolved to a type
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        class calculator(string count){
+9:        
+10:     
+11:     
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Syntax error on token "count", ( expected after this token
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        class calculator(string count){
+9:        
+10:     
+11:     
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+Syntax error, insert "Identifier (" to complete MethodHeaderName
+10:     
+11:     
+12:     
+13:        } %>
+14:         <HTML>
+15: 
+16:         <HEAD>
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+Syntax error, insert ")" to complete MethodDeclaration
+10:     
+11:     
+12:     
+13:        } %>
+14:         <HTML>
+15: 
+16:         <HEAD>
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete MethodDeclaration
+10:     
+11:     
+12:     
+13:        } %>
+14:         <HTML>
+15: 
+16:         <HEAD>
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+Syntax error, insert "}" to complete ClassBody
+10:     
+11:     
+12:     
+13:        } %>
+14:         <HTML>
+15: 
+16:         <HEAD>
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+Syntax error, insert "AssignmentOperator Expression" to complete Expression
+10:     
+11:     
+12:     
+13:        } %>
+14:         <HTML>
+15: 
+16:         <HEAD>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Syntax error on token "(", { expected
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        class calculator(string count){
+9:        
+10:     
+11:     
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+string cannot be resolved to a type
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        class calculator(string count){
+9:        
+10:     
+11:     
+
+
+An error occurred at line: [8] in the jsp file: [/calculator.jsp]
+Syntax error on token "count", ( expected after this token
+5:        if(request.getParameter("clear") !=null) ans="" ;
+6:        String button=request.getParameter("bt"); if(button !=null) ans +=button;
+7:        
+8:        class calculator(string count){
+9:        
+10:     
+11:     
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+Syntax error, insert "Identifier (" to complete MethodHeaderName
+10:     
+11:     
+12:     
+13:        } %>
+14:         <HTML>
+15: 
+16:         <HEAD>
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+Syntax error, insert ")" to complete MethodDeclaration
+10:     
+11:     
+12:     
+13:        } %>
+14:         <HTML>
+15: 
+16:         <HEAD>
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete MethodDeclaration
+10:     
+11:     
+12:     
+13:        } %>
+14:         <HTML>
+15: 
+16:         <HEAD>
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+Syntax error, insert "}" to complete ClassBody
+10:     
+11:     
+12:     
+13:        } %>
+14:         <HTML>
+15: 
+16:         <HEAD>
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+Syntax error, insert "AssignmentOperator Expression" to complete Expression
+10:     
+11:     
+12:     
+13:        } %>
+14:         <HTML>
+15: 
+16:         <HEAD>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
