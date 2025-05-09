@@ -1,0 +1,2987 @@
+05-May-2025 19:56:08.680 資訊 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+05-May-2025 19:56:08.681 資訊 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+05-May-2025 19:56:08.682 資訊 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@27a5328c')
+05-May-2025 20:03:10.777 嚴重 [http-nio-8080-exec-3] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [6] in the jsp file: [/calculator.jsp]
+Syntax error on tokens, delete these tokens
+3: 
+4:     <% String ans = request.getParameter("text"); 
+5:         
+6:         <%--��������--%>
+7:         if(ans == null) 
+8:             ans="";
+9: 
+
+
+An error occurred at line: [6] in the jsp file: [/calculator.jsp]
+初始化文字框 cannot be resolved to a variable
+3: 
+4:     <% String ans = request.getParameter("text"); 
+5:         
+6:         <%--��������--%>
+7:         if(ans == null) 
+8:             ans="";
+9: 
+
+
+An error occurred at line: [6] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete Statement
+3: 
+4:     <% String ans = request.getParameter("text"); 
+5:         
+6:         <%--��������--%>
+7:         if(ans == null) 
+8:             ans="";
+9: 
+
+
+An error occurred at line: [27] in the jsp file: [/calculator.jsp]
+button cannot be resolved to a variable
+24:         <BODY>
+25:             <form method="post" action="calculator.jsp">
+26: 
+27:                 bt= <%= button %>
+28:                     text= <%= ans %>
+29:                         <%--隞--%>
+30:                             <p><input type="text" value="<%=ans %>" name="text"></p>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [6] in the jsp file: [/calculator.jsp]
+Syntax error on tokens, delete these tokens
+3: 
+4:     <% String ans = request.getParameter("text"); 
+5:         
+6:         <%--��������--%>
+7:         if(ans == null) 
+8:             ans="";
+9: 
+
+
+An error occurred at line: [6] in the jsp file: [/calculator.jsp]
+初始化文字框 cannot be resolved to a variable
+3: 
+4:     <% String ans = request.getParameter("text"); 
+5:         
+6:         <%--��������--%>
+7:         if(ans == null) 
+8:             ans="";
+9: 
+
+
+An error occurred at line: [6] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete Statement
+3: 
+4:     <% String ans = request.getParameter("text"); 
+5:         
+6:         <%--��������--%>
+7:         if(ans == null) 
+8:             ans="";
+9: 
+
+
+An error occurred at line: [27] in the jsp file: [/calculator.jsp]
+button cannot be resolved to a variable
+24:         <BODY>
+25:             <form method="post" action="calculator.jsp">
+26: 
+27:                 bt= <%= button %>
+28:                     text= <%= ans %>
+29:                         <%--隞--%>
+30:                             <p><input type="text" value="<%=ans %>" name="text"></p>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+05-May-2025 20:18:56.943 嚴重 [http-nio-8080-exec-9] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [39] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+36:        //=閮��
+37:        else if(ans != null || ans != ""){
+38:         // �����撓�摮��
+39:         while (index < input.length()) {
+40:             if (changed == false
+41:                     && (input.charAt(index) == '.' || (input.charAt(index) <= '9' && input.charAt(index) >= '0'))) {
+42:                 numfront = index;
+
+
+An error occurred at line: [41] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+38:         // �����撓�摮��
+39:         while (index < input.length()) {
+40:             if (changed == false
+41:                     && (input.charAt(index) == '.' || (input.charAt(index) <= '9' && input.charAt(index) >= '0'))) {
+42:                 numfront = index;
+43:                 changed = true;
+44:             } else if (input.charAt(index) == '+' || input.charAt(index) == '-' || input.charAt(index) == '*'
+
+
+An error occurred at line: [41] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+38:         // �����撓�摮��
+39:         while (index < input.length()) {
+40:             if (changed == false
+41:                     && (input.charAt(index) == '.' || (input.charAt(index) <= '9' && input.charAt(index) >= '0'))) {
+42:                 numfront = index;
+43:                 changed = true;
+44:             } else if (input.charAt(index) == '+' || input.charAt(index) == '-' || input.charAt(index) == '*'
+
+
+An error occurred at line: [41] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+38:         // �����撓�摮��
+39:         while (index < input.length()) {
+40:             if (changed == false
+41:                     && (input.charAt(index) == '.' || (input.charAt(index) <= '9' && input.charAt(index) >= '0'))) {
+42:                 numfront = index;
+43:                 changed = true;
+44:             } else if (input.charAt(index) == '+' || input.charAt(index) == '-' || input.charAt(index) == '*'
+
+
+An error occurred at line: [44] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+41:                     && (input.charAt(index) == '.' || (input.charAt(index) <= '9' && input.charAt(index) >= '0'))) {
+42:                 numfront = index;
+43:                 changed = true;
+44:             } else if (input.charAt(index) == '+' || input.charAt(index) == '-' || input.charAt(index) == '*'
+45:                     || input.charAt(index) == '/' || input.charAt(index) == '(' || input.charAt(index) == ')') {
+46: 
+47:                 // ���摮�
+
+
+An error occurred at line: [44] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+41:                     && (input.charAt(index) == '.' || (input.charAt(index) <= '9' && input.charAt(index) >= '0'))) {
+42:                 numfront = index;
+43:                 changed = true;
+44:             } else if (input.charAt(index) == '+' || input.charAt(index) == '-' || input.charAt(index) == '*'
+45:                     || input.charAt(index) == '/' || input.charAt(index) == '(' || input.charAt(index) == ')') {
+46: 
+47:                 // ���摮�
+
+
+An error occurred at line: [44] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+41:                     && (input.charAt(index) == '.' || (input.charAt(index) <= '9' && input.charAt(index) >= '0'))) {
+42:                 numfront = index;
+43:                 changed = true;
+44:             } else if (input.charAt(index) == '+' || input.charAt(index) == '-' || input.charAt(index) == '*'
+45:                     || input.charAt(index) == '/' || input.charAt(index) == '(' || input.charAt(index) == ')') {
+46: 
+47:                 // ���摮�
+
+
+An error occurred at line: [45] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+42:                 numfront = index;
+43:                 changed = true;
+44:             } else if (input.charAt(index) == '+' || input.charAt(index) == '-' || input.charAt(index) == '*'
+45:                     || input.charAt(index) == '/' || input.charAt(index) == '(' || input.charAt(index) == ')') {
+46: 
+47:                 // ���摮�
+48:                 if (changed) {
+
+
+An error occurred at line: [45] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+42:                 numfront = index;
+43:                 changed = true;
+44:             } else if (input.charAt(index) == '+' || input.charAt(index) == '-' || input.charAt(index) == '*'
+45:                     || input.charAt(index) == '/' || input.charAt(index) == '(' || input.charAt(index) == ')') {
+46: 
+47:                 // ���摮�
+48:                 if (changed) {
+
+
+An error occurred at line: [45] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+42:                 numfront = index;
+43:                 changed = true;
+44:             } else if (input.charAt(index) == '+' || input.charAt(index) == '-' || input.charAt(index) == '*'
+45:                     || input.charAt(index) == '/' || input.charAt(index) == '(' || input.charAt(index) == ')') {
+46: 
+47:                 // ���摮�
+48:                 if (changed) {
+
+
+An error occurred at line: [49] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+46: 
+47:                 // ���摮�
+48:                 if (changed) {
+49:                     temp_num = Double.parseDouble(input.substring(numfront, index));
+50:                     if (negative) {
+51:                         operand.push(temp_num * (-1));
+52:                         negative = false;
+
+
+An error occurred at line: [59] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+56:                 }
+57: 
+58:                 // 鞎��
+59:                 if (input.charAt(index) == '-'
+60:                         && (index == 0
+61:                                 || (index - 1 >= 0
+62:                                         && (input.charAt(index - 1) == '+' || input.charAt(index - 1) == '('
+
+
+An error occurred at line: [62] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+59:                 if (input.charAt(index) == '-'
+60:                         && (index == 0
+61:                                 || (index - 1 >= 0
+62:                                         && (input.charAt(index - 1) == '+' || input.charAt(index - 1) == '('
+63:                                                 || input.charAt(index - 1) == '*' || input.charAt(index - 1) == '-'
+64:                                                 || input.charAt(index - 1) == '/')))) {
+65:                     negative = true;
+
+
+An error occurred at line: [62] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+59:                 if (input.charAt(index) == '-'
+60:                         && (index == 0
+61:                                 || (index - 1 >= 0
+62:                                         && (input.charAt(index - 1) == '+' || input.charAt(index - 1) == '('
+63:                                                 || input.charAt(index - 1) == '*' || input.charAt(index - 1) == '-'
+64:                                                 || input.charAt(index - 1) == '/')))) {
+65:                     negative = true;
+
+
+An error occurred at line: [63] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+60:                         && (index == 0
+61:                                 || (index - 1 >= 0
+62:                                         && (input.charAt(index - 1) == '+' || input.charAt(index - 1) == '('
+63:                                                 || input.charAt(index - 1) == '*' || input.charAt(index - 1) == '-'
+64:                                                 || input.charAt(index - 1) == '/')))) {
+65:                     negative = true;
+66:                     index++;
+
+
+An error occurred at line: [63] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+60:                         && (index == 0
+61:                                 || (index - 1 >= 0
+62:                                         && (input.charAt(index - 1) == '+' || input.charAt(index - 1) == '('
+63:                                                 || input.charAt(index - 1) == '*' || input.charAt(index - 1) == '-'
+64:                                                 || input.charAt(index - 1) == '/')))) {
+65:                     negative = true;
+66:                     index++;
+
+
+An error occurred at line: [64] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+61:                                 || (index - 1 >= 0
+62:                                         && (input.charAt(index - 1) == '+' || input.charAt(index - 1) == '('
+63:                                                 || input.charAt(index - 1) == '*' || input.charAt(index - 1) == '-'
+64:                                                 || input.charAt(index - 1) == '/')))) {
+65:                     negative = true;
+66:                     index++;
+67:                     continue;
+
+
+An error occurred at line: [71] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+68:                 }
+69: 
+70:                 // 撌行撘�(7+23)*(3-1)/(3+7)
+71:                 if (input.charAt(index) == '(')
+72:                     operator.push(input.charAt(index));
+73: 
+74:                 // ��撘�
+
+
+An error occurred at line: [72] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+69: 
+70:                 // 撌行撘�(7+23)*(3-1)/(3+7)
+71:                 if (input.charAt(index) == '(')
+72:                     operator.push(input.charAt(index));
+73: 
+74:                 // ��撘�
+75:                 else if (input.charAt(index) == ')') {
+
+
+An error occurred at line: [75] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+72:                     operator.push(input.charAt(index));
+73: 
+74:                 // ��撘�
+75:                 else if (input.charAt(index) == ')') {
+76: 
+77:                     // 撠perator鋆∪'('銋������脰����
+78:                     while (operator.peek() != '(') {
+
+
+An error occurred at line: [79] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+76: 
+77:                     // 撠perator鋆∪'('銋������脰����
+78:                     while (operator.peek() != '(') {
+79:                         operand.push(count(operand, operator.peek()));
+80:                         operator.pop();
+81:                     }
+82:                     operator.pop();
+
+
+An error occurred at line: [89] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+86: 
+87:                     // 頛詨�����蝑stack top,��op�脰����
+88:                     while (!operator.empty()
+89:                             && priority.get(operator.peek()) >= priority.get(input.charAt(index))) {
+90: 
+91:                         operand.push(count(operand, operator.peek()));
+92:                         operator.pop();
+
+
+An error occurred at line: [91] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+88:                     while (!operator.empty()
+89:                             && priority.get(operator.peek()) >= priority.get(input.charAt(index))) {
+90: 
+91:                         operand.push(count(operand, operator.peek()));
+92:                         operator.pop();
+93:                     }
+94:                     operator.push(input.charAt(index));
+
+
+An error occurred at line: [94] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+91:                         operand.push(count(operand, operator.peek()));
+92:                         operator.pop();
+93:                     }
+94:                     operator.push(input.charAt(index));
+95:                 }
+96:             }
+97:             index++;
+
+
+An error occurred at line: [100] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+97:             index++;
+98:         }
+99:         if (changed) {
+100:             temp_num = Double.parseDouble(input.substring(numfront, index));
+101:             if (negative) {
+102:                 operand.push(temp_num * (-1));
+103:                 negative = false;
+
+
+An error occurred at line: [110] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+107: 
+108:         // 瑼Ｘ�������������
+109:         while (!operator.empty()) {
+110:             operand.push(count(operand, operator.peek()));
+111:             operator.pop();
+112:         }
+113:         input = Double.toString(operand.peek());
+
+
+An error occurred at line: [113] in the jsp file: [/calculator.jsp]
+input cannot be resolved to a variable
+110:             operand.push(count(operand, operator.peek()));
+111:             operator.pop();
+112:         }
+113:         input = Double.toString(operand.peek());
+114:         text.setText(Double.toString(operand.peek()));
+115:        }
+116:        %>
+
+
+An error occurred at line: [114] in the jsp file: [/calculator.jsp]
+text cannot be resolved
+111:             operator.pop();
+112:         }
+113:         input = Double.toString(operand.peek());
+114:         text.setText(Double.toString(operand.peek()));
+115:        }
+116:        %>
+117:         <HTML>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [39] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+36:        //=閮��
+37:        else if(ans != null || ans != ""){
+38:         // �����撓�摮��
+39:         while (index < input.length()) {
+40:             if (changed == false
+41:                     && (input.charAt(index) == '.' || (input.charAt(index) <= '9' && input.charAt(index) >= '0'))) {
+42:                 numfront = index;
+
+
+An error occurred at line: [41] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+38:         // �����撓�摮��
+39:         while (index < input.length()) {
+40:             if (changed == false
+41:                     && (input.charAt(index) == '.' || (input.charAt(index) <= '9' && input.charAt(index) >= '0'))) {
+42:                 numfront = index;
+43:                 changed = true;
+44:             } else if (input.charAt(index) == '+' || input.charAt(index) == '-' || input.charAt(index) == '*'
+
+
+An error occurred at line: [41] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+38:         // �����撓�摮��
+39:         while (index < input.length()) {
+40:             if (changed == false
+41:                     && (input.charAt(index) == '.' || (input.charAt(index) <= '9' && input.charAt(index) >= '0'))) {
+42:                 numfront = index;
+43:                 changed = true;
+44:             } else if (input.charAt(index) == '+' || input.charAt(index) == '-' || input.charAt(index) == '*'
+
+
+An error occurred at line: [41] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+38:         // �����撓�摮��
+39:         while (index < input.length()) {
+40:             if (changed == false
+41:                     && (input.charAt(index) == '.' || (input.charAt(index) <= '9' && input.charAt(index) >= '0'))) {
+42:                 numfront = index;
+43:                 changed = true;
+44:             } else if (input.charAt(index) == '+' || input.charAt(index) == '-' || input.charAt(index) == '*'
+
+
+An error occurred at line: [44] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+41:                     && (input.charAt(index) == '.' || (input.charAt(index) <= '9' && input.charAt(index) >= '0'))) {
+42:                 numfront = index;
+43:                 changed = true;
+44:             } else if (input.charAt(index) == '+' || input.charAt(index) == '-' || input.charAt(index) == '*'
+45:                     || input.charAt(index) == '/' || input.charAt(index) == '(' || input.charAt(index) == ')') {
+46: 
+47:                 // ���摮�
+
+
+An error occurred at line: [44] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+41:                     && (input.charAt(index) == '.' || (input.charAt(index) <= '9' && input.charAt(index) >= '0'))) {
+42:                 numfront = index;
+43:                 changed = true;
+44:             } else if (input.charAt(index) == '+' || input.charAt(index) == '-' || input.charAt(index) == '*'
+45:                     || input.charAt(index) == '/' || input.charAt(index) == '(' || input.charAt(index) == ')') {
+46: 
+47:                 // ���摮�
+
+
+An error occurred at line: [44] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+41:                     && (input.charAt(index) == '.' || (input.charAt(index) <= '9' && input.charAt(index) >= '0'))) {
+42:                 numfront = index;
+43:                 changed = true;
+44:             } else if (input.charAt(index) == '+' || input.charAt(index) == '-' || input.charAt(index) == '*'
+45:                     || input.charAt(index) == '/' || input.charAt(index) == '(' || input.charAt(index) == ')') {
+46: 
+47:                 // ���摮�
+
+
+An error occurred at line: [45] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+42:                 numfront = index;
+43:                 changed = true;
+44:             } else if (input.charAt(index) == '+' || input.charAt(index) == '-' || input.charAt(index) == '*'
+45:                     || input.charAt(index) == '/' || input.charAt(index) == '(' || input.charAt(index) == ')') {
+46: 
+47:                 // ���摮�
+48:                 if (changed) {
+
+
+An error occurred at line: [45] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+42:                 numfront = index;
+43:                 changed = true;
+44:             } else if (input.charAt(index) == '+' || input.charAt(index) == '-' || input.charAt(index) == '*'
+45:                     || input.charAt(index) == '/' || input.charAt(index) == '(' || input.charAt(index) == ')') {
+46: 
+47:                 // ���摮�
+48:                 if (changed) {
+
+
+An error occurred at line: [45] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+42:                 numfront = index;
+43:                 changed = true;
+44:             } else if (input.charAt(index) == '+' || input.charAt(index) == '-' || input.charAt(index) == '*'
+45:                     || input.charAt(index) == '/' || input.charAt(index) == '(' || input.charAt(index) == ')') {
+46: 
+47:                 // ���摮�
+48:                 if (changed) {
+
+
+An error occurred at line: [49] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+46: 
+47:                 // ���摮�
+48:                 if (changed) {
+49:                     temp_num = Double.parseDouble(input.substring(numfront, index));
+50:                     if (negative) {
+51:                         operand.push(temp_num * (-1));
+52:                         negative = false;
+
+
+An error occurred at line: [59] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+56:                 }
+57: 
+58:                 // 鞎��
+59:                 if (input.charAt(index) == '-'
+60:                         && (index == 0
+61:                                 || (index - 1 >= 0
+62:                                         && (input.charAt(index - 1) == '+' || input.charAt(index - 1) == '('
+
+
+An error occurred at line: [62] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+59:                 if (input.charAt(index) == '-'
+60:                         && (index == 0
+61:                                 || (index - 1 >= 0
+62:                                         && (input.charAt(index - 1) == '+' || input.charAt(index - 1) == '('
+63:                                                 || input.charAt(index - 1) == '*' || input.charAt(index - 1) == '-'
+64:                                                 || input.charAt(index - 1) == '/')))) {
+65:                     negative = true;
+
+
+An error occurred at line: [62] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+59:                 if (input.charAt(index) == '-'
+60:                         && (index == 0
+61:                                 || (index - 1 >= 0
+62:                                         && (input.charAt(index - 1) == '+' || input.charAt(index - 1) == '('
+63:                                                 || input.charAt(index - 1) == '*' || input.charAt(index - 1) == '-'
+64:                                                 || input.charAt(index - 1) == '/')))) {
+65:                     negative = true;
+
+
+An error occurred at line: [63] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+60:                         && (index == 0
+61:                                 || (index - 1 >= 0
+62:                                         && (input.charAt(index - 1) == '+' || input.charAt(index - 1) == '('
+63:                                                 || input.charAt(index - 1) == '*' || input.charAt(index - 1) == '-'
+64:                                                 || input.charAt(index - 1) == '/')))) {
+65:                     negative = true;
+66:                     index++;
+
+
+An error occurred at line: [63] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+60:                         && (index == 0
+61:                                 || (index - 1 >= 0
+62:                                         && (input.charAt(index - 1) == '+' || input.charAt(index - 1) == '('
+63:                                                 || input.charAt(index - 1) == '*' || input.charAt(index - 1) == '-'
+64:                                                 || input.charAt(index - 1) == '/')))) {
+65:                     negative = true;
+66:                     index++;
+
+
+An error occurred at line: [64] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+61:                                 || (index - 1 >= 0
+62:                                         && (input.charAt(index - 1) == '+' || input.charAt(index - 1) == '('
+63:                                                 || input.charAt(index - 1) == '*' || input.charAt(index - 1) == '-'
+64:                                                 || input.charAt(index - 1) == '/')))) {
+65:                     negative = true;
+66:                     index++;
+67:                     continue;
+
+
+An error occurred at line: [71] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+68:                 }
+69: 
+70:                 // 撌行撘�(7+23)*(3-1)/(3+7)
+71:                 if (input.charAt(index) == '(')
+72:                     operator.push(input.charAt(index));
+73: 
+74:                 // ��撘�
+
+
+An error occurred at line: [72] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+69: 
+70:                 // 撌行撘�(7+23)*(3-1)/(3+7)
+71:                 if (input.charAt(index) == '(')
+72:                     operator.push(input.charAt(index));
+73: 
+74:                 // ��撘�
+75:                 else if (input.charAt(index) == ')') {
+
+
+An error occurred at line: [75] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+72:                     operator.push(input.charAt(index));
+73: 
+74:                 // ��撘�
+75:                 else if (input.charAt(index) == ')') {
+76: 
+77:                     // 撠perator鋆∪'('銋������脰����
+78:                     while (operator.peek() != '(') {
+
+
+An error occurred at line: [79] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+76: 
+77:                     // 撠perator鋆∪'('銋������脰����
+78:                     while (operator.peek() != '(') {
+79:                         operand.push(count(operand, operator.peek()));
+80:                         operator.pop();
+81:                     }
+82:                     operator.pop();
+
+
+An error occurred at line: [89] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+86: 
+87:                     // 頛詨�����蝑stack top,��op�脰����
+88:                     while (!operator.empty()
+89:                             && priority.get(operator.peek()) >= priority.get(input.charAt(index))) {
+90: 
+91:                         operand.push(count(operand, operator.peek()));
+92:                         operator.pop();
+
+
+An error occurred at line: [91] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+88:                     while (!operator.empty()
+89:                             && priority.get(operator.peek()) >= priority.get(input.charAt(index))) {
+90: 
+91:                         operand.push(count(operand, operator.peek()));
+92:                         operator.pop();
+93:                     }
+94:                     operator.push(input.charAt(index));
+
+
+An error occurred at line: [94] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+91:                         operand.push(count(operand, operator.peek()));
+92:                         operator.pop();
+93:                     }
+94:                     operator.push(input.charAt(index));
+95:                 }
+96:             }
+97:             index++;
+
+
+An error occurred at line: [100] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+97:             index++;
+98:         }
+99:         if (changed) {
+100:             temp_num = Double.parseDouble(input.substring(numfront, index));
+101:             if (negative) {
+102:                 operand.push(temp_num * (-1));
+103:                 negative = false;
+
+
+An error occurred at line: [110] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+107: 
+108:         // 瑼Ｘ�������������
+109:         while (!operator.empty()) {
+110:             operand.push(count(operand, operator.peek()));
+111:             operator.pop();
+112:         }
+113:         input = Double.toString(operand.peek());
+
+
+An error occurred at line: [113] in the jsp file: [/calculator.jsp]
+input cannot be resolved to a variable
+110:             operand.push(count(operand, operator.peek()));
+111:             operator.pop();
+112:         }
+113:         input = Double.toString(operand.peek());
+114:         text.setText(Double.toString(operand.peek()));
+115:        }
+116:        %>
+
+
+An error occurred at line: [114] in the jsp file: [/calculator.jsp]
+text cannot be resolved
+111:             operator.pop();
+112:         }
+113:         input = Double.toString(operand.peek());
+114:         text.setText(Double.toString(operand.peek()));
+115:        }
+116:        %>
+117:         <HTML>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+05-May-2025 20:19:18.054 嚴重 [http-nio-8080-exec-10] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [18] in the jsp file: [/calculator.jsp]
+Duplicate local variable ans
+15:         Stack<Character> operator = new Stack<>();
+16:         Stack<Double> operand = new Stack<>();
+17:         Double temp_num;
+18:         int ans = 0, numfront = 0;
+19:         boolean negative = false, changed = false;
+20:         
+21:         //��������
+
+
+An error occurred at line: [22] in the jsp file: [/calculator.jsp]
+The operator == is undefined for the argument type(s) int, null
+19:         boolean negative = false, changed = false;
+20:         
+21:         //��������
+22:         if(ans == null) 
+23:             ans="";
+24: 
+25:        //皜��     
+
+
+An error occurred at line: [23] in the jsp file: [/calculator.jsp]
+Type mismatch: cannot convert from String to int
+20:         
+21:         //��������
+22:         if(ans == null) 
+23:             ans="";
+24: 
+25:        //皜��     
+26:        if(request.getParameter("clear") !=null) 
+
+
+An error occurred at line: [27] in the jsp file: [/calculator.jsp]
+Type mismatch: cannot convert from String to int
+24: 
+25:        //皜��     
+26:        if(request.getParameter("clear") !=null) 
+27:             ans="";
+28:     
+29:        //��鋡怨孛����
+30:        String button=request.getParameter("bt"); 
+
+
+An error occurred at line: [34] in the jsp file: [/calculator.jsp]
+The operator += is undefined for the argument type(s) int, String
+31: 
+32:        //0~9, + - * / .
+33:        if(button !=null && !button.equals("="))
+34:             ans += button;
+35:        
+36:        //=閮��
+37:        else if(ans != null || ans != ""){
+
+
+An error occurred at line: [37] in the jsp file: [/calculator.jsp]
+The operator != is undefined for the argument type(s) int, null
+34:             ans += button;
+35:        
+36:        //=閮��
+37:        else if(ans != null || ans != ""){
+38:         // �����撓�摮��
+39:         while (ans < input.length()) {
+40:             if (changed == false
+
+
+An error occurred at line: [37] in the jsp file: [/calculator.jsp]
+Incompatible operand types int and String
+34:             ans += button;
+35:        
+36:        //=閮��
+37:        else if(ans != null || ans != ""){
+38:         // �����撓�摮��
+39:         while (ans < input.length()) {
+40:             if (changed == false
+
+
+An error occurred at line: [39] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+36:        //=閮��
+37:        else if(ans != null || ans != ""){
+38:         // �����撓�摮��
+39:         while (ans < input.length()) {
+40:             if (changed == false
+41:                     && (input.charAt(ans) == '.' || (input.charAt(ans) <= '9' && input.charAt(ans) >= '0'))) {
+42:                 numfront = ans;
+
+
+An error occurred at line: [41] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+38:         // �����撓�摮��
+39:         while (ans < input.length()) {
+40:             if (changed == false
+41:                     && (input.charAt(ans) == '.' || (input.charAt(ans) <= '9' && input.charAt(ans) >= '0'))) {
+42:                 numfront = ans;
+43:                 changed = true;
+44:             } else if (input.charAt(ans) == '+' || input.charAt(ans) == '-' || input.charAt(ans) == '*'
+
+
+An error occurred at line: [41] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+38:         // �����撓�摮��
+39:         while (ans < input.length()) {
+40:             if (changed == false
+41:                     && (input.charAt(ans) == '.' || (input.charAt(ans) <= '9' && input.charAt(ans) >= '0'))) {
+42:                 numfront = ans;
+43:                 changed = true;
+44:             } else if (input.charAt(ans) == '+' || input.charAt(ans) == '-' || input.charAt(ans) == '*'
+
+
+An error occurred at line: [41] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+38:         // �����撓�摮��
+39:         while (ans < input.length()) {
+40:             if (changed == false
+41:                     && (input.charAt(ans) == '.' || (input.charAt(ans) <= '9' && input.charAt(ans) >= '0'))) {
+42:                 numfront = ans;
+43:                 changed = true;
+44:             } else if (input.charAt(ans) == '+' || input.charAt(ans) == '-' || input.charAt(ans) == '*'
+
+
+An error occurred at line: [44] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+41:                     && (input.charAt(ans) == '.' || (input.charAt(ans) <= '9' && input.charAt(ans) >= '0'))) {
+42:                 numfront = ans;
+43:                 changed = true;
+44:             } else if (input.charAt(ans) == '+' || input.charAt(ans) == '-' || input.charAt(ans) == '*'
+45:                     || input.charAt(ans) == '/' || input.charAt(ans) == '(' || input.charAt(ans) == ')') {
+46: 
+47:                 // ���摮�
+
+
+An error occurred at line: [44] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+41:                     && (input.charAt(ans) == '.' || (input.charAt(ans) <= '9' && input.charAt(ans) >= '0'))) {
+42:                 numfront = ans;
+43:                 changed = true;
+44:             } else if (input.charAt(ans) == '+' || input.charAt(ans) == '-' || input.charAt(ans) == '*'
+45:                     || input.charAt(ans) == '/' || input.charAt(ans) == '(' || input.charAt(ans) == ')') {
+46: 
+47:                 // ���摮�
+
+
+An error occurred at line: [44] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+41:                     && (input.charAt(ans) == '.' || (input.charAt(ans) <= '9' && input.charAt(ans) >= '0'))) {
+42:                 numfront = ans;
+43:                 changed = true;
+44:             } else if (input.charAt(ans) == '+' || input.charAt(ans) == '-' || input.charAt(ans) == '*'
+45:                     || input.charAt(ans) == '/' || input.charAt(ans) == '(' || input.charAt(ans) == ')') {
+46: 
+47:                 // ���摮�
+
+
+An error occurred at line: [45] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+42:                 numfront = ans;
+43:                 changed = true;
+44:             } else if (input.charAt(ans) == '+' || input.charAt(ans) == '-' || input.charAt(ans) == '*'
+45:                     || input.charAt(ans) == '/' || input.charAt(ans) == '(' || input.charAt(ans) == ')') {
+46: 
+47:                 // ���摮�
+48:                 if (changed) {
+
+
+An error occurred at line: [45] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+42:                 numfront = ans;
+43:                 changed = true;
+44:             } else if (input.charAt(ans) == '+' || input.charAt(ans) == '-' || input.charAt(ans) == '*'
+45:                     || input.charAt(ans) == '/' || input.charAt(ans) == '(' || input.charAt(ans) == ')') {
+46: 
+47:                 // ���摮�
+48:                 if (changed) {
+
+
+An error occurred at line: [45] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+42:                 numfront = ans;
+43:                 changed = true;
+44:             } else if (input.charAt(ans) == '+' || input.charAt(ans) == '-' || input.charAt(ans) == '*'
+45:                     || input.charAt(ans) == '/' || input.charAt(ans) == '(' || input.charAt(ans) == ')') {
+46: 
+47:                 // ���摮�
+48:                 if (changed) {
+
+
+An error occurred at line: [49] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+46: 
+47:                 // ���摮�
+48:                 if (changed) {
+49:                     temp_num = Double.parseDouble(input.substring(numfront, ans));
+50:                     if (negative) {
+51:                         operand.push(temp_num * (-1));
+52:                         negative = false;
+
+
+An error occurred at line: [59] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+56:                 }
+57: 
+58:                 // 鞎��
+59:                 if (input.charAt(ans) == '-'
+60:                         && (ans == 0
+61:                                 || (ans - 1 >= 0
+62:                                         && (input.charAt(ans - 1) == '+' || input.charAt(ans - 1) == '('
+
+
+An error occurred at line: [62] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+59:                 if (input.charAt(ans) == '-'
+60:                         && (ans == 0
+61:                                 || (ans - 1 >= 0
+62:                                         && (input.charAt(ans - 1) == '+' || input.charAt(ans - 1) == '('
+63:                                                 || input.charAt(ans - 1) == '*' || input.charAt(ans - 1) == '-'
+64:                                                 || input.charAt(ans - 1) == '/')))) {
+65:                     negative = true;
+
+
+An error occurred at line: [62] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+59:                 if (input.charAt(ans) == '-'
+60:                         && (ans == 0
+61:                                 || (ans - 1 >= 0
+62:                                         && (input.charAt(ans - 1) == '+' || input.charAt(ans - 1) == '('
+63:                                                 || input.charAt(ans - 1) == '*' || input.charAt(ans - 1) == '-'
+64:                                                 || input.charAt(ans - 1) == '/')))) {
+65:                     negative = true;
+
+
+An error occurred at line: [63] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+60:                         && (ans == 0
+61:                                 || (ans - 1 >= 0
+62:                                         && (input.charAt(ans - 1) == '+' || input.charAt(ans - 1) == '('
+63:                                                 || input.charAt(ans - 1) == '*' || input.charAt(ans - 1) == '-'
+64:                                                 || input.charAt(ans - 1) == '/')))) {
+65:                     negative = true;
+66:                     ans++;
+
+
+An error occurred at line: [63] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+60:                         && (ans == 0
+61:                                 || (ans - 1 >= 0
+62:                                         && (input.charAt(ans - 1) == '+' || input.charAt(ans - 1) == '('
+63:                                                 || input.charAt(ans - 1) == '*' || input.charAt(ans - 1) == '-'
+64:                                                 || input.charAt(ans - 1) == '/')))) {
+65:                     negative = true;
+66:                     ans++;
+
+
+An error occurred at line: [64] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+61:                                 || (ans - 1 >= 0
+62:                                         && (input.charAt(ans - 1) == '+' || input.charAt(ans - 1) == '('
+63:                                                 || input.charAt(ans - 1) == '*' || input.charAt(ans - 1) == '-'
+64:                                                 || input.charAt(ans - 1) == '/')))) {
+65:                     negative = true;
+66:                     ans++;
+67:                     continue;
+
+
+An error occurred at line: [71] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+68:                 }
+69: 
+70:                 // 撌行撘�(7+23)*(3-1)/(3+7)
+71:                 if (input.charAt(ans) == '(')
+72:                     operator.push(input.charAt(ans));
+73: 
+74:                 // ��撘�
+
+
+An error occurred at line: [72] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+69: 
+70:                 // 撌行撘�(7+23)*(3-1)/(3+7)
+71:                 if (input.charAt(ans) == '(')
+72:                     operator.push(input.charAt(ans));
+73: 
+74:                 // ��撘�
+75:                 else if (input.charAt(ans) == ')') {
+
+
+An error occurred at line: [75] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+72:                     operator.push(input.charAt(ans));
+73: 
+74:                 // ��撘�
+75:                 else if (input.charAt(ans) == ')') {
+76: 
+77:                     // 撠perator鋆∪'('銋������脰����
+78:                     while (operator.peek() != '(') {
+
+
+An error occurred at line: [79] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+76: 
+77:                     // 撠perator鋆∪'('銋������脰����
+78:                     while (operator.peek() != '(') {
+79:                         operand.push(count(operand, operator.peek()));
+80:                         operator.pop();
+81:                     }
+82:                     operator.pop();
+
+
+An error occurred at line: [89] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+86: 
+87:                     // 頛詨�����蝑stack top,��op�脰����
+88:                     while (!operator.empty()
+89:                             && priority.get(operator.peek()) >= priority.get(input.charAt(ans))) {
+90: 
+91:                         operand.push(count(operand, operator.peek()));
+92:                         operator.pop();
+
+
+An error occurred at line: [91] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+88:                     while (!operator.empty()
+89:                             && priority.get(operator.peek()) >= priority.get(input.charAt(ans))) {
+90: 
+91:                         operand.push(count(operand, operator.peek()));
+92:                         operator.pop();
+93:                     }
+94:                     operator.push(input.charAt(ans));
+
+
+An error occurred at line: [94] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+91:                         operand.push(count(operand, operator.peek()));
+92:                         operator.pop();
+93:                     }
+94:                     operator.push(input.charAt(ans));
+95:                 }
+96:             }
+97:             ans++;
+
+
+An error occurred at line: [100] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+97:             ans++;
+98:         }
+99:         if (changed) {
+100:             temp_num = Double.parseDouble(input.substring(numfront, ans));
+101:             if (negative) {
+102:                 operand.push(temp_num * (-1));
+103:                 negative = false;
+
+
+An error occurred at line: [110] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+107: 
+108:         // 瑼Ｘ�������������
+109:         while (!operator.empty()) {
+110:             operand.push(count(operand, operator.peek()));
+111:             operator.pop();
+112:         }
+113:         input = Double.toString(operand.peek());
+
+
+An error occurred at line: [113] in the jsp file: [/calculator.jsp]
+input cannot be resolved to a variable
+110:             operand.push(count(operand, operator.peek()));
+111:             operator.pop();
+112:         }
+113:         input = Double.toString(operand.peek());
+114:         text.setText(Double.toString(operand.peek()));
+115:        }
+116:        %>
+
+
+An error occurred at line: [114] in the jsp file: [/calculator.jsp]
+text cannot be resolved
+111:             operator.pop();
+112:         }
+113:         input = Double.toString(operand.peek());
+114:         text.setText(Double.toString(operand.peek()));
+115:        }
+116:        %>
+117:         <HTML>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [18] in the jsp file: [/calculator.jsp]
+Duplicate local variable ans
+15:         Stack<Character> operator = new Stack<>();
+16:         Stack<Double> operand = new Stack<>();
+17:         Double temp_num;
+18:         int ans = 0, numfront = 0;
+19:         boolean negative = false, changed = false;
+20:         
+21:         //��������
+
+
+An error occurred at line: [22] in the jsp file: [/calculator.jsp]
+The operator == is undefined for the argument type(s) int, null
+19:         boolean negative = false, changed = false;
+20:         
+21:         //��������
+22:         if(ans == null) 
+23:             ans="";
+24: 
+25:        //皜��     
+
+
+An error occurred at line: [23] in the jsp file: [/calculator.jsp]
+Type mismatch: cannot convert from String to int
+20:         
+21:         //��������
+22:         if(ans == null) 
+23:             ans="";
+24: 
+25:        //皜��     
+26:        if(request.getParameter("clear") !=null) 
+
+
+An error occurred at line: [27] in the jsp file: [/calculator.jsp]
+Type mismatch: cannot convert from String to int
+24: 
+25:        //皜��     
+26:        if(request.getParameter("clear") !=null) 
+27:             ans="";
+28:     
+29:        //��鋡怨孛����
+30:        String button=request.getParameter("bt"); 
+
+
+An error occurred at line: [34] in the jsp file: [/calculator.jsp]
+The operator += is undefined for the argument type(s) int, String
+31: 
+32:        //0~9, + - * / .
+33:        if(button !=null && !button.equals("="))
+34:             ans += button;
+35:        
+36:        //=閮��
+37:        else if(ans != null || ans != ""){
+
+
+An error occurred at line: [37] in the jsp file: [/calculator.jsp]
+The operator != is undefined for the argument type(s) int, null
+34:             ans += button;
+35:        
+36:        //=閮��
+37:        else if(ans != null || ans != ""){
+38:         // �����撓�摮��
+39:         while (ans < input.length()) {
+40:             if (changed == false
+
+
+An error occurred at line: [37] in the jsp file: [/calculator.jsp]
+Incompatible operand types int and String
+34:             ans += button;
+35:        
+36:        //=閮��
+37:        else if(ans != null || ans != ""){
+38:         // �����撓�摮��
+39:         while (ans < input.length()) {
+40:             if (changed == false
+
+
+An error occurred at line: [39] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+36:        //=閮��
+37:        else if(ans != null || ans != ""){
+38:         // �����撓�摮��
+39:         while (ans < input.length()) {
+40:             if (changed == false
+41:                     && (input.charAt(ans) == '.' || (input.charAt(ans) <= '9' && input.charAt(ans) >= '0'))) {
+42:                 numfront = ans;
+
+
+An error occurred at line: [41] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+38:         // �����撓�摮��
+39:         while (ans < input.length()) {
+40:             if (changed == false
+41:                     && (input.charAt(ans) == '.' || (input.charAt(ans) <= '9' && input.charAt(ans) >= '0'))) {
+42:                 numfront = ans;
+43:                 changed = true;
+44:             } else if (input.charAt(ans) == '+' || input.charAt(ans) == '-' || input.charAt(ans) == '*'
+
+
+An error occurred at line: [41] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+38:         // �����撓�摮��
+39:         while (ans < input.length()) {
+40:             if (changed == false
+41:                     && (input.charAt(ans) == '.' || (input.charAt(ans) <= '9' && input.charAt(ans) >= '0'))) {
+42:                 numfront = ans;
+43:                 changed = true;
+44:             } else if (input.charAt(ans) == '+' || input.charAt(ans) == '-' || input.charAt(ans) == '*'
+
+
+An error occurred at line: [41] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+38:         // �����撓�摮��
+39:         while (ans < input.length()) {
+40:             if (changed == false
+41:                     && (input.charAt(ans) == '.' || (input.charAt(ans) <= '9' && input.charAt(ans) >= '0'))) {
+42:                 numfront = ans;
+43:                 changed = true;
+44:             } else if (input.charAt(ans) == '+' || input.charAt(ans) == '-' || input.charAt(ans) == '*'
+
+
+An error occurred at line: [44] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+41:                     && (input.charAt(ans) == '.' || (input.charAt(ans) <= '9' && input.charAt(ans) >= '0'))) {
+42:                 numfront = ans;
+43:                 changed = true;
+44:             } else if (input.charAt(ans) == '+' || input.charAt(ans) == '-' || input.charAt(ans) == '*'
+45:                     || input.charAt(ans) == '/' || input.charAt(ans) == '(' || input.charAt(ans) == ')') {
+46: 
+47:                 // ���摮�
+
+
+An error occurred at line: [44] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+41:                     && (input.charAt(ans) == '.' || (input.charAt(ans) <= '9' && input.charAt(ans) >= '0'))) {
+42:                 numfront = ans;
+43:                 changed = true;
+44:             } else if (input.charAt(ans) == '+' || input.charAt(ans) == '-' || input.charAt(ans) == '*'
+45:                     || input.charAt(ans) == '/' || input.charAt(ans) == '(' || input.charAt(ans) == ')') {
+46: 
+47:                 // ���摮�
+
+
+An error occurred at line: [44] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+41:                     && (input.charAt(ans) == '.' || (input.charAt(ans) <= '9' && input.charAt(ans) >= '0'))) {
+42:                 numfront = ans;
+43:                 changed = true;
+44:             } else if (input.charAt(ans) == '+' || input.charAt(ans) == '-' || input.charAt(ans) == '*'
+45:                     || input.charAt(ans) == '/' || input.charAt(ans) == '(' || input.charAt(ans) == ')') {
+46: 
+47:                 // ���摮�
+
+
+An error occurred at line: [45] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+42:                 numfront = ans;
+43:                 changed = true;
+44:             } else if (input.charAt(ans) == '+' || input.charAt(ans) == '-' || input.charAt(ans) == '*'
+45:                     || input.charAt(ans) == '/' || input.charAt(ans) == '(' || input.charAt(ans) == ')') {
+46: 
+47:                 // ���摮�
+48:                 if (changed) {
+
+
+An error occurred at line: [45] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+42:                 numfront = ans;
+43:                 changed = true;
+44:             } else if (input.charAt(ans) == '+' || input.charAt(ans) == '-' || input.charAt(ans) == '*'
+45:                     || input.charAt(ans) == '/' || input.charAt(ans) == '(' || input.charAt(ans) == ')') {
+46: 
+47:                 // ���摮�
+48:                 if (changed) {
+
+
+An error occurred at line: [45] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+42:                 numfront = ans;
+43:                 changed = true;
+44:             } else if (input.charAt(ans) == '+' || input.charAt(ans) == '-' || input.charAt(ans) == '*'
+45:                     || input.charAt(ans) == '/' || input.charAt(ans) == '(' || input.charAt(ans) == ')') {
+46: 
+47:                 // ���摮�
+48:                 if (changed) {
+
+
+An error occurred at line: [49] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+46: 
+47:                 // ���摮�
+48:                 if (changed) {
+49:                     temp_num = Double.parseDouble(input.substring(numfront, ans));
+50:                     if (negative) {
+51:                         operand.push(temp_num * (-1));
+52:                         negative = false;
+
+
+An error occurred at line: [59] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+56:                 }
+57: 
+58:                 // 鞎��
+59:                 if (input.charAt(ans) == '-'
+60:                         && (ans == 0
+61:                                 || (ans - 1 >= 0
+62:                                         && (input.charAt(ans - 1) == '+' || input.charAt(ans - 1) == '('
+
+
+An error occurred at line: [62] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+59:                 if (input.charAt(ans) == '-'
+60:                         && (ans == 0
+61:                                 || (ans - 1 >= 0
+62:                                         && (input.charAt(ans - 1) == '+' || input.charAt(ans - 1) == '('
+63:                                                 || input.charAt(ans - 1) == '*' || input.charAt(ans - 1) == '-'
+64:                                                 || input.charAt(ans - 1) == '/')))) {
+65:                     negative = true;
+
+
+An error occurred at line: [62] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+59:                 if (input.charAt(ans) == '-'
+60:                         && (ans == 0
+61:                                 || (ans - 1 >= 0
+62:                                         && (input.charAt(ans - 1) == '+' || input.charAt(ans - 1) == '('
+63:                                                 || input.charAt(ans - 1) == '*' || input.charAt(ans - 1) == '-'
+64:                                                 || input.charAt(ans - 1) == '/')))) {
+65:                     negative = true;
+
+
+An error occurred at line: [63] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+60:                         && (ans == 0
+61:                                 || (ans - 1 >= 0
+62:                                         && (input.charAt(ans - 1) == '+' || input.charAt(ans - 1) == '('
+63:                                                 || input.charAt(ans - 1) == '*' || input.charAt(ans - 1) == '-'
+64:                                                 || input.charAt(ans - 1) == '/')))) {
+65:                     negative = true;
+66:                     ans++;
+
+
+An error occurred at line: [63] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+60:                         && (ans == 0
+61:                                 || (ans - 1 >= 0
+62:                                         && (input.charAt(ans - 1) == '+' || input.charAt(ans - 1) == '('
+63:                                                 || input.charAt(ans - 1) == '*' || input.charAt(ans - 1) == '-'
+64:                                                 || input.charAt(ans - 1) == '/')))) {
+65:                     negative = true;
+66:                     ans++;
+
+
+An error occurred at line: [64] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+61:                                 || (ans - 1 >= 0
+62:                                         && (input.charAt(ans - 1) == '+' || input.charAt(ans - 1) == '('
+63:                                                 || input.charAt(ans - 1) == '*' || input.charAt(ans - 1) == '-'
+64:                                                 || input.charAt(ans - 1) == '/')))) {
+65:                     negative = true;
+66:                     ans++;
+67:                     continue;
+
+
+An error occurred at line: [71] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+68:                 }
+69: 
+70:                 // 撌行撘�(7+23)*(3-1)/(3+7)
+71:                 if (input.charAt(ans) == '(')
+72:                     operator.push(input.charAt(ans));
+73: 
+74:                 // ��撘�
+
+
+An error occurred at line: [72] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+69: 
+70:                 // 撌行撘�(7+23)*(3-1)/(3+7)
+71:                 if (input.charAt(ans) == '(')
+72:                     operator.push(input.charAt(ans));
+73: 
+74:                 // ��撘�
+75:                 else if (input.charAt(ans) == ')') {
+
+
+An error occurred at line: [75] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+72:                     operator.push(input.charAt(ans));
+73: 
+74:                 // ��撘�
+75:                 else if (input.charAt(ans) == ')') {
+76: 
+77:                     // 撠perator鋆∪'('銋������脰����
+78:                     while (operator.peek() != '(') {
+
+
+An error occurred at line: [79] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+76: 
+77:                     // 撠perator鋆∪'('銋������脰����
+78:                     while (operator.peek() != '(') {
+79:                         operand.push(count(operand, operator.peek()));
+80:                         operator.pop();
+81:                     }
+82:                     operator.pop();
+
+
+An error occurred at line: [89] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+86: 
+87:                     // 頛詨�����蝑stack top,��op�脰����
+88:                     while (!operator.empty()
+89:                             && priority.get(operator.peek()) >= priority.get(input.charAt(ans))) {
+90: 
+91:                         operand.push(count(operand, operator.peek()));
+92:                         operator.pop();
+
+
+An error occurred at line: [91] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+88:                     while (!operator.empty()
+89:                             && priority.get(operator.peek()) >= priority.get(input.charAt(ans))) {
+90: 
+91:                         operand.push(count(operand, operator.peek()));
+92:                         operator.pop();
+93:                     }
+94:                     operator.push(input.charAt(ans));
+
+
+An error occurred at line: [94] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+91:                         operand.push(count(operand, operator.peek()));
+92:                         operator.pop();
+93:                     }
+94:                     operator.push(input.charAt(ans));
+95:                 }
+96:             }
+97:             ans++;
+
+
+An error occurred at line: [100] in the jsp file: [/calculator.jsp]
+input cannot be resolved
+97:             ans++;
+98:         }
+99:         if (changed) {
+100:             temp_num = Double.parseDouble(input.substring(numfront, ans));
+101:             if (negative) {
+102:                 operand.push(temp_num * (-1));
+103:                 negative = false;
+
+
+An error occurred at line: [110] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+107: 
+108:         // 瑼Ｘ�������������
+109:         while (!operator.empty()) {
+110:             operand.push(count(operand, operator.peek()));
+111:             operator.pop();
+112:         }
+113:         input = Double.toString(operand.peek());
+
+
+An error occurred at line: [113] in the jsp file: [/calculator.jsp]
+input cannot be resolved to a variable
+110:             operand.push(count(operand, operator.peek()));
+111:             operator.pop();
+112:         }
+113:         input = Double.toString(operand.peek());
+114:         text.setText(Double.toString(operand.peek()));
+115:        }
+116:        %>
+
+
+An error occurred at line: [114] in the jsp file: [/calculator.jsp]
+text cannot be resolved
+111:             operator.pop();
+112:         }
+113:         input = Double.toString(operand.peek());
+114:         text.setText(Double.toString(operand.peek()));
+115:        }
+116:        %>
+117:         <HTML>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+05-May-2025 20:21:03.404 嚴重 [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [79] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+76: 
+77:                     // 撠perator鋆∪'('銋������脰����
+78:                     while (operator.peek() != '(') {
+79:                         operand.push(count(operand, operator.peek()));
+80:                         operator.pop();
+81:                     }
+82:                     operator.pop();
+
+
+An error occurred at line: [91] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+88:                     while (!operator.empty()
+89:                             && priority.get(operator.peek()) >= priority.get(ans.charAt(index))) {
+90: 
+91:                         operand.push(count(operand, operator.peek()));
+92:                         operator.pop();
+93:                     }
+94:                     operator.push(ans.charAt(index));
+
+
+An error occurred at line: [110] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+107: 
+108:         // 瑼Ｘ�������������
+109:         while (!operator.empty()) {
+110:             operand.push(count(operand, operator.peek()));
+111:             operator.pop();
+112:         }
+113:         ans = Double.toString(operand.peek());
+
+
+An error occurred at line: [114] in the jsp file: [/calculator.jsp]
+text cannot be resolved
+111:             operator.pop();
+112:         }
+113:         ans = Double.toString(operand.peek());
+114:         text.setText(Double.toString(operand.peek()));
+115:        }
+116:        %>
+117:         <HTML>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [79] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+76: 
+77:                     // 撠perator鋆∪'('銋������脰����
+78:                     while (operator.peek() != '(') {
+79:                         operand.push(count(operand, operator.peek()));
+80:                         operator.pop();
+81:                     }
+82:                     operator.pop();
+
+
+An error occurred at line: [91] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+88:                     while (!operator.empty()
+89:                             && priority.get(operator.peek()) >= priority.get(ans.charAt(index))) {
+90: 
+91:                         operand.push(count(operand, operator.peek()));
+92:                         operator.pop();
+93:                     }
+94:                     operator.push(ans.charAt(index));
+
+
+An error occurred at line: [110] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+107: 
+108:         // 瑼Ｘ�������������
+109:         while (!operator.empty()) {
+110:             operand.push(count(operand, operator.peek()));
+111:             operator.pop();
+112:         }
+113:         ans = Double.toString(operand.peek());
+
+
+An error occurred at line: [114] in the jsp file: [/calculator.jsp]
+text cannot be resolved
+111:             operator.pop();
+112:         }
+113:         ans = Double.toString(operand.peek());
+114:         text.setText(Double.toString(operand.peek()));
+115:        }
+116:        %>
+117:         <HTML>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+05-May-2025 20:44:32.166 嚴重 [http-nio-8080-exec-2] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [9] in the jsp file: [/calculator.jsp]
+The member interface temp_count can only be defined inside a top-level class or interface or in a static context
+6:         String ans = request.getParameter("text");
+7: 
+8:         //������
+9:         interface temp_count {
+10:             Double count(Stack<Double> stack, Character operator);
+11:         }
+12: 
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+temp_count cannot be resolved to a type
+10:             Double count(Stack<Double> stack, Character operator);
+11:         }
+12: 
+13:         temp_count count = new temp_count(){
+14:             Double result = 0.0;
+15:             Double back = s.peek();
+16:             s.pop();
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+temp_count cannot be resolved to a type
+10:             Double count(Stack<Double> stack, Character operator);
+11:         }
+12: 
+13:         temp_count count = new temp_count(){
+14:             Double result = 0.0;
+15:             Double back = s.peek();
+16:             s.pop();
+
+
+An error occurred at line: [16] in the jsp file: [/calculator.jsp]
+Syntax error, insert "Identifier (" to complete MethodHeaderName
+13:         temp_count count = new temp_count(){
+14:             Double result = 0.0;
+15:             Double back = s.peek();
+16:             s.pop();
+17:             Double front = s.peek();
+18:             s.pop();
+19: 
+
+
+An error occurred at line: [16] in the jsp file: [/calculator.jsp]
+Syntax error, insert ")" to complete MethodDeclaration
+13:         temp_count count = new temp_count(){
+14:             Double result = 0.0;
+15:             Double back = s.peek();
+16:             s.pop();
+17:             Double front = s.peek();
+18:             s.pop();
+19: 
+
+
+An error occurred at line: [16] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete MethodDeclaration
+13:         temp_count count = new temp_count(){
+14:             Double result = 0.0;
+15:             Double back = s.peek();
+16:             s.pop();
+17:             Double front = s.peek();
+18:             s.pop();
+19: 
+
+
+An error occurred at line: [16] in the jsp file: [/calculator.jsp]
+Syntax error, insert "}" to complete ClassBody
+13:         temp_count count = new temp_count(){
+14:             Double result = 0.0;
+15:             Double back = s.peek();
+16:             s.pop();
+17:             Double front = s.peek();
+18:             s.pop();
+19: 
+
+
+An error occurred at line: [35] in the jsp file: [/calculator.jsp]
+Syntax error, insert "Finally" to complete TryStatement
+32:                     break;
+33:             }
+34:             return result;
+35:         }
+36:         
+37:         // 閮����蝯��
+38:         Map<Character, Integer> priority = new HashMap<>();
+
+
+An error occurred at line: [321] in the generated java file: [C:\Users\好人\Desktop\入門到入墳\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\work\Catalina\localhost\JSP\org\apache\jsp\calculator_jsp.java]
+Syntax error on tokens, delete these tokens
+
+An error occurred at line: [321] in the generated java file: [C:\Users\好人\Desktop\入門到入墳\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\work\Catalina\localhost\JSP\org\apache\jsp\calculator_jsp.java]
+Syntax error on token(s), misplaced construct(s)
+
+An error occurred at line: [321] in the generated java file: [C:\Users\好人\Desktop\入門到入墳\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\work\Catalina\localhost\JSP\org\apache\jsp\calculator_jsp.java]
+Syntax error, insert "AssignmentOperator Expression" to complete Assignment
+
+An error occurred at line: [321] in the generated java file: [C:\Users\好人\Desktop\入門到入墳\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\work\Catalina\localhost\JSP\org\apache\jsp\calculator_jsp.java]
+Syntax error, insert ";" to complete Statement
+
+An error occurred at line: [335] in the generated java file: [C:\Users\好人\Desktop\入門到入墳\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\work\Catalina\localhost\JSP\org\apache\jsp\calculator_jsp.java]
+Syntax error on token "finally", delete this token
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [9] in the jsp file: [/calculator.jsp]
+The member interface temp_count can only be defined inside a top-level class or interface or in a static context
+6:         String ans = request.getParameter("text");
+7: 
+8:         //������
+9:         interface temp_count {
+10:             Double count(Stack<Double> stack, Character operator);
+11:         }
+12: 
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+temp_count cannot be resolved to a type
+10:             Double count(Stack<Double> stack, Character operator);
+11:         }
+12: 
+13:         temp_count count = new temp_count(){
+14:             Double result = 0.0;
+15:             Double back = s.peek();
+16:             s.pop();
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+temp_count cannot be resolved to a type
+10:             Double count(Stack<Double> stack, Character operator);
+11:         }
+12: 
+13:         temp_count count = new temp_count(){
+14:             Double result = 0.0;
+15:             Double back = s.peek();
+16:             s.pop();
+
+
+An error occurred at line: [16] in the jsp file: [/calculator.jsp]
+Syntax error, insert "Identifier (" to complete MethodHeaderName
+13:         temp_count count = new temp_count(){
+14:             Double result = 0.0;
+15:             Double back = s.peek();
+16:             s.pop();
+17:             Double front = s.peek();
+18:             s.pop();
+19: 
+
+
+An error occurred at line: [16] in the jsp file: [/calculator.jsp]
+Syntax error, insert ")" to complete MethodDeclaration
+13:         temp_count count = new temp_count(){
+14:             Double result = 0.0;
+15:             Double back = s.peek();
+16:             s.pop();
+17:             Double front = s.peek();
+18:             s.pop();
+19: 
+
+
+An error occurred at line: [16] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete MethodDeclaration
+13:         temp_count count = new temp_count(){
+14:             Double result = 0.0;
+15:             Double back = s.peek();
+16:             s.pop();
+17:             Double front = s.peek();
+18:             s.pop();
+19: 
+
+
+An error occurred at line: [16] in the jsp file: [/calculator.jsp]
+Syntax error, insert "}" to complete ClassBody
+13:         temp_count count = new temp_count(){
+14:             Double result = 0.0;
+15:             Double back = s.peek();
+16:             s.pop();
+17:             Double front = s.peek();
+18:             s.pop();
+19: 
+
+
+An error occurred at line: [35] in the jsp file: [/calculator.jsp]
+Syntax error, insert "Finally" to complete TryStatement
+32:                     break;
+33:             }
+34:             return result;
+35:         }
+36:         
+37:         // 閮����蝯��
+38:         Map<Character, Integer> priority = new HashMap<>();
+
+
+An error occurred at line: [321] in the generated java file: [C:\Users\好人\Desktop\入門到入墳\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\work\Catalina\localhost\JSP\org\apache\jsp\calculator_jsp.java]
+Syntax error on tokens, delete these tokens
+
+An error occurred at line: [321] in the generated java file: [C:\Users\好人\Desktop\入門到入墳\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\work\Catalina\localhost\JSP\org\apache\jsp\calculator_jsp.java]
+Syntax error on token(s), misplaced construct(s)
+
+An error occurred at line: [321] in the generated java file: [C:\Users\好人\Desktop\入門到入墳\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\work\Catalina\localhost\JSP\org\apache\jsp\calculator_jsp.java]
+Syntax error, insert "AssignmentOperator Expression" to complete Assignment
+
+An error occurred at line: [321] in the generated java file: [C:\Users\好人\Desktop\入門到入墳\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\work\Catalina\localhost\JSP\org\apache\jsp\calculator_jsp.java]
+Syntax error, insert ";" to complete Statement
+
+An error occurred at line: [335] in the generated java file: [C:\Users\好人\Desktop\入門到入墳\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\work\Catalina\localhost\JSP\org\apache\jsp\calculator_jsp.java]
+Syntax error on token "finally", delete this token
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+05-May-2025 20:51:23.701 嚴重 [http-nio-8080-exec-7] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+Syntax error, insert "Identifier (" to complete MethodHeaderName
+9:         count = new temp_count(){
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+13:             Double front = s.peek();
+14:             s.pop();
+15: 
+
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+Syntax error, insert ")" to complete MethodDeclaration
+9:         count = new temp_count(){
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+13:             Double front = s.peek();
+14:             s.pop();
+15: 
+
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete MethodDeclaration
+9:         count = new temp_count(){
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+13:             Double front = s.peek();
+14:             s.pop();
+15: 
+
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+Syntax error, insert "}" to complete ClassBody
+9:         count = new temp_count(){
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+13:             Double front = s.peek();
+14:             s.pop();
+15: 
+
+
+An error occurred at line: [31] in the jsp file: [/calculator.jsp]
+Syntax error, insert "Finally" to complete TryStatement
+28:                     break;
+29:             }
+30:             return result;
+31:         }
+32:         
+33:         // 閮����蝯��
+34:         Map<Character, Integer> priority = new HashMap<>();
+
+
+An error occurred at line: [317] in the generated java file: [C:\Users\好人\Desktop\入門到入墳\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\work\Catalina\localhost\JSP\org\apache\jsp\calculator_jsp.java]
+Syntax error on tokens, delete these tokens
+
+An error occurred at line: [317] in the generated java file: [C:\Users\好人\Desktop\入門到入墳\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\work\Catalina\localhost\JSP\org\apache\jsp\calculator_jsp.java]
+Syntax error on token(s), misplaced construct(s)
+
+An error occurred at line: [317] in the generated java file: [C:\Users\好人\Desktop\入門到入墳\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\work\Catalina\localhost\JSP\org\apache\jsp\calculator_jsp.java]
+Syntax error, insert "AssignmentOperator Expression" to complete Assignment
+
+An error occurred at line: [317] in the generated java file: [C:\Users\好人\Desktop\入門到入墳\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\work\Catalina\localhost\JSP\org\apache\jsp\calculator_jsp.java]
+Syntax error, insert ";" to complete Statement
+
+An error occurred at line: [331] in the generated java file: [C:\Users\好人\Desktop\入門到入墳\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\work\Catalina\localhost\JSP\org\apache\jsp\calculator_jsp.java]
+Syntax error on token "finally", delete this token
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+Syntax error, insert "Identifier (" to complete MethodHeaderName
+9:         count = new temp_count(){
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+13:             Double front = s.peek();
+14:             s.pop();
+15: 
+
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+Syntax error, insert ")" to complete MethodDeclaration
+9:         count = new temp_count(){
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+13:             Double front = s.peek();
+14:             s.pop();
+15: 
+
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete MethodDeclaration
+9:         count = new temp_count(){
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+13:             Double front = s.peek();
+14:             s.pop();
+15: 
+
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+Syntax error, insert "}" to complete ClassBody
+9:         count = new temp_count(){
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+13:             Double front = s.peek();
+14:             s.pop();
+15: 
+
+
+An error occurred at line: [31] in the jsp file: [/calculator.jsp]
+Syntax error, insert "Finally" to complete TryStatement
+28:                     break;
+29:             }
+30:             return result;
+31:         }
+32:         
+33:         // 閮����蝯��
+34:         Map<Character, Integer> priority = new HashMap<>();
+
+
+An error occurred at line: [317] in the generated java file: [C:\Users\好人\Desktop\入門到入墳\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\work\Catalina\localhost\JSP\org\apache\jsp\calculator_jsp.java]
+Syntax error on tokens, delete these tokens
+
+An error occurred at line: [317] in the generated java file: [C:\Users\好人\Desktop\入門到入墳\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\work\Catalina\localhost\JSP\org\apache\jsp\calculator_jsp.java]
+Syntax error on token(s), misplaced construct(s)
+
+An error occurred at line: [317] in the generated java file: [C:\Users\好人\Desktop\入門到入墳\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\work\Catalina\localhost\JSP\org\apache\jsp\calculator_jsp.java]
+Syntax error, insert "AssignmentOperator Expression" to complete Assignment
+
+An error occurred at line: [317] in the generated java file: [C:\Users\好人\Desktop\入門到入墳\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\work\Catalina\localhost\JSP\org\apache\jsp\calculator_jsp.java]
+Syntax error, insert ";" to complete Statement
+
+An error occurred at line: [331] in the generated java file: [C:\Users\好人\Desktop\入門到入墳\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\work\Catalina\localhost\JSP\org\apache\jsp\calculator_jsp.java]
+Syntax error on token "finally", delete this token
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+05-May-2025 20:52:17.878 嚴重 [http-nio-8080-exec-9] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [9] in the jsp file: [/calculator.jsp]
+Syntax error on token "Double", do expected
+6:         String ans = request.getParameter("text");
+7: 
+8:         //������
+9:         Double count(Stack<Double> s, Character c) {
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+
+
+An error occurred at line: [9] in the jsp file: [/calculator.jsp]
+Stack cannot be resolved to a variable
+6:         String ans = request.getParameter("text");
+7: 
+8:         //������
+9:         Double count(Stack<Double> s, Character c) {
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+
+
+An error occurred at line: [9] in the jsp file: [/calculator.jsp]
+Double cannot be resolved to a variable
+6:         String ans = request.getParameter("text");
+7: 
+8:         //������
+9:         Double count(Stack<Double> s, Character c) {
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+
+
+An error occurred at line: [9] in the jsp file: [/calculator.jsp]
+s cannot be resolved to a variable
+6:         String ans = request.getParameter("text");
+7: 
+8:         //������
+9:         Double count(Stack<Double> s, Character c) {
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+
+
+An error occurred at line: [9] in the jsp file: [/calculator.jsp]
+Syntax error on token(s), misplaced construct(s)
+6:         String ans = request.getParameter("text");
+7: 
+8:         //������
+9:         Double count(Stack<Double> s, Character c) {
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+
+
+An error occurred at line: [9] in the jsp file: [/calculator.jsp]
+c cannot be resolved to a variable
+6:         String ans = request.getParameter("text");
+7: 
+8:         //������
+9:         Double count(Stack<Double> s, Character c) {
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+
+
+An error occurred at line: [9] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete Statement
+6:         String ans = request.getParameter("text");
+7: 
+8:         //������
+9:         Double count(Stack<Double> s, Character c) {
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+
+
+An error occurred at line: [9] in the jsp file: [/calculator.jsp]
+Syntax error, insert "while ( Expression ) ;" to complete DoStatement
+6:         String ans = request.getParameter("text");
+7: 
+8:         //������
+9:         Double count(Stack<Double> s, Character c) {
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+
+
+An error occurred at line: [11] in the jsp file: [/calculator.jsp]
+s cannot be resolved
+8:         //������
+9:         Double count(Stack<Double> s, Character c) {
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+13:             Double front = s.peek();
+14:             s.pop();
+
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+s cannot be resolved
+9:         Double count(Stack<Double> s, Character c) {
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+13:             Double front = s.peek();
+14:             s.pop();
+15: 
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+s cannot be resolved
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+13:             Double front = s.peek();
+14:             s.pop();
+15: 
+16:             switch (c) {
+
+
+An error occurred at line: [14] in the jsp file: [/calculator.jsp]
+s cannot be resolved
+11:             Double back = s.peek();
+12:             s.pop();
+13:             Double front = s.peek();
+14:             s.pop();
+15: 
+16:             switch (c) {
+17:                 case '+':
+
+
+An error occurred at line: [16] in the jsp file: [/calculator.jsp]
+c cannot be resolved to a variable
+13:             Double front = s.peek();
+14:             s.pop();
+15: 
+16:             switch (c) {
+17:                 case '+':
+18:                     result = front + back;
+19:                     break;
+
+
+An error occurred at line: [30] in the jsp file: [/calculator.jsp]
+Void methods cannot return a value
+27:                     result = front / back;
+28:                     break;
+29:             }
+30:             return result;
+31:         }
+32:         
+33:         // 閮����蝯��
+
+
+An error occurred at line: [104] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+101: 
+102:                     // 撠perator鋆∪'('銋������脰����
+103:                     while (operator.peek() != '(') {
+104:                         operand.push(count(operand, operator.peek()));
+105:                         operator.pop();
+106:                     }
+107:                     operator.pop();
+
+
+An error occurred at line: [116] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+113:                     while (!operator.empty()
+114:                             && priority.get(operator.peek()) >= priority.get(ans.charAt(index))) {
+115: 
+116:                         operand.push(count(operand, operator.peek()));
+117:                         operator.pop();
+118:                     }
+119:                     operator.push(ans.charAt(index));
+
+
+An error occurred at line: [135] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+132: 
+133:         // 瑼Ｘ�������������
+134:         while (!operator.empty()) {
+135:             operand.push(count(operand, operator.peek()));
+136:             operator.pop();
+137:         }
+138:         ans = Double.toString(operand.peek());
+
+
+An error occurred at line: [139] in the jsp file: [/calculator.jsp]
+text cannot be resolved
+136:             operator.pop();
+137:         }
+138:         ans = Double.toString(operand.peek());
+139:         text.setText(Double.toString(operand.peek()));
+140:        }
+141:        %>
+142:         <HTML>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [9] in the jsp file: [/calculator.jsp]
+Syntax error on token "Double", do expected
+6:         String ans = request.getParameter("text");
+7: 
+8:         //������
+9:         Double count(Stack<Double> s, Character c) {
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+
+
+An error occurred at line: [9] in the jsp file: [/calculator.jsp]
+Stack cannot be resolved to a variable
+6:         String ans = request.getParameter("text");
+7: 
+8:         //������
+9:         Double count(Stack<Double> s, Character c) {
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+
+
+An error occurred at line: [9] in the jsp file: [/calculator.jsp]
+Double cannot be resolved to a variable
+6:         String ans = request.getParameter("text");
+7: 
+8:         //������
+9:         Double count(Stack<Double> s, Character c) {
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+
+
+An error occurred at line: [9] in the jsp file: [/calculator.jsp]
+s cannot be resolved to a variable
+6:         String ans = request.getParameter("text");
+7: 
+8:         //������
+9:         Double count(Stack<Double> s, Character c) {
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+
+
+An error occurred at line: [9] in the jsp file: [/calculator.jsp]
+Syntax error on token(s), misplaced construct(s)
+6:         String ans = request.getParameter("text");
+7: 
+8:         //������
+9:         Double count(Stack<Double> s, Character c) {
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+
+
+An error occurred at line: [9] in the jsp file: [/calculator.jsp]
+c cannot be resolved to a variable
+6:         String ans = request.getParameter("text");
+7: 
+8:         //������
+9:         Double count(Stack<Double> s, Character c) {
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+
+
+An error occurred at line: [9] in the jsp file: [/calculator.jsp]
+Syntax error, insert ";" to complete Statement
+6:         String ans = request.getParameter("text");
+7: 
+8:         //������
+9:         Double count(Stack<Double> s, Character c) {
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+
+
+An error occurred at line: [9] in the jsp file: [/calculator.jsp]
+Syntax error, insert "while ( Expression ) ;" to complete DoStatement
+6:         String ans = request.getParameter("text");
+7: 
+8:         //������
+9:         Double count(Stack<Double> s, Character c) {
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+
+
+An error occurred at line: [11] in the jsp file: [/calculator.jsp]
+s cannot be resolved
+8:         //������
+9:         Double count(Stack<Double> s, Character c) {
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+13:             Double front = s.peek();
+14:             s.pop();
+
+
+An error occurred at line: [12] in the jsp file: [/calculator.jsp]
+s cannot be resolved
+9:         Double count(Stack<Double> s, Character c) {
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+13:             Double front = s.peek();
+14:             s.pop();
+15: 
+
+
+An error occurred at line: [13] in the jsp file: [/calculator.jsp]
+s cannot be resolved
+10:             Double result = 0.0;
+11:             Double back = s.peek();
+12:             s.pop();
+13:             Double front = s.peek();
+14:             s.pop();
+15: 
+16:             switch (c) {
+
+
+An error occurred at line: [14] in the jsp file: [/calculator.jsp]
+s cannot be resolved
+11:             Double back = s.peek();
+12:             s.pop();
+13:             Double front = s.peek();
+14:             s.pop();
+15: 
+16:             switch (c) {
+17:                 case '+':
+
+
+An error occurred at line: [16] in the jsp file: [/calculator.jsp]
+c cannot be resolved to a variable
+13:             Double front = s.peek();
+14:             s.pop();
+15: 
+16:             switch (c) {
+17:                 case '+':
+18:                     result = front + back;
+19:                     break;
+
+
+An error occurred at line: [30] in the jsp file: [/calculator.jsp]
+Void methods cannot return a value
+27:                     result = front / back;
+28:                     break;
+29:             }
+30:             return result;
+31:         }
+32:         
+33:         // 閮����蝯��
+
+
+An error occurred at line: [104] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+101: 
+102:                     // 撠perator鋆∪'('銋������脰����
+103:                     while (operator.peek() != '(') {
+104:                         operand.push(count(operand, operator.peek()));
+105:                         operator.pop();
+106:                     }
+107:                     operator.pop();
+
+
+An error occurred at line: [116] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+113:                     while (!operator.empty()
+114:                             && priority.get(operator.peek()) >= priority.get(ans.charAt(index))) {
+115: 
+116:                         operand.push(count(operand, operator.peek()));
+117:                         operator.pop();
+118:                     }
+119:                     operator.push(ans.charAt(index));
+
+
+An error occurred at line: [135] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+132: 
+133:         // 瑼Ｘ�������������
+134:         while (!operator.empty()) {
+135:             operand.push(count(operand, operator.peek()));
+136:             operator.pop();
+137:         }
+138:         ans = Double.toString(operand.peek());
+
+
+An error occurred at line: [139] in the jsp file: [/calculator.jsp]
+text cannot be resolved
+136:             operator.pop();
+137:         }
+138:         ans = Double.toString(operand.peek());
+139:         text.setText(Double.toString(operand.peek()));
+140:        }
+141:        %>
+142:         <HTML>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+05-May-2025 20:56:21.645 嚴重 [http-nio-8080-exec-10] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [79] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+76: 
+77:                     // 撠perator鋆∪'('銋������脰����
+78:                     while (operator.peek() != '(') {
+79:                         operand.push(count(operand, operator.peek()));
+80:                         operator.pop();
+81:                     }
+82:                     operator.pop();
+
+
+An error occurred at line: [91] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+88:                     while (!operator.empty()
+89:                             && priority.get(operator.peek()) >= priority.get(ans.charAt(index))) {
+90: 
+91:                         operand.push(count(operand, operator.peek()));
+92:                         operator.pop();
+93:                     }
+94:                     operator.push(ans.charAt(index));
+
+
+An error occurred at line: [110] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+107: 
+108:         // 瑼Ｘ�������������
+109:         while (!operator.empty()) {
+110:             operand.push(count(operand, operator.peek()));
+111:             operator.pop();
+112:         }
+113:         ans = Double.toString(operand.peek());
+
+
+An error occurred at line: [114] in the jsp file: [/calculator.jsp]
+text cannot be resolved
+111:             operator.pop();
+112:         }
+113:         ans = Double.toString(operand.peek());
+114:         text.setText(Double.toString(operand.peek()));
+115:        }
+116:        %>
+117:         <HTML>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [79] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+76: 
+77:                     // 撠perator鋆∪'('銋������脰����
+78:                     while (operator.peek() != '(') {
+79:                         operand.push(count(operand, operator.peek()));
+80:                         operator.pop();
+81:                     }
+82:                     operator.pop();
+
+
+An error occurred at line: [91] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+88:                     while (!operator.empty()
+89:                             && priority.get(operator.peek()) >= priority.get(ans.charAt(index))) {
+90: 
+91:                         operand.push(count(operand, operator.peek()));
+92:                         operator.pop();
+93:                     }
+94:                     operator.push(ans.charAt(index));
+
+
+An error occurred at line: [110] in the jsp file: [/calculator.jsp]
+The method count(Stack<Double>, Character) is undefined for the type calculator_jsp
+107: 
+108:         // 瑼Ｘ�������������
+109:         while (!operator.empty()) {
+110:             operand.push(count(operand, operator.peek()));
+111:             operator.pop();
+112:         }
+113:         ans = Double.toString(operand.peek());
+
+
+An error occurred at line: [114] in the jsp file: [/calculator.jsp]
+text cannot be resolved
+111:             operator.pop();
+112:         }
+113:         ans = Double.toString(operand.peek());
+114:         text.setText(Double.toString(operand.peek()));
+115:        }
+116:        %>
+117:         <HTML>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+05-May-2025 21:05:33.040 嚴重 [http-nio-8080-exec-1] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [Unable to compile class for JSP: 
+
+An error occurred at line: [177] in the jsp file: [/calculator.jsp]
+text cannot be resolved
+174:             operator.pop();
+175:         }
+176:         ans = Double.toString(operand.peek());
+177:         text.setText(Double.toString(operand.peek()));
+178:        }
+179:        %>
+180:         <HTML>
+
+
+Stacktrace:] with root cause
+	org.apache.jasper.JasperException: Unable to compile class for JSP: 
+
+An error occurred at line: [177] in the jsp file: [/calculator.jsp]
+text cannot be resolved
+174:             operator.pop();
+175:         }
+176:         ans = Double.toString(operand.peek());
+177:         text.setText(Double.toString(operand.peek()));
+178:        }
+179:        %>
+180:         <HTML>
+
+
+Stacktrace:
+		at org.apache.jasper.compiler.DefaultErrorHandler.javacError(DefaultErrorHandler.java:72)
+		at org.apache.jasper.compiler.ErrorDispatcher.javacError(ErrorDispatcher.java:192)
+		at org.apache.jasper.compiler.JDTCompiler.generateClass(JDTCompiler.java:565)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:372)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:344)
+		at org.apache.jasper.compiler.Compiler.compile(Compiler.java:330)
+		at org.apache.jasper.JspCompilationContext.compile(JspCompilationContext.java:591)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:379)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+05-May-2025 21:09:37.661 嚴重 [http-nio-8080-exec-9] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [An exception occurred processing [/calculator.jsp] at line [176]
+
+173:             operand.push(result);
+174:             operator.pop();
+175:         }
+176:         ans = Double.toString(operand.peek());
+177:        }
+178:        %>
+179:         <HTML>
+
+
+Stacktrace:] with root cause
+	java.util.EmptyStackException
+		at java.base/java.util.Stack.peek(Stack.java:101)
+		at org.apache.jsp.calculator_jsp._jspService(calculator_jsp.java:297)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:64)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:446)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+05-May-2025 21:09:41.379 嚴重 [http-nio-8080-exec-10] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [An exception occurred processing [/calculator.jsp] at line [176]
+
+173:             operand.push(result);
+174:             operator.pop();
+175:         }
+176:         ans = Double.toString(operand.peek());
+177:        }
+178:        %>
+179:         <HTML>
+
+
+Stacktrace:] with root cause
+	java.util.EmptyStackException
+		at java.base/java.util.Stack.peek(Stack.java:101)
+		at org.apache.jsp.calculator_jsp._jspService(calculator_jsp.java:297)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:64)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:446)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+05-May-2025 21:15:42.469 嚴重 [http-nio-8080-exec-6] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [An exception occurred processing [/calculator.jsp] at line [142]
+
+139:             index++;
+140:         }
+141:         if (changed) {
+142:             temp_num = Double.parseDouble(ans.substring(numfront, index));
+143:             if (negative) {
+144:                 operand.push(temp_num * (-1));
+145:                 negative = false;
+
+
+Stacktrace:] with root cause
+	java.lang.NumberFormatException: For input string: "3 Ã· 3"
+		at java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054)
+		at java.base/jdk.internal.math.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+		at java.base/java.lang.Double.parseDouble(Double.java:651)
+		at org.apache.jsp.calculator_jsp._jspService(calculator_jsp.java:263)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:64)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:446)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+05-May-2025 21:15:52.759 嚴重 [http-nio-8080-exec-9] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [An exception occurred processing [/calculator.jsp] at line [142]
+
+139:             index++;
+140:         }
+141:         if (changed) {
+142:             temp_num = Double.parseDouble(ans.substring(numfront, index));
+143:             if (negative) {
+144:                 operand.push(temp_num * (-1));
+145:                 negative = false;
+
+
+Stacktrace:] with root cause
+	java.lang.NumberFormatException: For input string: "3 Ã· 3"
+		at java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054)
+		at java.base/jdk.internal.math.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+		at java.base/java.lang.Double.parseDouble(Double.java:651)
+		at org.apache.jsp.calculator_jsp._jspService(calculator_jsp.java:263)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:64)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:446)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
+05-May-2025 21:22:43.542 嚴重 [http-nio-8080-exec-8] org.apache.catalina.core.StandardWrapperValve.invoke Servlet.service() for servlet [jsp] in context with path [/JSP] threw exception [An exception occurred processing [/calculator.jsp] at line [77]
+
+74: 
+75:                         Character c = operator.peek();
+76:                         Double result = 0.0;
+77:                         Double back = operand.peek();
+78:                         operand.pop();
+79:                         Double front = operand.peek();
+80:                         operand.pop();
+
+
+Stacktrace:] with root cause
+	java.util.EmptyStackException
+		at java.base/java.util.Stack.peek(Stack.java:101)
+		at org.apache.jsp.calculator_jsp._jspService(calculator_jsp.java:198)
+		at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:64)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:446)
+		at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:356)
+		at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:307)
+		at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+		at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168)
+		at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144)
+		at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+		at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+		at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+		at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+		at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+		at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:656)
+		at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+		at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+		at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+		at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+		at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:935)
+		at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1792)
+		at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+		at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+		at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+		at java.base/java.lang.Thread.run(Thread.java:840)
