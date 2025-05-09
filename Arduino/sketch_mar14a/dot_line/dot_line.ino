@@ -6,10 +6,10 @@ const byte RIGHT1 = 7; //IN3
 const byte RIGHT2 = 6; //IN4
 const byte RIGHT_PWM = 5;
 //設定PWM輸出值(代表的是車子的速度)
-byte rightspeed = 120;
-byte leftspeed =120;
+byte rightspeed = 150;
+byte leftspeed = 150;
 byte motorspeed = 90;
-int //count=0;
+bool front = false;
 
 void backward(){
   digitalWrite(LEFT1, HIGH);
@@ -19,9 +19,6 @@ void backward(){
   digitalWrite(RIGHT1, LOW);
   digitalWrite (RIGHT2, HIGH);
   analogWrite(RIGHT_PWM, rightspeed-40);
-  /*count++;
-  if(count>30)
-    forward();*/
 }
 
 void forward(){ //
@@ -31,7 +28,6 @@ void forward(){ //
   digitalWrite(RIGHT1, HIGH);
   digitalWrite(RIGHT2, LOW);
   analogWrite(RIGHT_PWM, rightspeed);
-  //count=0;
 }
 
 void turnleft(){//左轉
@@ -97,26 +93,38 @@ void loop() {
   //正直走 010 111 101 
   if((digitalRead(12)==0 && digitalRead(4)==1 && digitalRead(11)==0) || (digitalRead(12)==1 && digitalRead(4)==1 && digitalRead(11)==1) || (digitalRead(12)==1 && digitalRead(4)==0 && digitalRead(11)==1)){
     forward();
+    front = true;
   }
   //小右轉 011
   if(digitalRead(12)==0 && digitalRead(4)==1 && digitalRead(11)==1){
     turnright();
+    front = false;
   }
   //大左轉 100
-  if(digitalRead(12)==1 && digitalRead(4)==0 && digitalRead(11)==0){
+  if(digitalRead(12)==1 && digitalRead(4)==0 && digitalRead(11)==0 ){
     bigturnleft();
-    Serial.println("here!!!!!!");
+    front = false;
   }
   //小左轉 110
   if(digitalRead(12)==1 && digitalRead(4)==1 && digitalRead(11)==0){
     turnleft();
+    front = false;
   }
   //大右轉 001
   if(digitalRead(12)==0 && digitalRead(4)==0 && digitalRead(11)==1){
     bigturnright();
+    front = false;
   }
   //停下 000
   if(digitalRead(12)==0 && digitalRead(4)==0 && digitalRead(11)==0){
-    backward();
+    if(front){
+      delay(80);
+      while(digitalRead(12)==0 && digitalRead(4)==0 && digitalRead(11)==0){
+        backward();
+      }
+      front = false;
+    }
+    else
+      backward();
   }
 }
