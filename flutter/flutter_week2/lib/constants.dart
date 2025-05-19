@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 const  TextStyle kTitleTextStyle = TextStyle(
-    fontSize: 30,
+    fontSize: 20,
     color: Colors.black
 );
 
 const  TextStyle dTitleTextStyle = TextStyle(
-    fontSize: 25,
+    fontSize: 17,
     color: Colors.black
 );

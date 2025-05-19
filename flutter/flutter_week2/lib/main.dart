@@ -1,10 +1,71 @@
 import 'package:flutter/material.dart';
 import 'constants.dart';
+import 'color_pool.dart';
+import 'dart:math';
+import 'text.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(ScrollNotificationDemo());
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class ScrollNotificationDemo extends StatefulWidget {
+  const ScrollNotificationDemo({super.key});
+
+  @override
+  State<ScrollNotificationDemo> createState() => MyApp();
+}
+
+class MyApp extends State<ScrollNotificationDemo> {
+  final leftController = ScrollController();
+  final rightController = ScrollController();
+  bool isLeftScrolling = false;
+  bool isRightScrolling = false;
+  int indexText = 0;
+  int indexColor = 0;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // 同步左側滾動到右側
+    leftController.addListener(() {
+      if (isRightScrolling) return; // 避免重複觸發
+      isLeftScrolling = true;
+      rightController.jumpTo(leftController.offset);
+      isLeftScrolling = false;
+    });
+
+    // 同步右側滾動到左側
+    rightController.addListener(() {
+      if (isLeftScrolling) return; // 避免重複觸發
+      isRightScrolling = true;
+      leftController.jumpTo(rightController.offset);
+      isRightScrolling = false;
+    });
+  }
+
+  @override
+  void dispose() {
+    leftController.dispose();
+    rightController.dispose();
+    super.dispose();
+  }
+
+  String getTitle(List<Map<String, String>> noteData){
+    indexText++;
+      if(indexText>=noteData.length)
+        indexText=Random().nextInt(noteData.length);
+      return noteData[indexText]["title"]!;
+  }
+
+  String getDescription(List<Map<String, String>> noteData){
+    return noteData[indexText]["description"]!;
+  }
+
+  int getColor(List<Color> ColorPool){
+    indexColor++;
+    if(indexColor>=ColorPool.length-1)
+      indexColor=Random().nextInt(ColorPool.length);
+    return indexColor;
+  }
 
   // This widget is the root of your application.
   @override
@@ -16,50 +77,36 @@ class MyApp extends StatelessWidget {
           children: [
             Expanded(
               child: ListView(
+                controller: leftController,
                 children: [
-                  NoteCard(title: "Title 1", description: "description"),
-                  NoteCard(title: "Title 2", description: "description"),
-                  NoteCard(title: "Title 3", description: "description"),
-                  NoteCard(title: "Title 3", description: "description"),
-                  NoteCard(title: "Title 3", description: "description"),
-                  NoteCard(title: "Title 3", description: "description"),
-                  NoteCard(title: "Title 3", description: "description"),
-                  Container(
-                    margin: const EdgeInsets.all(10),
-                    padding: const EdgeInsets.all(10),
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.green,
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Title 2", style: kTitleTextStyle),
-                        Text("decoration", style: dTitleTextStyle),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.all(10),
-                    padding: const EdgeInsets.all(10),
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.yellow,
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Title 3", style: kTitleTextStyle),
-                        Text("decoration", style: dTitleTextStyle),
-                      ],
-                    ),
-                  ),
+                  NoteCard(title: getTitle(noteData), description: getDescription(noteData),randomNumber: getColor(ColorPool)),
+                  NoteCard(title: getTitle(noteData), description: getDescription(noteData),randomNumber: getColor(ColorPool)),
+                  NoteCard(title: getTitle(noteData), description: getDescription(noteData),randomNumber: getColor(ColorPool)),
+                  NoteCard(title: getTitle(noteData), description: getDescription(noteData),randomNumber: getColor(ColorPool)),
+                  NoteCard(title: getTitle(noteData), description: getDescription(noteData),randomNumber: getColor(ColorPool)),
+                  NoteCard(title: getTitle(noteData), description: getDescription(noteData),randomNumber: getColor(ColorPool)),
+                  NoteCard(title: getTitle(noteData), description: getDescription(noteData),randomNumber: getColor(ColorPool)),
+                  NoteCard(title: getTitle(noteData), description: getDescription(noteData),randomNumber: getColor(ColorPool)),
+                  NoteCard(title: getTitle(noteData), description: getDescription(noteData),randomNumber: getColor(ColorPool)),
                 ],
               ),
             ),
-            Expanded(child: Container(color: Colors.blue)),
+            Expanded(
+              child: ListView(
+                controller: rightController,
+                children: [
+                  NoteCard(title: getTitle(noteData), description: getDescription(noteData),randomNumber: getColor(ColorPool)),
+                  NoteCard(title: getTitle(noteData), description: getDescription(noteData),randomNumber: getColor(ColorPool)),
+                  NoteCard(title: getTitle(noteData), description: getDescription(noteData),randomNumber: getColor(ColorPool)),
+                  NoteCard(title: getTitle(noteData), description: getDescription(noteData),randomNumber: getColor(ColorPool)),
+                  NoteCard(title: getTitle(noteData), description: getDescription(noteData),randomNumber: getColor(ColorPool)),
+                  NoteCard(title: getTitle(noteData), description: getDescription(noteData),randomNumber: getColor(ColorPool)),
+                  NoteCard(title: getTitle(noteData), description: getDescription(noteData),randomNumber: getColor(ColorPool)),
+                  NoteCard(title: getTitle(noteData), description: getDescription(noteData),randomNumber: getColor(ColorPool)),
+                  NoteCard(title: getTitle(noteData), description: getDescription(noteData),randomNumber: getColor(ColorPool)),
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -68,10 +115,11 @@ class MyApp extends StatelessWidget {
 }
 
 class NoteCard extends StatelessWidget {
-  const NoteCard({super.key, required this.title, required this.description});
+  const NoteCard({super.key, required this.title, required this.description,required this.randomNumber});
 
   final String title;
   final String description;
+  final int randomNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -82,8 +130,8 @@ class NoteCard extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       width: double.infinity,
       decoration: BoxDecoration(
-        //0xFF ECFAE5->色碼
-        color: Color(0xFFECFAE5),
+        //0xFF 222831->色碼
+        color: ColorPool[randomNumber],
         borderRadius: BorderRadius.circular(30),
       ),
       child: Column(
