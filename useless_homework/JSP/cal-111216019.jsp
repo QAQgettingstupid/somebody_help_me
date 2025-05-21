@@ -1,8 +1,11 @@
+<%--作者:蔡芳宇 --%>
+<%--學號:111216019 --%>
+<%--自評:80%+20% 會動,但幾乎沒有例外處理_(:3 」∠ )_ --%>
 <%@ page contentType="text/html; charset=UTF-8" 
     import="java.util.HashMap,java.util.Map,java.util.Stack"%>
 
     <% 
-        //所有page共用文字框
+        //所有page共用文字框內容
         String ans = request.getParameter("text");
         
         // 計算所需結構
@@ -146,8 +149,8 @@
         </HEAD>
 
         <BODY>
-            <form method="post" action="calculator.jsp">
-                        <%--介面--%>
+            <form method="post" action="cal-111216019.jsp">
+                            <%--介面--%>
                             <p><input type="text" value="<%=ans %>" name="text"></p>
 
                             <p><input type="submit" value="1" name="bt">

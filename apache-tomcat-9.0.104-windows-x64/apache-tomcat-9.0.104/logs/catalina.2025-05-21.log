@@ -1,0 +1,159 @@
+21-May-2025 15:45:45.807 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.104
+21-May-2025 15:45:45.811 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Apr 4 2025 12:32:55 UTC
+21-May-2025 15:45:45.811 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.104.0
+21-May-2025 15:45:45.811 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+21-May-2025 15:45:45.811 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+21-May-2025 15:45:45.811 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+21-May-2025 15:45:45.811 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Eclipse Adoptium\jdk-17.0.14.7-hotspot
+21-May-2025 15:45:45.811 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           17.0.14+7
+21-May-2025 15:45:45.812 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Eclipse Adoptium
+21-May-2025 15:45:45.812 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104
+21-May-2025 15:45:45.812 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104
+21-May-2025 15:45:45.824 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+21-May-2025 15:45:45.824 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+21-May-2025 15:45:45.824 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
+21-May-2025 15:45:45.824 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+21-May-2025 15:45:45.824 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+21-May-2025 15:45:45.825 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+21-May-2025 15:45:45.825 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+21-May-2025 15:45:45.825 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\conf\logging.properties
+21-May-2025 15:45:45.825 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+21-May-2025 15:45:45.825 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+21-May-2025 15:45:45.825 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+21-May-2025 15:45:45.825 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.io.useCanonCaches=false
+21-May-2025 15:45:45.825 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+21-May-2025 15:45:45.825 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104
+21-May-2025 15:45:45.827 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104
+21-May-2025 15:45:45.827 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\temp
+21-May-2025 15:45:45.834 資訊 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [1.3.1] using APR version [1.7.4].
+21-May-2025 15:45:45.834 資訊 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+21-May-2025 15:45:45.834 資訊 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+21-May-2025 15:45:45.843 資訊 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.14 4 Jun 2024]
+21-May-2025 15:45:46.023 資訊 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+21-May-2025 15:45:46.045 資訊 [main] org.apache.catalina.startup.Catalina.load Server initialization in [400] milliseconds
+21-May-2025 15:45:46.095 資訊 [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+21-May-2025 15:45:46.095 資訊 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.104]
+21-May-2025 15:45:46.102 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\ch4]
+21-May-2025 15:45:46.343 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\ch4] has finished in [242] ms
+21-May-2025 15:45:46.344 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\ch7]
+21-May-2025 15:45:46.364 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\ch7] has finished in [20] ms
+21-May-2025 15:45:46.365 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\docs]
+21-May-2025 15:45:46.394 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\docs] has finished in [29] ms
+21-May-2025 15:45:46.395 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\examples]
+21-May-2025 15:45:46.783 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\examples] has finished in [388] ms
+21-May-2025 15:45:46.784 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\host-manager]
+21-May-2025 15:45:46.820 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\host-manager] has finished in [36] ms
+21-May-2025 15:45:46.821 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\JSP]
+21-May-2025 15:45:46.839 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\JSP] has finished in [19] ms
+21-May-2025 15:45:46.839 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\manager]
+21-May-2025 15:45:46.878 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\manager] has finished in [39] ms
+21-May-2025 15:45:46.878 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\ROOT]
+21-May-2025 15:45:46.901 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\ROOT] has finished in [23] ms
+21-May-2025 15:45:46.905 資訊 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+21-May-2025 15:45:46.954 資訊 [main] org.apache.catalina.startup.Catalina.start Server startup in [907] milliseconds
+21-May-2025 16:48:16.403 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.104
+21-May-2025 16:48:16.407 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Apr 4 2025 12:32:55 UTC
+21-May-2025 16:48:16.407 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.104.0
+21-May-2025 16:48:16.408 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+21-May-2025 16:48:16.408 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+21-May-2025 16:48:16.408 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+21-May-2025 16:48:16.408 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Eclipse Adoptium\jdk-17.0.14.7-hotspot
+21-May-2025 16:48:16.408 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           17.0.14+7
+21-May-2025 16:48:16.408 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Eclipse Adoptium
+21-May-2025 16:48:16.409 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104
+21-May-2025 16:48:16.409 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104
+21-May-2025 16:48:16.416 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+21-May-2025 16:48:16.416 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+21-May-2025 16:48:16.416 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
+21-May-2025 16:48:16.417 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+21-May-2025 16:48:16.417 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+21-May-2025 16:48:16.417 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+21-May-2025 16:48:16.418 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+21-May-2025 16:48:16.418 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\conf\logging.properties
+21-May-2025 16:48:16.418 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+21-May-2025 16:48:16.418 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+21-May-2025 16:48:16.418 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+21-May-2025 16:48:16.419 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.io.useCanonCaches=false
+21-May-2025 16:48:16.419 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+21-May-2025 16:48:16.419 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104
+21-May-2025 16:48:16.419 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104
+21-May-2025 16:48:16.419 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\temp
+21-May-2025 16:48:16.423 資訊 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [1.3.1] using APR version [1.7.4].
+21-May-2025 16:48:16.423 資訊 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+21-May-2025 16:48:16.423 資訊 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+21-May-2025 16:48:16.428 資訊 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.14 4 Jun 2024]
+21-May-2025 16:48:16.605 資訊 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+21-May-2025 16:48:16.625 資訊 [main] org.apache.catalina.startup.Catalina.load Server initialization in [359] milliseconds
+21-May-2025 16:48:16.657 資訊 [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+21-May-2025 16:48:16.658 資訊 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.104]
+21-May-2025 16:48:16.663 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\ch4]
+21-May-2025 16:48:16.890 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\ch4] has finished in [227] ms
+21-May-2025 16:48:16.891 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\ch7]
+21-May-2025 16:48:16.912 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\ch7] has finished in [21] ms
+21-May-2025 16:48:16.912 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\docs]
+21-May-2025 16:48:16.941 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\docs] has finished in [29] ms
+21-May-2025 16:48:16.941 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\examples]
+21-May-2025 16:48:17.291 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\examples] has finished in [350] ms
+21-May-2025 16:48:17.291 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\host-manager]
+21-May-2025 16:48:17.327 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\host-manager] has finished in [36] ms
+21-May-2025 16:48:17.327 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\JSP]
+21-May-2025 16:48:17.347 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\JSP] has finished in [20] ms
+21-May-2025 16:48:17.348 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\manager]
+21-May-2025 16:48:17.382 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\manager] has finished in [34] ms
+21-May-2025 16:48:17.382 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\ROOT]
+21-May-2025 16:48:17.416 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\ROOT] has finished in [33] ms
+21-May-2025 16:48:17.419 資訊 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+21-May-2025 16:48:17.463 資訊 [main] org.apache.catalina.startup.Catalina.start Server startup in [838] milliseconds
+21-May-2025 18:03:48.634 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.104
+21-May-2025 18:03:48.638 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Apr 4 2025 12:32:55 UTC
+21-May-2025 18:03:48.638 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.104.0
+21-May-2025 18:03:48.638 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+21-May-2025 18:03:48.638 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+21-May-2025 18:03:48.639 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+21-May-2025 18:03:48.639 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\Eclipse Adoptium\jdk-17.0.14.7-hotspot
+21-May-2025 18:03:48.639 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           17.0.14+7
+21-May-2025 18:03:48.639 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Eclipse Adoptium
+21-May-2025 18:03:48.639 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104
+21-May-2025 18:03:48.639 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104
+21-May-2025 18:03:48.648 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+21-May-2025 18:03:48.648 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.invoke=ALL-UNNAMED
+21-May-2025 18:03:48.649 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
+21-May-2025 18:03:48.649 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+21-May-2025 18:03:48.649 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+21-May-2025 18:03:48.649 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+21-May-2025 18:03:48.650 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+21-May-2025 18:03:48.650 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\conf\logging.properties
+21-May-2025 18:03:48.650 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+21-May-2025 18:03:48.650 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+21-May-2025 18:03:48.651 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+21-May-2025 18:03:48.651 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.io.useCanonCaches=false
+21-May-2025 18:03:48.651 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+21-May-2025 18:03:48.651 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104
+21-May-2025 18:03:48.651 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104
+21-May-2025 18:03:48.652 資訊 [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\temp
+21-May-2025 18:03:48.655 資訊 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [1.3.1] using APR version [1.7.4].
+21-May-2025 18:03:48.655 資訊 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [true].
+21-May-2025 18:03:48.655 資訊 [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+21-May-2025 18:03:48.661 資訊 [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.14 4 Jun 2024]
+21-May-2025 18:03:48.838 資訊 [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+21-May-2025 18:03:48.859 資訊 [main] org.apache.catalina.startup.Catalina.load Server initialization in [359] milliseconds
+21-May-2025 18:03:48.903 資訊 [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+21-May-2025 18:03:48.903 資訊 [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.104]
+21-May-2025 18:03:48.912 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\ch4]
+21-May-2025 18:03:49.131 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\ch4] has finished in [219] ms
+21-May-2025 18:03:49.132 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\ch7]
+21-May-2025 18:03:49.153 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\ch7] has finished in [21] ms
+21-May-2025 18:03:49.153 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\docs]
+21-May-2025 18:03:49.184 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\docs] has finished in [30] ms
+21-May-2025 18:03:49.185 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\examples]
+21-May-2025 18:03:49.561 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\examples] has finished in [377] ms
+21-May-2025 18:03:49.562 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\host-manager]
+21-May-2025 18:03:49.595 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\host-manager] has finished in [33] ms
+21-May-2025 18:03:49.596 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\JSP]
+21-May-2025 18:03:49.617 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\JSP] has finished in [20] ms
+21-May-2025 18:03:49.617 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\manager]
+21-May-2025 18:03:49.652 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\manager] has finished in [35] ms
+21-May-2025 18:03:49.653 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\ROOT]
+21-May-2025 18:03:49.677 資訊 [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\yudaya\Desktop\from_door_to_grave\somebody_help_me\apache-tomcat-9.0.104-windows-x64\apache-tomcat-9.0.104\webapps\ROOT] has finished in [23] ms
+21-May-2025 18:03:49.680 資訊 [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+21-May-2025 18:03:49.723 資訊 [main] org.apache.catalina.startup.Catalina.start Server startup in [863] milliseconds
