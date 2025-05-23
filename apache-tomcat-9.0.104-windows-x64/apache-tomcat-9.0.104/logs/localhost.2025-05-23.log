@@ -1,0 +1,3 @@
+23-May-2025 13:07:33.817 資訊 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+23-May-2025 13:07:33.817 資訊 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+23-May-2025 13:07:33.819 資訊 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@60b71e8f')

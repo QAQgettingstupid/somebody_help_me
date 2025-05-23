@@ -102,6 +102,7 @@ void loop() {
   //Serial.print("left"); Serial.println(digitalRead(12));
   //Serial.print("middle"); Serial.println(digitalRead(4));
 
+  
   d = ping() / 58;
 
   Serial.println(String("") + d + " cm");
@@ -111,41 +112,37 @@ void loop() {
 
   if(d && d<=40){
 
-    Serial.println("oh no");
-    
-    stopMotor();
-
-    //右轉前進
     bigturnright();
-    delay(300);
+    delay(280);
 
     stopMotor();
-    
+    delay(1000);
+
     forward();
-    delay(200);
+    delay(300);
+    
     stopMotor();
-    
-    
+    delay(1000);
 
-    //拉直回來直走
     bigturnleft();
-    delay(300);
-    forward();
-    delay(200);
+    delay(600);
 
-    
-
-    
-
-    //左轉回軌
-    bigturnleft();
-    delay(300);
-
+    stopMotor();
+    delay(1000);
+    Serial.println("hi");
     
     while(!(digitalRead(12) + digitalRead(4) + digitalRead(11))){
       forward();
+      delay(300);
+      stopMotor();
+      delay(1000);
+      Serial.println("here");
     }
     
+  }
+  else{
+    forward();
+    delay(300);
   }
   //0-> 非黑線 1-> 黑線
   // 空->
