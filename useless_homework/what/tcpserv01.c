@@ -1,3 +1,8 @@
+ï»¿/*
+ä½œè€…:è”¡èŠ³å®‡
+å­¸è™Ÿ:111216019
+è‡ªè©•:20%+30%+30%+20% æœƒå‹•,ä½†ä¸æ›‰å¾—æœ‰ç”šéº¼æˆ‘æ²’çœ‹åˆ°çš„bug (Â´;Ï‰;`)
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -5,12 +10,13 @@
 #include <unistd.h>
 #include "/tmp/unp.h"
 
+// è®€server list
 void show_list(int sockfd) {
 
     struct dirent* entry;
     DIR* dp;
 
-    // ¶}±Ò·í«e¥Ø¿ı
+    // é–‹å•Ÿç•¶å‰ç›®éŒ„
     dp = opendir(".");
     if (dp == NULL) {
         printf("error \n");
@@ -21,12 +27,13 @@ void show_list(int sockfd) {
     char* msg = "server list member:\n";
     Writen(sockfd, msg, strlen(msg));
 
-    // Åª¨ú¨Ã¦C¥X¥Ø¿ı¤º®e
+    // è®€å–ä¸¦åˆ—å‡ºç›®éŒ„å…§å®¹
     while ((entry = readdir(dp))) {
         snprintf(filename, MAXLINE, "%s\n", entry->d_name);
         Writen(sockfd, filename, strlen(filename));
     }
 
+    // å‚³é€æª”æ¡ˆçµæŸè¨»è¨˜
     msg = "<end>\n";
     Writen(sockfd, msg, strlen(msg));
 
@@ -49,10 +56,10 @@ void str_echo(int sockfd)
 
             char filename[MAXLINE], buffer[MAXLINE];
 
-            // ´£¨úÀÉ®×¦WºÙ
+            // æå–æª”æ¡ˆåç¨±
             sscanf(line + 4, "%s", filename);
 
-            // ³Ğ«ØÀÉ®×
+            // å‰µå»ºæª”æ¡ˆ
             int fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0777);
 
             if (fd < 0) {
@@ -60,17 +67,18 @@ void str_echo(int sockfd)
                 continue;
             }
 
-            // ±µ¦¬ÀÉ®×¤º®e
+            // æ¥æ”¶æª”æ¡ˆå…§å®¹
             ssize_t n;
 
             while ((n = read(sockfd, buffer, MAXLINE)) > 0) {
                 
                 char* eof_pos = strstr(buffer, "<EOF>");
 
+                // æ”¶åˆ° EOFï¼Œè·³å‡ºè¿´åœˆ
                 if (eof_pos != NULL) {
-                    // ¥u¼g¤J¨ì EOF ¤§«eªº¤º®e
+                    // åªå¯«å…¥åˆ° EOF ä¹‹å‰çš„å…§å®¹
                     write(fd, buffer, eof_pos - buffer);
-                    break; // ¦¬¨ì EOF¡A¸õ¥X°j°é
+                    break;
                 }
 
                 write(fd, buffer, n);
@@ -98,7 +106,7 @@ int main(int argc, char **argv){
         err_quit("usage: tcpserv01 [server port]");
     }
 
-    int port = atoi(argv[1]); // ±N°ğ¸¹±q°Ñ¼ÆÂà¬°¾ã¼Æ
+    int port = atoi(argv[1]); // å°‡åŸ è™Ÿå¾åƒæ•¸è½‰ç‚ºæ•´æ•¸
 
     int listenfd, connfd;
     pid_t childpid;

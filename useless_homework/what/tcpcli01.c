@@ -1,3 +1,8 @@
+﻿/*
+作者:蔡芳宇
+學號:111216019
+自評:20%+30%+30%+20% 會動,但不曉得有甚麼我沒看到的bug (´;ω;`)
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -5,34 +10,39 @@
 #include <unistd.h>
 #include "/tmp/unp.h"
 
+// 讀server list
 void read_slist(int sockfd) {
 
 	char buffer[MAXLINE];
 
 	while (Readline(sockfd, buffer, MAXLINE) != 0) {
 
+		// server_list尾端，跳出迴圈
 		if (!strcmp(buffer, "<end>\n")) {
 			Fputs(buffer, stdout);
-			break; // server_list���ݡA���X�j��
+			break; 
 		}
 		Fputs(buffer, stdout);
 	}
 }
 
-void update(const char* sendline, int sockfd) {
+// 上傳檔案
+void update(char* sendline, int sockfd) {
 	char filename[MAXLINE];
 
-	sscanf(sendline + 4, "%s", filename); // �����ɮצW��
+	// 提取檔案名稱
+	sscanf(sendline + 4, "%s", filename);
 
-	// ���ն}���ɮ�
+	// 嘗試開啟檔案
 	int fd = open(filename, O_RDONLY);
 
 	if (fd < 0) {
 		printf("no such file exist.\n");
 		return;
 	}
+	Writen(sockfd, sendline, strlen(sendline));
 
-	// �ǰe�ɮפ��e
+	// 傳送檔案內容
 	char buffer[MAXLINE];
 	ssize_t n;
 	while ((n = read(fd, buffer, MAXLINE)) > 0) {
@@ -40,25 +50,29 @@ void update(const char* sendline, int sockfd) {
 	}
 
 	close(fd);
+
+	// 傳送檔案結束註記
 	Writen(sockfd, "<EOF>\n", 6);
 
+	// 讀 file has been updated.\n
 	Readline(sockfd, buffer, MAXLINE);
 	Fputs(buffer, stdout);
 }
 
+// 讀 list
 void show_list() {
 
 	struct dirent* entry;
 	DIR* dp;
 
-	// �}�ҷ��e�ؿ�
+	// 開啟當前目錄
 	dp = opendir(".");
 	if (dp == NULL) {
 		printf("error \n");
 		return;
 	}
 
-	// Ū���æC�X�ؿ����e
+	// 讀取並列出目錄內容
 	printf("list member:\n");
 	while ((entry = readdir(dp))) {
 		printf("%s\n", entry->d_name);
@@ -75,7 +89,6 @@ void str_cli(FILE* fp, int sockfd)
 	while (Fgets(sendline, MAXLINE, fp) != NULL) {
 
 		if (!strncmp(sendline, "put ", 4)) {
-			Writen(sockfd, sendline, strlen(sendline));
 			update(sendline, sockfd);
 		}
 		else if (!strcmp(sendline, "exit\n")) {
@@ -89,7 +102,7 @@ void str_cli(FILE* fp, int sockfd)
 			if (Readline(sockfd, recvline, MAXLINE) == 0)
 				err_quit("str_cli: server terminated prematurely");
 			
-			//recvline �۱a����\n
+			//recvline 自帶換行\n
 			else if (!strcmp(recvline, "ldir\n"))
 				show_list();
 			else if (!strcmp(recvline, "dir\n"))
