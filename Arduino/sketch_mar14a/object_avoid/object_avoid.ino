@@ -106,50 +106,49 @@ void loop() {
   d = ping() / 58;
 
   Serial.println(String("") + d + " cm");
-  delay(100);
+  //delay(100);
 
   //避障
 
-  if(d && d<=40){
+  if(d>=1 && d<=20){
 
+    stopMotor();
+    delay(1000);
+
+    backward();
+    delay(300);
+
+    stopMotor();
+    delay(1000);
+    
     bigturnright();
-    delay(280);
+    delay(300);
 
     stopMotor();
     delay(1000);
 
     forward();
-    delay(300);
+    delay(350);
     
     stopMotor();
     delay(1000);
 
     bigturnleft();
-    delay(600);
+    delay(800);
 
     stopMotor();
     delay(1000);
-    Serial.println("hi");
     
     while(!(digitalRead(12) + digitalRead(4) + digitalRead(11))){
       forward();
-      delay(300);
-      stopMotor();
-      delay(1000);
-      Serial.println("here");
     }
-    
-  }
-  else{
-    forward();
-    delay(300);
   }
   //0-> 非黑線 1-> 黑線
   // 空->
 
-  /*
+  
 
-  //正直走 010 111 101 
+    //正直走 010 111 101 
   if((digitalRead(12)==0 && digitalRead(4)==1 && digitalRead(11)==0) || (digitalRead(12)==1 && digitalRead(4)==1 && digitalRead(11)==1) || (digitalRead(12)==1 && digitalRead(4)==0 && digitalRead(11)==1)){
     forward();
     front = true;
@@ -183,9 +182,9 @@ void loop() {
       }
       front = false;
     }
-    else
+    else{
       backward();
+      Serial.println("backward");
+    }
   }
-
-  */
 }
