@@ -110,13 +110,13 @@ void loop() {
 
   //避障
 
-  if(d>=1 && d<=20){
+  if(d>=1 && d<=40){
 
     stopMotor();
     delay(1000);
 
     backward();
-    delay(300);
+    delay(200);
 
     stopMotor();
     delay(1000);
@@ -128,13 +128,13 @@ void loop() {
     delay(1000);
 
     forward();
-    delay(350);
+    delay(400);
     
     stopMotor();
     delay(1000);
 
     bigturnleft();
-    delay(800);
+    delay(700);
 
     stopMotor();
     delay(1000);
@@ -145,14 +145,8 @@ void loop() {
   }
   //0-> 非黑線 1-> 黑線
   // 空->
-
-  
-
     //正直走 010 111 101 
-  if((digitalRead(12)==0 && digitalRead(4)==1 && digitalRead(11)==0) || (digitalRead(12)==1 && digitalRead(4)==1 && digitalRead(11)==1) || (digitalRead(12)==1 && digitalRead(4)==0 && digitalRead(11)==1)){
-    forward();
-    front = true;
-  }
+  
   //小右轉 011
   if(digitalRead(12)==0 && digitalRead(4)==1 && digitalRead(11)==1){
     turnright();
@@ -173,6 +167,12 @@ void loop() {
     bigturnright();
     front = false;
   }
+
+  if((digitalRead(12)==0 && digitalRead(4)==1 && digitalRead(11)==0) || (digitalRead(12)==1 && digitalRead(4)==1 && digitalRead(11)==1) || (digitalRead(12)==1 && digitalRead(4)==0 && digitalRead(11)==1)){
+    forward();
+    front = true;
+  }
+  
   //停下 000
   if(digitalRead(12)==0 && digitalRead(4)==0 && digitalRead(11)==0){
     if(front){
