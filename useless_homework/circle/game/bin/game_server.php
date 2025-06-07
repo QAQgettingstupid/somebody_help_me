@@ -29,6 +29,12 @@ class TicTacToeServer implements MessageComponentInterface
             'game' => null // 尚未加入遊戲
         ];
 
+        // 送出 welcome 訊息，帶 resourceId 當玩家 ID
+        $conn->send(json_encode([
+            'action' => 'welcome',
+            'playerId' => $conn->resourceId
+        ]));
+
         $this->broadcastPlayerList();
     }
 
@@ -37,11 +43,15 @@ class TicTacToeServer implements MessageComponentInterface
         $data = json_decode($msg, true);
         switch ($data['action']) {
             case 'challenge':
+                echo "challenge time!\n";
                 $this->handleChallenge($from, $data['targetId']);
                 break;
 
             case 'move':
                 $this->handleMove($from, $data['index']);
+                break;
+            default:
+                echo "Unknown action: " . $data['action'] . "\n";
                 break;
         }
     }
@@ -75,9 +85,11 @@ class TicTacToeServer implements MessageComponentInterface
     // $from 是發起挑戰的玩家$conn，$targetId 是被挑戰的玩家 ID
     private function handleChallenge($from, $targetId)
     {
+        echo "here! $targetId\n";
         foreach ($this->players as $playerId => $player) {
-            if ($playerId === $targetId) {
-                $player['connection']->send(json_encode(['action' => 'challenge', 'fromId' => $this->players[$from->resourceId]]));
+            if ($playerId == $targetId) {
+                echo "connect!\n";
+                $player['connection']->send(json_encode(['action' => 'challenge', 'fromId' => $from->resourceId]));
                 break;
             }
         }
