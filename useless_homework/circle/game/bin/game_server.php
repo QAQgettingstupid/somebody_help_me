@@ -1,0 +1,102 @@
+<?php
+require dirname(__DIR__) . '/vendor/autoload.php';
+
+use Ratchet\MessageComponentInterface;
+use Ratchet\ConnectionInterface;
+use Ratchet\Server\IoServer;
+use Ratchet\Http\HttpServer;
+use Ratchet\WebSocket\WsServer;
+
+class TicTacToeServer implements MessageComponentInterface
+{
+    protected $clients; //所有在線玩家set
+    protected $players; //玩家資訊
+
+    public function __construct()
+    {
+        $this->clients = new \SplObjectStorage; //SplObjectStorage -> Object set
+        $this->players = [];
+    }
+
+    // 為每個連線分配一個唯一 ID
+    public function onOpen(ConnectionInterface $conn)
+    {
+        $this->clients->attach($conn); // 加入新玩家
+
+        //從 $conn 取 resourceId 當 key (resourceId 是 ratchet 設定 $conn 的屬性)
+        $this->players[$conn->resourceId] = [
+            'connection' => $conn,
+            'game' => null // 尚未加入遊戲
+        ];
+
+        $this->broadcastPlayerList();
+    }
+
+    public function onMessage(ConnectionInterface $from, $msg)
+    {
+        $data = json_decode($msg, true);
+        switch ($data['action']) {
+            case 'challenge':
+                $this->handleChallenge($from, $data['targetId']);
+                break;
+
+            case 'move':
+                $this->handleMove($from, $data['index']);
+                break;
+        }
+    }
+
+    public function onClose(ConnectionInterface $conn)
+    {
+        $this->clients->detach($conn);
+        unset($this->players[$conn->resourceId]);
+        $this->broadcastPlayerList();
+    }
+
+    public function onError(ConnectionInterface $conn, \Exception $e)
+    {
+        $conn->close();
+    }
+
+    private function broadcastPlayerList()
+    {
+        // 取得所有玩家的 resourceId 作為玩家 ID
+        $playerList = array_map(fn($resourceId) => ['id' => $resourceId], array_keys($this->players));
+
+        // 廣播玩家列表
+        foreach ($this->players as $player) {
+            $player['connection']->send(json_encode([
+                'action' => 'playerList',
+                'players' => $playerList
+            ]));
+        }
+    }
+
+    // $from 是發起挑戰的玩家$conn，$targetId 是被挑戰的玩家 ID
+    private function handleChallenge($from, $targetId)
+    {
+        foreach ($this->players as $playerId => $player) {
+            if ($playerId === $targetId) {
+                $player['connection']->send(json_encode(['action' => 'challenge', 'fromId' => $this->players[$from->resourceId]]));
+                break;
+            }
+        }
+    }
+
+    private function handleMove($from, $index)
+    {
+        // 遊戲邏輯省略：傳遞步數給對手
+    }
+}
+
+// 啟動伺服器
+$server = IoServer::factory(
+    new HttpServer(
+        new WsServer(
+            new TicTacToeServer()
+        )
+    ),
+    8080
+);
+echo "game server started on port 8080\n";
+$server->run();
