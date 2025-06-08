@@ -42,14 +42,44 @@ class TicTacToeServer implements MessageComponentInterface
     {
         $data = json_decode($msg, true);
         switch ($data['action']) {
+
+            // 玩家發起挑戰
             case 'challenge':
-                echo "challenge time!\n";
-                $this->handleChallenge($from, $data['targetId']);
+                $this->openChallenge($from, $data['targetId']);
                 break;
 
             case 'move':
                 $this->handleMove($from, $data['index']);
                 break;
+
+            // 玩家接受挑戰
+            case 'challenge_confirm':
+                $response = [
+                    'action' => $data['action'],
+                    'fromId' => $from->resourceId,
+                    'otherplayer' => $data['otherplayer'],
+                    'player' => $data['player']
+                ];
+
+                // 切到遊戲頁面
+                $this->players[$data['otherplayer']]['connection']->send(json_encode(['action' => 'change_page']));
+                $this->players[$data['player']]['connection']->send(json_encode(['action' => 'change_page']));
+                echo "challenge_confirm, otherplayer= " . $data['otherplayer'] . " player= " . $data['player'] . ",\n";
+
+                //未搞
+            case 'challenge_not_confirm':
+                // 處理玩家對挑戰的回應
+                $response = [
+                    'action' => $data['action'],
+                    'fromId' => $from->resourceId,
+                    'otherplayer' => $data['otherplayer']
+                ];
+                // 廣播給所有玩家
+                foreach ($this->players as $player) {
+                    $player['connection']->send(json_encode($response));
+                }
+                break;
+
             default:
                 echo "Unknown action: " . $data['action'] . "\n";
                 break;
@@ -83,16 +113,20 @@ class TicTacToeServer implements MessageComponentInterface
     }
 
     // $from 是發起挑戰的玩家$conn，$targetId 是被挑戰的玩家 ID
-    private function handleChallenge($from, $targetId)
+    private function openChallenge($from, $targetId)
     {
-        echo "here! $targetId\n";
         foreach ($this->players as $playerId => $player) {
             if ($playerId == $targetId) {
-                echo "connect!\n";
                 $player['connection']->send(json_encode(['action' => 'challenge', 'fromId' => $from->resourceId]));
                 break;
             }
         }
+    }
+
+    // 理論上要回覆發出挑戰的玩家,但沒做QAQ
+    private function replyChallenge($response)
+    {
+        // 快寫啊
     }
 
     private function handleMove($from, $index)
