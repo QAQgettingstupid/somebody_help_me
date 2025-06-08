@@ -7,6 +7,7 @@
 #### 題外話
 
 -  skin.php的 let conn = new WebSocket('ws://localhost:8080'); 的localhost改伺服器IP同內網可互聯
+-  在skin.php所在處cmd打指令**php -S 0.0.0.0:8000**
 
 ************************************************
 
