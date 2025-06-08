@@ -13,6 +13,4 @@
 
 ### 以下還沒做QAQ
 
--  skin.php連到try.php (因為要從socket確認對戰玩家再連過去try.php)
--  try.php遊戲邏輯判斷 (其實try.php根本沒動過)
-  
+-  tic-tac-toe.php 遊戲邏輯判斷、傳遞功能及結束後處置
