@@ -9,13 +9,16 @@ use Ratchet\WebSocket\WsServer;
 
 class TicTacToeServer implements MessageComponentInterface
 {
+
     protected $clients; //所有在線玩家set
     protected $players; //玩家資訊
+    protected $Game_Manage; //玩家資訊
 
-    public function __construct()
+    public function __construct($Game_Manage)
     {
         $this->clients = new \SplObjectStorage; //SplObjectStorage -> Object set
         $this->players = [];
+        $this->Game_Manage = $Game_Manage; //遊戲本體
     }
 
     // 為每個連線分配一個唯一 ID
@@ -59,24 +62,25 @@ class TicTacToeServer implements MessageComponentInterface
 
             // 玩家接受挑戰
             case 'challenge_confirm':
-                $response = [
-                    'action' => $data['action'],
-                    'fromId' => $this->players[$from->resourceId]['playerID'],
-                    'otherplayer' => $data['otherplayer'],
-                    'player' => $data['player']
-                ];
+
+                $player1Id = $this->players[$from->resourceId]['playerID'];
+                $player2Id = $data['otherplayer'];
+
+                //開房
+                $roomId = $this->Game_Manage->createRoom($player1Id, $player2Id);
 
                 // 切到遊戲頁面
                 foreach ($this->players as $player) { // 找發起玩家
+                    // 發起玩家
                     if ($player['playerID'] == $data['otherplayer']) {
-                        // 發起玩家
-                        $player['connection']->send(json_encode(['action' => 'change_page']));
+                        $player['game'] = $roomId; // 設定遊戲房間 ID
+                        $player['connection']->send(json_encode(['action' => 'change_page', 'game' => $roomId]));
                     }
                 }
 
                 // 被發起玩家
-                $this->players[$from->resourceId]['connection']->send(json_encode(['action' => 'change_page']));
-                echo "challenge_confirm, otherplayer= " . $data['otherplayer'] . " player= " . $data['player'] . ",\n";
+                $this->players[$from->resourceId]['game'] = $roomId; // 設定遊戲房間 ID
+                $this->players[$from->resourceId]['connection']->send(json_encode(['action' => 'change_page', 'game' => $roomId]));
                 break;
 
             //未搞
@@ -168,25 +172,27 @@ class TicTacToeGame
         $this->rooms = [];
     }
 
-    public function createRoom($playerId)
+    public function createRoom($player1Id, $player2Id)
     {
         // 為玩家創建一個新的遊戲房間
-        $roomId = uniqid('room_');
+        $roomId = uniqid();
         $this->rooms[$roomId] = [
-            'players' => [$playerId],
+            'player1' => [$player1Id],
+            'player2' => [$player2Id],
             'board' => array_fill(0, 9, null), // 初始化棋盤
-            'currentPlayer' => $playerId
+            'currentPlayer' => $player1Id
         ];
         return $roomId;
     }
 };
 
+$Game_Manage = new TicTacToeGame();
+
 // 啟動伺服器
 $server = IoServer::factory(
     new HttpServer(
         new WsServer(
-            new TicTacToeServer(),
-            new TicTacToeGame()
+            new TicTacToeServer($Game_Manage)
         )
     ),
     8080

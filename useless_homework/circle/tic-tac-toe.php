@@ -1,5 +1,9 @@
 <?php
 header("Content-Security-Policy: connect-src 'self' ws://localhost:8080;");
+
+//從URL取得玩家 ID 和房間 ID
+$playerId = isset($_GET['playerId']) ? $_GET['playerId'] : null;
+$roomId = isset($_GET['roomId']) ? $_GET['roomId'] : null;
 ?>
 <!DOCTYPE html>
 <html lang="zh-Hant">
@@ -48,12 +52,17 @@ header("Content-Security-Policy: connect-src 'self' ws://localhost:8080;");
         <?php endfor; ?>
     </div>
     <script>
+        //php變數轉換為JavaScript變數
+        let playerId = <?= json_encode($playerId) ?>;
+        let roomId = <?= json_encode($roomId) ?>;
         // 建立 WebSocket 連線
         let conn = new WebSocket('ws://localhost:8080');
         let symbol = 'X'; // 預設玩家符號，實際應該由伺服器分配
 
         conn.onopen = () => {
+
             console.log("WebSocket connection established!");
+            console.log(playerId);
         };
 
         conn.onmessage = (e) => {
@@ -65,7 +74,7 @@ header("Content-Security-Policy: connect-src 'self' ws://localhost:8080;");
                     conn.send(JSON.stringify({
                         action: 'replyPlayerId',
                         playerId: playerId,
-                        game: 'in_game'
+                        game : roomId
                     }));
                     break;
 

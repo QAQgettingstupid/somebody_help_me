@@ -75,7 +75,7 @@
                     conn.send(JSON.stringify({
                         action: 'replyPlayerId',
                         playerId: playerId,
-                        game: null
+                        game : null
                     }));
                     break;
 
@@ -102,7 +102,7 @@
 
                     // 切換到遊戲頁面
                 case 'change_page':
-                    window.location.href = 'tic-tac-toe.php?playerId=${playerId}';
+                    window.location.href = "tic-tac-toe.php?roomId=" + data.game + "&playerId=" + playerId;
                     break;
             }
         };
