@@ -55,18 +55,28 @@
     </div>
 
     <script>
+        // 若不存在玩家 ID，則生成並保存到 sessionStorage
+        let playerId = sessionStorage.getItem('playerId');
+        if (!playerId) {
+            playerId = Math.random().toString(36).substr(2, 9);
+            sessionStorage.setItem('playerId', playerId);
+        }
+        document.getElementById('playerId').textContent = playerId;
+
         let conn = new WebSocket('ws://localhost:8080');
-        let playerId = null;
 
         conn.onopen = () => console.log("WebSocket connected!");
         conn.onmessage = (e) => {
             let data = JSON.parse(e.data);
 
             switch (data.action) {
-                case 'welcome':
-                    playerId = data.playerId;
-                    document.getElementById('playerId').textContent = playerId;
-                    console.log("Your Player ID: " + playerId);
+                case 'requestPlayerId':
+                    // 當伺服器請求玩家 ID 時，回傳當前玩家 ID
+                    conn.send(JSON.stringify({
+                        action: 'replyPlayerId',
+                        playerId: playerId,
+                        game: null
+                    }));
                     break;
 
                 case 'playerList':
@@ -90,9 +100,9 @@
                     });
                     break;
 
-                // 切換到遊戲頁面
+                    // 切換到遊戲頁面
                 case 'change_page':
-                    window.location.href = 'try.php?playerId=${playerId}';
+                    window.location.href = 'tic-tac-toe.php?playerId=${playerId}';
                     break;
             }
         };
