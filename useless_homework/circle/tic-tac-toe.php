@@ -13,34 +13,17 @@ $roomId = isset($_GET['roomId']) ? $_GET['roomId'] : null;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-Tac-Toe</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .board {
-            display: grid;
-            grid-template-columns: repeat(3, 100px);
-            gap: 5px;
-            margin: 20px auto;
-        }
-
-        .cell {
-            width: 100px;
-            height: 100px;
-            border: 1px solid #000;
-            font-size: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        .cell.taken {
-            cursor: not-allowed;
-            background: #eee;
-        }
+        body { font-family: Arial, sans-serif; text-align: center; }
+    .board { display: grid; grid-template-columns: repeat(3, 80px); gap: 8px; margin: 30px auto; width: 264px;}
+    .cell {
+      width: 80px; height: 80px; font-size: 2.5em;
+      border: 2px solid #333; display: flex;
+      align-items: center; justify-content: center; cursor: pointer;
+      background: #fff;
+    }
+    .cell.win { background: #ffe066; }
+    #status { margin: 20px; font-size: 1.2em; }
+    #restart { margin: 10px; }
     </style>
 </head>
 
