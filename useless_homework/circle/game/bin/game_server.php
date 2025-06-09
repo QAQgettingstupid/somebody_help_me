@@ -56,10 +56,6 @@ class TicTacToeServer implements MessageComponentInterface
                 $this->openChallenge($from, $data['targetId']);
                 break;
 
-            case 'move':
-                $this->handleMove($from, $data['index']);
-                break;
-
             // 玩家接受挑戰
             case 'challenge_confirm':
 
@@ -74,13 +70,13 @@ class TicTacToeServer implements MessageComponentInterface
                     // 發起玩家
                     if ($player['playerID'] == $data['otherplayer']) {
                         $player['game'] = $roomId; // 設定遊戲房間 ID
-                        $player['connection']->send(json_encode(['action' => 'change_page', 'game' => $roomId]));
+                        $player['connection']->send(json_encode(['action' => 'change_page', 'game' => $roomId, 'first' => false]));
                     }
                 }
 
                 // 被發起玩家
                 $this->players[$from->resourceId]['game'] = $roomId; // 設定遊戲房間 ID
-                $this->players[$from->resourceId]['connection']->send(json_encode(['action' => 'change_page', 'game' => $roomId]));
+                $this->players[$from->resourceId]['connection']->send(json_encode(['action' => 'change_page', 'game' => $roomId, 'first' => true]));
                 break;
 
             //未搞
@@ -95,6 +91,18 @@ class TicTacToeServer implements MessageComponentInterface
                 foreach ($this->players as $player) {
                     $player['connection']->send(json_encode($response));
                 }
+                break;
+
+            // 更新盤面(包含起始狀態)
+            case 'updateBoard':
+                $board = $this->Game_Manage->rooms[$data['game']]['board'];
+
+                // 回傳盤面
+                $from->send(json_encode(['action' => 'updateBoard', 'board' => $board]));
+                break;
+
+            case 'move':
+                $this->handleMove($from, $data['index']);
                 break;
 
             default:

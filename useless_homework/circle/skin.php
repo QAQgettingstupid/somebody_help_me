@@ -63,6 +63,7 @@
         }
         document.getElementById('playerId').textContent = playerId;
 
+        let first;
         let conn = new WebSocket('ws://localhost:8080');
 
         conn.onopen = () => console.log("WebSocket connected!");
@@ -75,7 +76,7 @@
                     conn.send(JSON.stringify({
                         action: 'replyPlayerId',
                         playerId: playerId,
-                        game : null
+                        game: null
                     }));
                     break;
 
@@ -102,7 +103,9 @@
 
                     // 切換到遊戲頁面
                 case 'change_page':
-                    window.location.href = "tic-tac-toe.php?roomId=" + data.game + "&playerId=" + playerId;
+                    let roomId = sessionStorage.setItem('roomId', data.game);
+                    let first = sessionStorage.setItem('first', data.first);
+                    window.location.href = "tic-tac-toe.php?";
                     break;
             }
         };
