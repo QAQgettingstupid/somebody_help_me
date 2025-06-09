@@ -13,8 +13,8 @@
 
 ### 以下還沒做QAQ
 
--  tic-tac-toe.php 遊戲邏輯判斷 **(在game_server.php裡面的TicTacToeGame寫判斷函式)**
--  tic-tac-toe.php 結束後處置(再玩一局或是離開)
+-  遊戲邏輯判斷 **(在game_server.php裡面的TicTacToeGame寫判斷函式)**
+-  遊戲結束後處置(再玩一局或是離開)
 -  提示框拒絕的選項還沒做(凡是yes no 二選一)
 -  除了list 會顯示ID還有名稱(匿名)
--  tic-tac-toe倒數計時
+-  遊戲下棋倒數計時(30秒倒數之類的)
