@@ -103,6 +103,19 @@ header("Content-Security-Policy: connect-src 'self' ws://localhost:8080;");
 
         //更新當前棋盤狀態
         function updateBoard(board) {
+            console.log("round: " + round);
+            if(first){
+                if(round % 2)
+                    updateTitle("你的回合(你是X)");
+                else
+                    updateTitle("對手的回合(你是X)");
+            }
+            else{
+                if(!(round % 2))
+                    updateTitle("你的回合(你是O)");
+                else
+                    updateTitle("對手的回合(你是O)");
+            }
 
             // symbol在此為區域變數, 代表格內元素
             board.forEach((symbol, index) => {
@@ -113,14 +126,20 @@ header("Content-Security-Policy: connect-src 'self' ws://localhost:8080;");
                     cell.classList.remove('taken');
 
                     if (
-                        (first && (round % 2)) || // 你先手但現在是對方回合
-                        (!first && !(round % 2)) || // 你後手但現在是對方回合
+                        (first && !(round % 2)) || // 你先手但現在是對方回合
+                        (!first && (round % 2)) || // 你後手但現在是對方回合
                         symbol // 或這格已經有棋子
                     ) {
                         cell.classList.add('taken');
                     }
                 }
             });
+        }
+
+        // 更新標題
+        function updateTitle(newTitle) {
+            const titleElement = document.querySelector('h1');
+            titleElement.textContent = newTitle;
         }
 
         // 監聽棋盤點擊事件
