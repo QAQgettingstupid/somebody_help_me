@@ -95,14 +95,21 @@ class TicTacToeServer implements MessageComponentInterface
 
             // 更新盤面(包含起始狀態)
             case 'updateBoard':
-                $board = $this->Game_Manage->rooms[$data['game']]['board'];
+                $roomId = $data['game']; // 確定是哪個遊戲房間
+                $room = $this->Game_Manage->getRoom($roomId);
 
+                // 僅提取必要資料
+                $response = [
+                    'action' => 'updateBoard',
+                    'board' => $room['board'], // 棋盤狀態
+                    'round' => $room['round']  // 當前回合數
+                ];
                 // 回傳盤面
-                $from->send(json_encode(['action' => 'updateBoard', 'board' => $board]));
+                $from->send(json_encode($response));
                 break;
 
             case 'move':
-                $this->handleMove($from, $data['index']);
+                $this->handleMove($from, $data['index'], $data['symbol'], $data['roomId'], $data['playerId']);
                 break;
 
             default:
@@ -164,9 +171,42 @@ class TicTacToeServer implements MessageComponentInterface
         // 快寫啊
     }
 
-    private function handleMove($from, $index)
+    private function handleMove($from, $index, $symbol, $roomId, $playerId)
     {
-        // 遊戲邏輯省略：傳遞步數給對手
+
+        $room = $this->Game_Manage->getRoom($roomId);
+
+        //找對手是player2還是player1
+        if ($room['player2'] != $playerId)
+            $other = $room['player2'];
+        else
+            $other = $room['player1'];
+
+        // 更新棋盤狀態
+        $room['board'][$index] = $symbol;
+
+        // 更新回合數
+        $room['round']++;
+
+        // 通知對手更新棋盤
+        foreach ($this->players as $player) {
+            if ($player['playerID'] == $other) {
+                $player['connection']->send(json_encode([
+                    'action' => 'updateBoard',
+                    'board' => $room['board'],
+                    'round' => $room['round']
+                ]));
+                break;
+            }
+        }
+
+        $from->send(json_encode([
+            'action' => 'updateBoard',
+            'board' => $room['board'],
+            'round' => $room['round']
+        ]));
+
+        $this->Game_Manage->setRoom($room, $roomId);
     }
 }
 
@@ -180,15 +220,25 @@ class TicTacToeGame
         $this->rooms = [];
     }
 
+    public function getRoom($roomId)
+    {
+        return $this->rooms[$roomId] ?? null;
+    }
+
+    public function setRoom($room, $roomId)
+    {
+        $this->rooms[$roomId] = $room;
+    }
+
     public function createRoom($player1Id, $player2Id)
     {
         // 為玩家創建一個新的遊戲房間
         $roomId = uniqid();
         $this->rooms[$roomId] = [
-            'player1' => [$player1Id],
-            'player2' => [$player2Id],
+            'player1' => $player1Id,
+            'player2' => $player2Id,
             'board' => array_fill(0, 9, null), // 初始化棋盤
-            'currentPlayer' => $player1Id
+            'round' => 1
         ];
         return $roomId;
     }

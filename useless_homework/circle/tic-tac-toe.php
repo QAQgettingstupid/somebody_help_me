@@ -61,7 +61,7 @@ header("Content-Security-Policy: connect-src 'self' ws://localhost:8080;");
         let playerId = sessionStorage.getItem('playerId');
         let roomId = sessionStorage.getItem('roomId');
         let first = sessionStorage.getItem('first') === 'true'; // === 'true' -> 將字串轉為布林值
-
+        let round;
         // 先手為X
         let symbol = first ? 'X' : 'O';
 
@@ -70,10 +70,6 @@ header("Content-Security-Policy: connect-src 'self' ws://localhost:8080;");
         conn.onopen = () => {
             // 以下可刪,單純除錯用
             console.log("WebSocket connection established!");
-            console.log(playerId);
-            console.log(roomId);
-            console.log(first);
-            console.log(symbol);
         };
 
         conn.onmessage = (e) => {
@@ -88,6 +84,7 @@ header("Content-Security-Policy: connect-src 'self' ws://localhost:8080;");
                         playerId: playerId,
                         game: roomId
                     }));
+                    //請求初始化
                     conn.send(JSON.stringify({
                         action: 'updateBoard',
                         playerId: playerId,
@@ -97,22 +94,33 @@ header("Content-Security-Policy: connect-src 'self' ws://localhost:8080;");
 
                     // 更新棋盤
                 case 'updateBoard':
-                    
-
-
-                    let cell = document.querySelector(`.cell[data-index='${data.index}']`);
-                    if (cell) {
-                        cell.textContent = data.symbol;
-                        cell.classList.add('taken');
-                    }
-                    updateBoard();
+                    console.log("update");
+                    round = data.round; // 更新回合數
+                    updateBoard(data.board);
                     break;
             }
         };
 
         //更新當前棋盤狀態
-        function updateBoard() {
+        function updateBoard(board) {
 
+            // symbol在此為區域變數, 代表格內元素
+            board.forEach((symbol, index) => {
+                let cell = document.querySelector(`.cell[data-index='${index}']`);
+                if (cell) {
+                    cell.textContent = symbol || ''; // 如果 symbol 為 null 則顯示空格
+
+                    cell.classList.remove('taken');
+
+                    if (
+                        (first && (round % 2)) || // 你先手但現在是對方回合
+                        (!first && !(round % 2)) || // 你後手但現在是對方回合
+                        symbol // 或這格已經有棋子
+                    ) {
+                        cell.classList.add('taken');
+                    }
+                }
+            });
         }
 
         // 監聽棋盤點擊事件
@@ -128,9 +136,12 @@ header("Content-Security-Policy: connect-src 'self' ws://localhost:8080;");
                 // 發送步數訊息到伺服器
                 conn.send(JSON.stringify({
                     action: "move",
+                    playerId: playerId,
+                    roomId: roomId,
                     index: index,
                     symbol: symbol
                 }));
+                console.log("send move");
             });
         });
     </script>
