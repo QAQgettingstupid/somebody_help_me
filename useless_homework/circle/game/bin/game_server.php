@@ -29,6 +29,7 @@ class TicTacToeServer implements MessageComponentInterface
         //從 $conn 取 resourceId 當 key (resourceId 是 ratchet 設定 $conn 的屬性)
         $this->players[$conn->resourceId] = [
             'playerID' => null,
+            'playerName' => null,
             'connection' => $conn,
             'game' => null // 尚未加入遊戲
         ];
@@ -47,6 +48,7 @@ class TicTacToeServer implements MessageComponentInterface
             // 玩家回覆生成 ID
             case 'replyPlayerId':
                 $this->players[$from->resourceId]['playerID'] = $data['playerId'];
+                $this->players[$from->resourceId]['playerName'] = $data['playerName'];
                 $this->players[$from->resourceId]['game'] = $data['game'];
                 $this->broadcastPlayerList();
                 break;
@@ -138,7 +140,8 @@ class TicTacToeServer implements MessageComponentInterface
         foreach ($this->players as $player) {
             if ($player['game'] === null) {
                 $playerList[] = [
-                    'id' => $player['playerID']
+                    'id' => $player['playerID'],
+                    'name' => $player['playerName']
                 ];
             }
         }
@@ -159,7 +162,7 @@ class TicTacToeServer implements MessageComponentInterface
     {
         foreach ($this->players as $player) {
             if ($player['playerID'] == $targetId) {
-                $player['connection']->send(json_encode(['action' => 'challenge', 'fromId' => $this->players[$from->resourceId]['playerID']]));
+                $player['connection']->send(json_encode(['action' => 'challenge', 'from' => $this->players[$from->resourceId]['playerName'], 'fromid' => $this->players[$from->resourceId]['playerID']]));
                 break;
             }
         }
@@ -187,6 +190,18 @@ class TicTacToeServer implements MessageComponentInterface
 
         // 更新回合數
         $room['round']++;
+
+        // 檢查是否有玩家獲勝或平局
+        $winningCombinations = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8], // 橫向
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8], // 縱向
+            [0, 4, 8],
+            [2, 4, 6] // 對角線
+        ];
 
         // 通知對手更新棋盤
         foreach ($this->players as $player) {

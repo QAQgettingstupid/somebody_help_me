@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 
+<?php $playerName = $_POST["name"];?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,11 +41,12 @@
 </head>
 
 <body>
-    <h1>Your ID: <span id="playerId"></span></h1>
-    <h2>Online Players:</h2>
+    <h1>你的暱稱: <span id="playerName"></span></h1>
+    <h1>你的ID: <span id="playerId"></span></h1>
+    <h2>線上玩家列表:</h2>
     <ul id="playerList"></ul>
 
-    <input type="text" id="targetIdInput" placeholder="輸入玩家ID挑戰">
+    <input type="text" id="targetIdInput" placeholder="輸入要挑戰玩家的ID">
     <button onclick="challengePlayer()">挑戰</button>
 
     <!-- 自定義對話框 -->
@@ -55,6 +58,16 @@
     </div>
 
     <script>
+        // 取得玩家名稱
+        let playerName = sessionStorage.getItem('playerName');
+
+        // 馬的, 被坑了sessionStorage取出是string
+        console.log("raw playerName=" + playerName, "type:", typeof playerName);
+        if (!playerName || playerName === "null") {
+            playerName = <?php echo json_encode($playerName); ?>;
+        }
+        document.getElementById('playerName').textContent = playerName;
+
         // 若不存在玩家 ID，則生成並保存到 sessionStorage
         let playerId = sessionStorage.getItem('playerId');
         if (!playerId) {
@@ -76,6 +89,7 @@
                     conn.send(JSON.stringify({
                         action: 'replyPlayerId',
                         playerId: playerId,
+                        playerName: playerName,
                         game: null
                     }));
                     break;
@@ -86,11 +100,11 @@
 
                 case 'challenge':
                     // (accept)-> 處理callback結果,accept是回傳值
-                    showCustomDialog(`Player ${data.fromId} wants to play with you. Accept?`, (accept) => {
+                    showCustomDialog(`${data.from}想跟你玩,你要嗎AUA?`, (accept) => {
                         if (accept) {
                             conn.send(JSON.stringify({
                                 action: 'challenge_confirm',
-                                otherplayer: data.fromId,
+                                otherplayer: data.fromid,
                                 player: playerId,
                             }));
                         } else {
@@ -114,7 +128,7 @@
         function updatePlayerList(players) {
             const list = document.getElementById('playerList');
             list.innerHTML = players
-                .map(p => `<li>${p.id}</li>`)
+                .map(p => `<li>${p.name}(ID => ${p.id})</li>`)
                 .join('');
         }
 

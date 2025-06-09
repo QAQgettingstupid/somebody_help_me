@@ -60,6 +60,7 @@ header("Content-Security-Policy: connect-src 'self' ws://localhost:8080;");
         //從上頁取回玩家 ID 和房間 ID
         let playerId = sessionStorage.getItem('playerId');
         let roomId = sessionStorage.getItem('roomId');
+        let playerName = sessionStorage.getItem('playerName');
         let first = sessionStorage.getItem('first') === 'true'; // === 'true' -> 將字串轉為布林值
         let round;
         // 先手為X
@@ -82,6 +83,7 @@ header("Content-Security-Policy: connect-src 'self' ws://localhost:8080;");
                     conn.send(JSON.stringify({
                         action: 'replyPlayerId',
                         playerId: playerId,
+                        playerName: playerName,
                         game: roomId
                     }));
                     //請求初始化
@@ -104,6 +106,8 @@ header("Content-Security-Policy: connect-src 'self' ws://localhost:8080;");
         //更新當前棋盤狀態
         function updateBoard(board) {
             console.log("round: " + round);
+
+            //理論上要對手寫對手的玩家名但我懶還沒改
             if(first){
                 if(round % 2)
                     updateTitle("你的回合(你是X)");
