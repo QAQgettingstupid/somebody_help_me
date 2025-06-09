@@ -14,7 +14,7 @@
 ### 以下還沒做QAQ
 
 -  tic-tac-toe.php 遊戲邏輯判斷、傳遞功能及結束後處置 **(在game_server.php裡面的TicTacToeGame寫判斷函式)**
--  拒絕的選項還沒做(反是yes no 二選一)
+-  提示框拒絕的選項還沒做(凡是yes no 二選一)
 
 ### 想做但沒手(笑)
 
