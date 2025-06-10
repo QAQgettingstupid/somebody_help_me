@@ -107,10 +107,13 @@ header("Content-Security-Policy: connect-src 'self' ws://192.168.66.130:8080;");
                             updateTitle(`你贏了！`);
                         else
                             updateTitle(`你輸了QAQ`);
+
+                        // 標記勝利格
                         highlightWin(data.line);
                     } else if (data.result === 'draw') {
                         updateTitle('平手！');
                     }
+
                     // 遊戲結束後禁止再下棋
                     disableBoard();
                     break;
@@ -157,6 +160,23 @@ header("Content-Security-Policy: connect-src 'self' ws://192.168.66.130:8080;");
         function updateTitle(newTitle) {
             const titleElement = document.querySelector('h1');
             titleElement.textContent = newTitle;
+        }
+
+        // 標記勝利格
+        function highlightWin(line) {
+            document.querySelectorAll('.cell').forEach(cell => {
+                let index = cell.getAttribute('data-index');
+                if (index == line[0] || index == line[1] || index == line[2]) {
+                    cell.classList.add('win');
+                }
+            });
+        }
+
+        // 遊戲結束後禁止動作
+        function disableBoard() {
+            document.querySelectorAll('.cell').forEach(cell => {
+                cell.classList.add('taken');
+            });
         }
 
         // 監聽棋盤點擊事件

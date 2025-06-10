@@ -209,6 +209,7 @@ class TicTacToeServer implements MessageComponentInterface
         ];
 
         $winner = null;
+        $winner_X = null;
         $winLine = null;
         foreach ($winPatterns as $line) {
             list($a, $b, $c) = $line;
@@ -217,12 +218,13 @@ class TicTacToeServer implements MessageComponentInterface
                 $room['board'][$a] === $room['board'][$b] &&
                 $room['board'][$a] === $room['board'][$c]
             ) {
+                $winner=true; // 有人勝利
                 // X 勝利
                 if ($room['board'][$a] == 'X')
-                    $winner = true;
+                    $winner_X = true;
                 // O 勝利
                 else
-                    $winner = false;
+                    $winner_X = false;
                 $winLine = $line;
                 break;
             }
@@ -250,7 +252,7 @@ class TicTacToeServer implements MessageComponentInterface
                     $player['connection']->send(json_encode([
                         'action' => 'gameOver',
                         'result' => 'win',
-                        'winner' => $winner,
+                        'winner' => $winner_X,
                         'line' => $winLine
                     ]));
                 }
