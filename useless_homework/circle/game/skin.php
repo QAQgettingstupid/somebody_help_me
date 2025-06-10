@@ -131,18 +131,47 @@
                 .map(p => `<li>${p.name}(ID => ${p.id})</li>`)
                 .join('');
         }
+        function showAlertDialog(message, callback) {
+            const dialog = document.getElementById('customDialog');
+            const overlay = document.getElementById('overlay');
+            const messageEl = document.getElementById('dialogMessage');
+            const acceptButton = document.getElementById('acceptButton');
+            const declineButton = document.getElementById('declineButton');
+
+            messageEl.textContent = message;
+            dialog.style.display = 'block';
+            overlay.style.display = 'block';
+
+            acceptButton.textContent = '關閉';
+            acceptButton.style.display = 'inline-block';
+            declineButton.style.display = 'none';
+            //置中
+            acceptButton.style.display = 'block'; // 改成 block 讓 margin auto 生效
+            acceptButton.style.marginLeft = 'auto';
+            acceptButton.style.marginRight = 'auto';
+            
+            acceptButton.onclick = () => {
+                closeCustomDialog();
+                if (callback) callback();
+            };
+        }
 
         // 發起挑戰
         function challengePlayer(targetId) {
             targetId = document.getElementById('targetIdInput').value;
 
             // 無效玩家沒做
+            if (targetId === playerId) {
+                alert("你不能挑戰自己！");
+                return;
+            }
             if (targetId) {
                 conn.send(JSON.stringify({
                     action: 'challenge',
                     targetId: targetId
                 }));
             } else {
+                
                 alert("請輸入有效的玩家 ID!");
             }
         }

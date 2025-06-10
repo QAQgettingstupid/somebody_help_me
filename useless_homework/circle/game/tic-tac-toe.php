@@ -100,6 +100,20 @@ header("Content-Security-Policy: connect-src 'self' ws://localhost:8080;");
                     round = data.round; // 更新回合數
                     updateBoard(data.board);
                     break;
+
+                case 'gameOver':
+                    if (data.result === 'win') {
+                        if (data.winner == first)
+                            updateTitle(`你贏了！`);
+                        else
+                            updateTitle(`你輸了QAQ`);
+                        highlightWin(data.line);
+                    } else if (data.result === 'draw') {
+                        updateTitle('平手！');
+                    }
+                    // 遊戲結束後禁止再下棋
+                    disableBoard();
+                    break;
             }
         };
 
@@ -108,14 +122,13 @@ header("Content-Security-Policy: connect-src 'self' ws://localhost:8080;");
             console.log("round: " + round);
 
             //理論上要對手寫對手的玩家名但我懶還沒改
-            if(first){
-                if(round % 2)
+            if (first) {
+                if (round % 2)
                     updateTitle("你的回合(你是X)");
                 else
                     updateTitle("對手的回合(你是X)");
-            }
-            else{
-                if(!(round % 2))
+            } else {
+                if (!(round % 2))
                     updateTitle("你的回合(你是O)");
                 else
                     updateTitle("對手的回合(你是O)");

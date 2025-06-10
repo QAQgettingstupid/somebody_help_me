@@ -14,12 +14,16 @@ class TicTacToeServer implements MessageComponentInterface
     protected $players; //玩家資訊
     protected $Game_Manage; //玩家資訊
 
+
+
+
     public function __construct($Game_Manage)
     {
         $this->clients = new \SplObjectStorage; //SplObjectStorage -> Object set
         $this->players = [];
         $this->Game_Manage = $Game_Manage; //遊戲本體
     }
+
 
     // 為每個連線分配一個唯一 ID
     public function onOpen(ConnectionInterface $conn)
@@ -66,6 +70,7 @@ class TicTacToeServer implements MessageComponentInterface
 
                 //開房
                 $roomId = $this->Game_Manage->createRoom($player1Id, $player2Id);
+
 
                 // 切到遊戲頁面
                 foreach ($this->players as $player) { // 找發起玩家
@@ -160,6 +165,15 @@ class TicTacToeServer implements MessageComponentInterface
     // $from 是發起挑戰的玩家$conn，$targetId 是被挑戰的玩家 ID
     private function openChallenge($from, $targetId)
     {
+        $fromPlayerId = $this->players[$from->resourceId]['playerID'] ?? null;
+        if ($fromPlayerId === $targetId) {
+            // 不允許挑戰自己，可以選擇回傳錯誤訊息或直接忽略
+            $from->send(json_encode([
+                'action' => 'error',
+                'message' => '你不能挑戰自己！'
+            ]));
+            return;
+        }
         foreach ($this->players as $player) {
             if ($player['playerID'] == $targetId) {
                 $player['connection']->send(json_encode(['action' => 'challenge', 'from' => $this->players[$from->resourceId]['playerName'], 'fromid' => $this->players[$from->resourceId]['playerID']]));
@@ -176,50 +190,81 @@ class TicTacToeServer implements MessageComponentInterface
 
     private function handleMove($from, $index, $symbol, $roomId, $playerId)
     {
-
         $room = $this->Game_Manage->getRoom($roomId);
 
-        //找對手是player2還是player1
-        if ($room['player2'] != $playerId)
-            $other = $room['player2'];
-        else
-            $other = $room['player1'];
-
-        // 更新棋盤狀態
+        // 更新棋盤
         $room['board'][$index] = $symbol;
-
-        // 更新回合數
         $room['round']++;
 
-        // 檢查是否有玩家獲勝或平局
-        $winningCombinations = [
+        // 勝利線組合
+        $winPatterns = [
             [0, 1, 2],
             [3, 4, 5],
-            [6, 7, 8], // 橫向
+            [6, 7, 8], // 橫
             [0, 3, 6],
             [1, 4, 7],
-            [2, 5, 8], // 縱向
+            [2, 5, 8], // 直
             [0, 4, 8],
-            [2, 4, 6] // 對角線
+            [2, 4, 6]          // 斜
         ];
 
-        // 通知對手更新棋盤
+        $winner = null;
+        $winLine = null;
+        foreach ($winPatterns as $line) {
+            list($a, $b, $c) = $line;
+            if (
+                $room['board'][$a] &&
+                $room['board'][$a] === $room['board'][$b] &&
+                $room['board'][$a] === $room['board'][$c]
+            ) {
+                // X 勝利
+                if ($room['board'][$a] == 'X')
+                    $winner = true;
+                // O 勝利
+                else
+                    $winner = false;
+                $winLine = $line;
+                break;
+            }
+        }
+
+        $isDraw = false;
+        if (!$winner && !in_array(null, $room['board'])) {
+            $isDraw = true;
+        }
+
+        // 通知雙方更新棋盤
         foreach ($this->players as $player) {
-            if ($player['playerID'] == $other) {
+            if ($player['playerID'] == $room['player1'] || $player['playerID'] == $room['player2']) {
                 $player['connection']->send(json_encode([
                     'action' => 'updateBoard',
                     'board' => $room['board'],
                     'round' => $room['round']
                 ]));
-                break;
             }
         }
 
-        $from->send(json_encode([
-            'action' => 'updateBoard',
-            'board' => $room['board'],
-            'round' => $room['round']
-        ]));
+        if ($winner) {
+            foreach ($this->players as $player) {
+                if ($player['playerID'] == $room['player1'] || $player['playerID'] == $room['player2']) {
+                    $player['connection']->send(json_encode([
+                        'action' => 'gameOver',
+                        'result' => 'win',
+                        'winner' => $winner,
+                        'line' => $winLine
+                    ]));
+                }
+            }
+        } elseif ($isDraw) {
+            foreach ($this->players as $player) {
+                if ($player['playerID'] == $room['player1'] || $player['playerID'] == $room['player2']) {
+                    $player['connection']->send(json_encode([
+                        'action' => 'gameOver',
+                        'result' => 'draw'
+                    ]));
+                }
+            }
+        }
 
         $this->Game_Manage->setRoom($room, $roomId);
     }
@@ -252,6 +297,7 @@ class TicTacToeGame
         $this->rooms[$roomId] = [
             'player1' => $player1Id,
             'player2' => $player2Id,
+
             'board' => array_fill(0, 9, null), // 初始化棋盤
             'round' => 1
         ];
