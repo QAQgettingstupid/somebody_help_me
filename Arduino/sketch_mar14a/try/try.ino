@@ -6,10 +6,10 @@ const byte RIGHT1 = 7;  //IN3
 const byte RIGHT2 = 6;  //IN4
 const byte RIGHT_PWM = 5;
 //設定PWM輸出值(代表的是車子的速度)
-byte rightspeed = 150;
-byte leftspeed = 150;
-byte motorspeed = 90;
-bool front = false;
+byte rightspeed = 100;
+byte leftspeed = 100;
+byte motorspeed = 80;
+bool status = 0;  //1->小右轉,2->大右轉,3->小左轉,4->大左轉,5->直走 (數字指上一動)
 
 //超音波
 const byte trigPin = 2;  //觸發
@@ -27,11 +27,11 @@ unsigned long int ping() {
 void backward() {
   digitalWrite(LEFT1, HIGH);
   digitalWrite(LEFT2, LOW);
-  analogWrite(LEFT_PWM, leftspeed - 40);
+  analogWrite(LEFT_PWM, leftspeed);
   //右輪·因在小車上馬達安装方向左右兩個是相
   digitalWrite(RIGHT1, LOW);
   digitalWrite(RIGHT2, HIGH);
-  analogWrite(RIGHT_PWM, rightspeed - 40);
+  analogWrite(RIGHT_PWM, rightspeed);
 }
 
 void forward() {  //
@@ -41,6 +41,7 @@ void forward() {  //
   digitalWrite(RIGHT1, HIGH);
   digitalWrite(RIGHT2, LOW);
   analogWrite(RIGHT_PWM, rightspeed);
+  status = 5;
 }
 
 void turnleft() {  //左轉
@@ -49,6 +50,7 @@ void turnleft() {  //左轉
   analogWrite(RIGHT_PWM, motorspeed);
   digitalWrite(RIGHT1, HIGH);
   digitalWrite(RIGHT2, LOW);
+  status = 3;
 }
 void bigturnleft() {  //大左轉
   //左輪不動,右輪動(速度為0)
@@ -56,6 +58,7 @@ void bigturnleft() {  //大左轉
   analogWrite(RIGHT_PWM, motorspeed + 20);
   digitalWrite(RIGHT1, HIGH);
   digitalWrite(RIGHT2, LOW);
+  status = 4;
 }
 
 void turnright() {  //右轉
@@ -72,6 +75,7 @@ void bigturnright() {  //大右轉
   analogWrite(RIGHT_PWM, 0);
   digitalWrite(LEFT1, LOW);
   digitalWrite(LEFT2, HIGH);
+  status = 2;
 }
 void stopMotor() {
   analogWrite(LEFT_PWM, 0);
@@ -86,8 +90,6 @@ void setup() {
   pinMode(RIGHT1, OUTPUT);
   pinMode(RIGHT2, OUTPUT);
   pinMode(RIGHT_PWM, OUTPUT);
-  pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
   Serial.begin(9600);
 
 
@@ -97,26 +99,26 @@ void setup() {
 }
 void loop() {
 
-  //Serial.print("right"); Serial.println(digitalRead(11));
   //Serial.print("left"); Serial.println(digitalRead(12));
   //Serial.print("middle"); Serial.println(digitalRead(4));
-
+  //Serial.print("right"); Serial.println(digitalRead(11));
+  Serial.print(digitalRead(12));
+  Serial.print(digitalRead(4));
+  Serial.println(digitalRead(11));
 
   d = ping() / 58;
 
   Serial.println(String("") + d + " cm");
-  //delay(100);
-
-  //避障
 
   if (d >= 1 && d <= 40) {
 
     stopMotor();
-    delay(1000);
+    delay(700);
 
-    if (d <= 20) {
+    if (d >= 1 && d <= 25) {
+      Serial.println("why?????????");
       backward();
-      delay(400);
+      delay(1200);
     }
 
     stopMotor();
@@ -129,7 +131,7 @@ void loop() {
     delay(1000);
 
     forward();
-    delay(400);
+    delay(700);
 
     stopMotor();
     delay(1000);
@@ -144,47 +146,58 @@ void loop() {
       forward();
     }
   }
+
   //0-> 非黑線 1-> 黑線
   // 空->
-  //正直走 010 111 101
-
   //小右轉 011
   if (digitalRead(12) == 0 && digitalRead(4) == 1 && digitalRead(11) == 1) {
     turnright();
-    front = false;
+    status = 1;
+    return;
   }
   //大左轉 100
   if (digitalRead(12) == 1 && digitalRead(4) == 0 && digitalRead(11) == 0) {
     bigturnleft();
-    front = false;
+    return;
   }
   //小左轉 110
   if (digitalRead(12) == 1 && digitalRead(4) == 1 && digitalRead(11) == 0) {
     turnleft();
-    front = false;
+    return;
   }
   //大右轉 001
   if (digitalRead(12) == 0 && digitalRead(4) == 0 && digitalRead(11) == 1) {
     bigturnright();
-    front = false;
+    return;
   }
-
+  //正直走 010 111 101
   if ((digitalRead(12) == 0 && digitalRead(4) == 1 && digitalRead(11) == 0) || (digitalRead(12) == 1 && digitalRead(4) == 1 && digitalRead(11) == 1) || (digitalRead(12) == 1 && digitalRead(4) == 0 && digitalRead(11) == 1)) {
     forward();
-    front = true;
   }
 
+
   //停下 000
-  if (digitalRead(12) == 0 && digitalRead(4) == 0 && digitalRead(11) == 0) {
-    if (front) {
-      delay(80);
-      while (digitalRead(12) == 0 && digitalRead(4) == 0 && digitalRead(11) == 0) {
-        backward();
-      }
-      front = false;
-    } else {
-      backward();
-      Serial.println("backward");
+  if (status && (digitalRead(12) == 0 && digitalRead(4) == 0 && digitalRead(11) == 0)) {
+    switch (status) {
+      case 1:
+        turnleft();
+        break;
+
+      case 2:
+        bigturnleft();
+        break;
+
+      case 3:
+        turnright();
+        break;
+
+      case 4:
+        bigturnright();
+        break;
+      default:
+        while ((digitalRead(12) == 0 && digitalRead(4) == 0 && digitalRead(11) == 0))
+          forward();
+        break;
     }
   }
 }
