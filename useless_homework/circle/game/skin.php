@@ -77,7 +77,7 @@
         document.getElementById('playerId').textContent = playerId;
 
         let first;
-        let conn = new WebSocket('ws://192.168.66.130:8080');
+        let conn = new WebSocket('ws://192.168.66.188:8080');
 
         conn.onopen = () => console.log("WebSocket connected!");
         conn.onmessage = (e) => {

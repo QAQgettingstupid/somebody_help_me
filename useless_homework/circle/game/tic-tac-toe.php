@@ -1,5 +1,5 @@
 <?php
-header("Content-Security-Policy: connect-src 'self' ws://192.168.66.130:8080;");
+header("Content-Security-Policy: connect-src 'self' ws://192.168.66.188:8080;");
 ?>
 <!DOCTYPE html>
 <html lang="zh-Hant">
@@ -67,7 +67,7 @@ header("Content-Security-Policy: connect-src 'self' ws://192.168.66.130:8080;");
         let symbol = first ? 'X' : 'O';
 
         // 建立 WebSocket 連線
-        let conn = new WebSocket('ws://192.168.66.130:8080');
+        let conn = new WebSocket('ws://192.168.66.188:8080');
         conn.onopen = () => {
             // 以下可刪,單純除錯用
             console.log("WebSocket connection established!");
