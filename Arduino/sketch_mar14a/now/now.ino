@@ -6,8 +6,8 @@ const byte RIGHT1 = 7;  //IN3
 const byte RIGHT2 = 6;  //IN4
 const byte RIGHT_PWM = 5;
 //設定PWM輸出值(代表的是車子的速度)
-byte rightspeed = 150;
-byte leftspeed = 150;
+byte rightspeed = 160;
+byte leftspeed = 160;
 byte motorspeed = 90;
 bool front = false;
 
@@ -86,8 +86,6 @@ void setup() {
   pinMode(RIGHT1, OUTPUT);
   pinMode(RIGHT2, OUTPUT);
   pinMode(RIGHT_PWM, OUTPUT);
-  pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
   Serial.begin(9600);
 
 
@@ -98,9 +96,9 @@ void setup() {
 void loop() {
 
   //Serial.print("right"); Serial.println(digitalRead(11));
-  //Serial.print("left"); Serial.println(digitalRead(12));
+  Serial.print("left");
+  Serial.println(digitalRead(12));
   //Serial.print("middle"); Serial.println(digitalRead(4));
-
 
   d = ping() / 58;
 
@@ -129,7 +127,7 @@ void loop() {
     delay(1000);
 
     forward();
-    delay(400);
+    delay(500);
 
     stopMotor();
     delay(1000);
@@ -144,10 +142,15 @@ void loop() {
       forward();
     }
   }
+
   //0-> 非黑線 1-> 黑線
   // 空->
-  //正直走 010 111 101
 
+  //正直走 010 111 101
+  if ((digitalRead(12) == 0 && digitalRead(4) == 1 && digitalRead(11) == 0) || (digitalRead(12) == 1 && digitalRead(4) == 1 && digitalRead(11) == 1) || (digitalRead(12) == 1 && digitalRead(4) == 0 && digitalRead(11) == 1)) {
+    forward();
+    front = true;
+  }
   //小右轉 011
   if (digitalRead(12) == 0 && digitalRead(4) == 1 && digitalRead(11) == 1) {
     turnright();
@@ -168,12 +171,6 @@ void loop() {
     bigturnright();
     front = false;
   }
-
-  if ((digitalRead(12) == 0 && digitalRead(4) == 1 && digitalRead(11) == 0) || (digitalRead(12) == 1 && digitalRead(4) == 1 && digitalRead(11) == 1) || (digitalRead(12) == 1 && digitalRead(4) == 0 && digitalRead(11) == 1)) {
-    forward();
-    front = true;
-  }
-
   //停下 000
   if (digitalRead(12) == 0 && digitalRead(4) == 0 && digitalRead(11) == 0) {
     if (front) {
@@ -182,9 +179,7 @@ void loop() {
         backward();
       }
       front = false;
-    } else {
+    } else
       backward();
-      Serial.println("backward");
-    }
   }
 }

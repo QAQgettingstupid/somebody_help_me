@@ -8,7 +8,7 @@ const byte RIGHT_PWM = 5;
 //設定PWM輸出值(代表的是車子的速度)
 byte rightspeed = 150;
 byte leftspeed = 150;
-byte motorspeed = 90;
+byte motorspeed = 80;
 bool front = false;
 
 void backward(){
