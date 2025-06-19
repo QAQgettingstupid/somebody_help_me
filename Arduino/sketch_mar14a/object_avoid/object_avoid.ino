@@ -9,6 +9,8 @@ const byte RIGHT_PWM = 5;
 byte rightspeed = 150;
 byte leftspeed = 150;
 byte motorspeed = 90;
+
+//判斷上一步是否為直走
 bool front = false;
 
 //超音波
@@ -28,13 +30,12 @@ void backward() {
   digitalWrite(LEFT1, HIGH);
   digitalWrite(LEFT2, LOW);
   analogWrite(LEFT_PWM, leftspeed - 40);
-  //右輪·因在小車上馬達安装方向左右兩個是相
   digitalWrite(RIGHT1, LOW);
   digitalWrite(RIGHT2, HIGH);
   analogWrite(RIGHT_PWM, rightspeed - 40);
 }
 
-void forward() {  //
+void forward() {
   digitalWrite(LEFT1, LOW);
   digitalWrite(LEFT2, HIGH);
   analogWrite(LEFT_PWM, leftspeed);
@@ -101,19 +102,17 @@ void loop() {
   //Serial.print("left"); Serial.println(digitalRead(12));
   //Serial.print("middle"); Serial.println(digitalRead(4));
 
-
+  //計算物體距離
   d = ping() / 58;
-
   Serial.println(String("") + d + " cm");
-  //delay(100);
 
-  //避障
-
+  //避障功能
   if (d >= 1 && d <= 40) {
 
     stopMotor();
     delay(1000);
 
+    //若距離較短先後退
     if (d <= 20) {
       backward();
       delay(400);
@@ -140,12 +139,13 @@ void loop() {
     stopMotor();
     delay(1000);
 
+    //找回原路
     while (!(digitalRead(12) + digitalRead(4) + digitalRead(11))) {
       forward();
     }
   }
-  //0-> 非黑線 1-> 黑線
-  // 空->
+
+  // 0-> 非黑線 ; 1-> 黑線
   //正直走 010 111 101
 
   //小右轉 011
@@ -184,7 +184,6 @@ void loop() {
       front = false;
     } else {
       backward();
-      Serial.println("backward");
     }
   }
 }
