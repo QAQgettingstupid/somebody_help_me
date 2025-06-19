@@ -6,11 +6,9 @@ const byte RIGHT1 = 7;  //IN3
 const byte RIGHT2 = 6;  //IN4
 const byte RIGHT_PWM = 5;
 //設定PWM輸出值(代表的是車子的速度)
-byte rightspeed = 150;
-byte leftspeed = 150;
+byte rightspeed = 160;
+byte leftspeed = 160;
 byte motorspeed = 90;
-
-//判斷上一步是否為直走
 bool front = false;
 
 //超音波
@@ -30,12 +28,13 @@ void backward() {
   digitalWrite(LEFT1, HIGH);
   digitalWrite(LEFT2, LOW);
   analogWrite(LEFT_PWM, leftspeed - 40);
+  //右輪·因在小車上馬達安装方向左右兩個是相
   digitalWrite(RIGHT1, LOW);
   digitalWrite(RIGHT2, HIGH);
   analogWrite(RIGHT_PWM, rightspeed - 40);
 }
 
-void forward() {
+void forward() {  //
   digitalWrite(LEFT1, LOW);
   digitalWrite(LEFT2, HIGH);
   analogWrite(LEFT_PWM, leftspeed);
@@ -87,8 +86,6 @@ void setup() {
   pinMode(RIGHT1, OUTPUT);
   pinMode(RIGHT2, OUTPUT);
   pinMode(RIGHT_PWM, OUTPUT);
-  pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
   Serial.begin(9600);
 
 
@@ -99,20 +96,22 @@ void setup() {
 void loop() {
 
   //Serial.print("right"); Serial.println(digitalRead(11));
-  //Serial.print("left"); Serial.println(digitalRead(12));
+  Serial.print("left");
+  Serial.println(digitalRead(12));
   //Serial.print("middle"); Serial.println(digitalRead(4));
 
-  //計算物體距離
   d = ping() / 58;
-  Serial.println(String("") + d + " cm");
 
-  //避障功能
+  Serial.println(String("") + d + " cm");
+  //delay(100);
+
+  //避障
+
   if (d >= 1 && d <= 40) {
 
     stopMotor();
     delay(1000);
 
-    //若距離較短先後退
     if (d <= 20) {
       backward();
       delay(400);
@@ -128,7 +127,7 @@ void loop() {
     delay(1000);
 
     forward();
-    delay(400);
+    delay(500);
 
     stopMotor();
     delay(1000);
@@ -139,15 +138,19 @@ void loop() {
     stopMotor();
     delay(1000);
 
-    //找回原路
     while (!(digitalRead(12) + digitalRead(4) + digitalRead(11))) {
       forward();
     }
   }
 
-  // 0-> 非黑線 ; 1-> 黑線
-  //正直走 010 111 101
+  //0-> 非黑線 1-> 黑線
+  // 空->
 
+  //正直走 010 111 101
+  if ((digitalRead(12) == 0 && digitalRead(4) == 1 && digitalRead(11) == 0) || (digitalRead(12) == 1 && digitalRead(4) == 1 && digitalRead(11) == 1) || (digitalRead(12) == 1 && digitalRead(4) == 0 && digitalRead(11) == 1)) {
+    forward();
+    front = true;
+  }
   //小右轉 011
   if (digitalRead(12) == 0 && digitalRead(4) == 1 && digitalRead(11) == 1) {
     turnright();
@@ -168,12 +171,6 @@ void loop() {
     bigturnright();
     front = false;
   }
-
-  if ((digitalRead(12) == 0 && digitalRead(4) == 1 && digitalRead(11) == 0) || (digitalRead(12) == 1 && digitalRead(4) == 1 && digitalRead(11) == 1) || (digitalRead(12) == 1 && digitalRead(4) == 0 && digitalRead(11) == 1)) {
-    forward();
-    front = true;
-  }
-
   //停下 000
   if (digitalRead(12) == 0 && digitalRead(4) == 0 && digitalRead(11) == 0) {
     if (front) {
@@ -182,8 +179,7 @@ void loop() {
         backward();
       }
       front = false;
-    } else {
+    } else
       backward();
-    }
   }
 }
