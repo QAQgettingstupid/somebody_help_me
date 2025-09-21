@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\venus\\Desktop\\from_door_to_grave\\somebody_help_me\\zerojudge\u662F\u4EC0\u9EBC\u80FD\u5403\u55CE\\d089\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A745AC8B-5826-4F4E-A066-25483C4D21E6}|d089.vcxproj|C:\\Users\\venus\\Desktop\\from_door_to_grave\\somebody_help_me\\zerojudge\u662F\u4EC0\u9EBC\u80FD\u5403\u55CE\\d089\\d089.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A745AC8B-5826-4F4E-A066-25483C4D21E6}|d089.vcxproj|solutionrelative:d089.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "d089.cpp",
+              "DocumentMoniker": "C:\\Users\\venus\\Desktop\\from_door_to_grave\\somebody_help_me\\zerojudge\u662F\u4EC0\u9EBC\u80FD\u5403\u55CE\\d089\\d089.cpp",
+              "RelativeDocumentMoniker": "d089.cpp",
+              "ToolTip": "C:\\Users\\venus\\Desktop\\from_door_to_grave\\somebody_help_me\\zerojudge\u662F\u4EC0\u9EBC\u80FD\u5403\u55CE\\d089\\d089.cpp",
+              "RelativeToolTip": "d089.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-09-18T09:00:46.999Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
