@@ -6,10 +6,10 @@ using namespace std;
 
 int main()
 {
-	int N, front, back, temp;
-	string S = "";
+	int N;
+	string S,str1,str2;
 	int end;
-	vector<vector<string>> ans(4);
+	vector<string> ans;
 
 	while (cin >> N) {
 
@@ -21,8 +21,26 @@ int main()
 
 		for (int i = 0; i < end; i++) {
 			for (int j = 0; j < end; j++) {
+				if ((i + j) * (i + j) == i * end + j) {
+					
+					str1 = to_string(i);
+					str2 = to_string(j);
+					
+					while (str1.size() < N)
+						str1 = "0" + str1;
 
+					while (str2.size() < N)
+						str2 = "0" + str2;
+					
+					S = str1 + str2;
+					
+					ans.push_back(S);
+				}
 			}
 		}
+
+		for (int i = 0; i < ans.size(); i++)
+			cout << ans[i] << '\n';
+		ans.clear();
 	}
 }
