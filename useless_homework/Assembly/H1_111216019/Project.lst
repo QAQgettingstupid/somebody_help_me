@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 14.44.35219.0	    11/21/25 21:55:01
+Microsoft (R) Macro Assembler Version 14.44.35219.0	    11/22/25 19:49:16
 H1_111216019.asm					     Page 1 - 1
 
 
@@ -28,18 +28,92 @@ H1_111216019.asm(5) : warning A4011:multiple .MODEL directives found : .MODEL ig
 				.stack 4096
 				ExitProcess proto,dwExitCode:dword
 
+ 00000000			.data
+ 00000000  000001F5 [		buffer BYTE 501 DUP(?) ;上限輸入500字元
+	    00
+	   ]
+ 000001F5  00000032 [		array WORD 50 DUP(?)
+	    0000
+	   ]
+ 00000259 00000000		array_end DWORD ?
+ 0000025D 0000			now WORD 0
+ 0000025F 00			to_int BYTE ?
+
  00000000			.code
  00000000			main proc
- 00000000  E8 00000000 E	    call ReadInt				
- 00000005  83 C0 06		    add	eax,6				
- 00000008  E8 00000000 E	    call WriteDec
+
+ 00000000  BE 000001F5 R	    mov esi,OFFSET array
+ 00000005  BA 00000000 R	    mov edx, OFFSET buffer ;輸入輸出均放到edx
+ 0000000A  B9 000001F5		    mov ecx, LENGTHOF buffer  
+ 0000000F  E8 00000000 E	    call ReadString
+
+				    ;將字串轉轉存到array中
+				    .REPEAT 
+ 00000014		   *@C0001:
+ 00000014  8A 02		        mov al,[edx] ;當前字元
+				        .IF al == ' '
+ 00000016  3C 20	   *	    cmp    al, ' '
+ 00000018  75 18	   *	    jne    @C0002
+ 0000001A  66| 8B 1D		              mov BX,now
+	   0000025D R
+ 00000021  66| 89 1E		              mov [esi],BX  
+ 00000024  83 C6 02		              add esi, TYPE array
+ 00000027  66| C7 05		              mov now, 0 ; now為暫存值
+	   0000025D R
+	   0000
+
+				         .ELSE
+ 00000030  EB 23	   *	    jmp    @C0004
+ 00000032		   *@C0002:
+ 00000032  50			              push eax
+ 00000033  0F B7 05		              movzx eax,now ;now*=10
+	   0000025D R
+ 0000003A  BB 0000000A		              mov ebx,10
+ 0000003F  F7 E3		              mul ebx
+ 00000041  66| A3		              mov now,ax
+	   0000025D R
+ 00000047  58			              pop eax
+ 00000048  2C 30		              sub al,'0'  ;將字元轉為數字
+ 0000004A  66| 0F B6 C8		              movzx cx,al 
+ 0000004E  66| 01 0D		              add now, cx 
+	   0000025D R
+				         .ENDIF
+ 00000055		   *@C0004:
+ 00000055  42			         inc edx
+
+				    .UNTIL al == 0Dh 
+ 00000056  3C 0D	   *	    cmp    al, 00Dh
+ 00000058  75 BA	   *	    jne    @C0001
+ 0000005A  66| 8B 1D		    mov BX,now      ;存最後一個數字
+	   0000025D R
+ 00000061  66| 89 1E		    mov [esi],BX
+
+ 00000064  89 35 00000259 R	    mov array_end,esi ;紀錄array結束位置
+ 0000006A  BE 000001F5 R	    mov esi,OFFSET array
+ 0000006F  B0 20		    mov al, ' '
+
+				    ;遍歷輸出array內容
+				    .WHILE esi < array_end 
+ 00000071  EB 12	   *	    jmp    @C0006
+ 00000073		   *@C0007:
+ 00000073  0F B7 06		         movzx eax, WORD PTR [esi]
+ 00000076  E8 00000000 E	         call WriteDec
+ 0000007B  B0 20		         mov al, ' '
+ 0000007D  E8 00000000 E	         call WriteChar
+ 00000082  83 C6 02		         add esi,TYPE array
+				    .ENDW
+ 00000085		   *@C0006:
+ 00000085  3B 35 00000259 R *	    cmp    esi, array_end
+ 0000008B  72 E6	   *	    jb	@C0007
+ 0000008D  0F B7 06		    movzx eax, word ptr [esi]
+ 00000090  E8 00000000 E	    call WriteDec
 				    invoke ExitProcess,0
- 0000000D  6A 00	   *	    push   +000000000h
- 0000000F  E8 00000000 E   *	    call   ExitProcess
- 00000014			main endp
+ 00000095  6A 00	   *	    push   +000000000h
+ 00000097  E8 00000000 E   *	    call   ExitProcess
+ 0000009C			main endp
 
 				END main
-Microsoft (R) Macro Assembler Version 14.44.35219.0	    11/21/25 21:55:01
+Microsoft (R) Macro Assembler Version 14.44.35219.0	    11/22/25 19:49:16
 H1_111216019.asm					     Symbols 2 - 1
 
 
@@ -133,8 +207,8 @@ Segments and Groups:
 
 FLAT . . . . . . . . . . . . . .	GROUP
 STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
-_DATA  . . . . . . . . . . . . .	32 Bit	 00000000 Para	  Public  'DATA'	
-_TEXT  . . . . . . . . . . . . .	32 Bit	 00000014 Para	  Public  'CODE'	
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000260 Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 0000009C Para	  Public  'CODE'	
 
 
 Procedures, parameters, and locals:
@@ -241,7 +315,7 @@ WriteStackFrame  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External
 WriteString  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteToFile  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteWindowsMsg  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
-main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000014 Public STDCALL
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 0000009C Public STDCALL
 printf . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 scanf  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 wsprintfA  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
@@ -460,9 +534,12 @@ VK_UP  . . . . . . . . . . . . .	Number	 00000026h
 WINDOW_BUFFER_SIZE_EVENT . . . .	Number	 00000004h   
 WriteConsoleOutputCharacter  . .	Text   	 WriteConsoleOutputCharacterA
 WriteConsole . . . . . . . . . .	Text   	 WriteConsoleA
+array_end  . . . . . . . . . . .	DWord	 00000259 _DATA	
+array  . . . . . . . . . . . . .	Word	 000001F5 _DATA	
 black  . . . . . . . . . . . . .	Number	 00000000h   
 blue . . . . . . . . . . . . . .	Number	 00000001h   
 brown  . . . . . . . . . . . . .	Number	 00000006h   
+buffer . . . . . . . . . . . . .	Byte	 00000000 _DATA	
 cyan . . . . . . . . . . . . . .	Number	 00000003h   
 exit . . . . . . . . . . . . . .	Text   	 INVOKE ExitProcess,0
 gray . . . . . . . . . . . . . .	Number	 00000008h   
@@ -474,7 +551,9 @@ lightGreen . . . . . . . . . . .	Number	 0000000Ah
 lightMagenta . . . . . . . . . .	Number	 0000000Dh   
 lightRed . . . . . . . . . . . .	Number	 0000000Ch   
 magenta  . . . . . . . . . . . .	Number	 00000005h   
+now  . . . . . . . . . . . . . .	Word	 0000025D _DATA	
 red  . . . . . . . . . . . . . .	Number	 00000004h   
+to_int . . . . . . . . . . . . .	Byte	 0000025F _DATA	
 white  . . . . . . . . . . . . .	Number	 0000000Fh   
 wsprintf . . . . . . . . . . . .	Text   	 wsprintfA
 yellow . . . . . . . . . . . . .	Number	 0000000Eh   
