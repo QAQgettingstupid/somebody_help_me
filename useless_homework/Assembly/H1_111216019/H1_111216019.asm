@@ -1,3 +1,8 @@
+; 作者: 111216019 蔡芳宇
+; 輸入說明: 單行輸入多個以空格分隔的數字，最後一個數字後不得有多餘的空白字元
+; 數值上限: 數字範圍:0~65535，最多連續輸入50個數字，總字串長度（包含空白）不得超過 500 字元
+; 自評分數: 20%+80%
+
 INCLUDE Irvine32.inc
 includelib Irvine32.lib
 
@@ -8,13 +13,10 @@ ExitProcess proto,dwExitCode:dword
 
 .data
 buffer BYTE 501 DUP(?) ;上限輸入500字元
-array WORD 50 DUP(?)
+array WORD 50 DUP(?)   ;上限輸入50數字
 array_index WORD 0
 now WORD 0
-to_int BYTE ?
 now_char BYTE ?
-
-test1 BYTE "here ",1
 
 .code
 main proc

@@ -1,11 +1,6 @@
-Microsoft (R) Macro Assembler Version 14.44.35219.0	    11/30/25 15:25:28
-H1_111216019.asm					     Page 1 - 1
+Microsoft (R) Macro Assembler Version 14.44.35219.0	    11/21/25 21:55:31
+AddTwo.asm						     Page 1 - 1
 
-
-				; 作者: 111216019 蔡芳宇
-				; 輸入說明: 單行輸入多個以空格分隔的正整數，最後輸入的數字後方不能有空格
-				; 數值上限: 正整數範圍:0~65535，最多50個數字，總字元(含空格)不能超過500
-				; 自評分數: 20%+80%
 
 				INCLUDE Irvine32.inc
 			      C ; Include file for Irvine32.lib             (Irvine32.inc)
@@ -29,140 +24,23 @@ H1_111216019.asm					     Page 1 - 1
 
 				.386
 				.model flat,stdcall
-H1_111216019.asm(10) : warning A4011:multiple .MODEL directives found : .MODEL ignored
+AddTwo.asm(5) : warning A4011:multiple .MODEL directives found : .MODEL ignored
 				.stack 4096
 				ExitProcess proto,dwExitCode:dword
 
- 00000000			.data
- 00000000  000001F5 [		buffer BYTE 501 DUP(?) ;上限輸入500字元
-	    00
-	   ]
- 000001F5  00000032 [		array WORD 50 DUP(?)   ;上限輸入50數字
-	    0000
-	   ]
- 00000259 0000			array_index WORD 0
- 0000025B 0000			now WORD 0
- 0000025D 00			now_char BYTE ?
-
  00000000			.code
  00000000			main proc
-
- 00000000  BE 000001F5 R	    mov esi,OFFSET array
- 00000005  BA 00000000 R	    mov edx, OFFSET buffer ;輸入輸出均放到edx
- 0000000A  B9 000001F5		    mov ecx, LENGTHOF buffer  
- 0000000F  E8 00000000 E	    call ReadString
-
-				    ;將字串轉轉存到array中
-				    .REPEAT 
- 00000014		   *@C0001:
- 00000014  8A 02		        mov al,[edx] ;當前字元
-
- 00000016  A2 0000025D R	        mov now_char,al 
- 0000001B  80 3D 0000025D R	        cmp now_char, 0 
-	   00
- 00000022  74 59		        je done ;到結束字元跳出迴圈
-
-				        .IF now_char == ' '
- 00000024  80 3D 0000025D R
-	   20		   *	    cmp    now_char, ' '
- 0000002B  75 1F	   *	    jne    @C0002
- 0000002D  66| 8B 1D		              mov BX,now
-	   0000025B R
- 00000034  66| 89 1E		              mov [esi],BX 
- 00000037  83 C6 02		              add esi, TYPE array
- 0000003A  66| C7 05		              mov now, 0 ; now為暫存值
-	   0000025B R
-	   0000
- 00000043  66| FF 05		              inc array_index ;array元素+1
-	   00000259 R
-
-				        .ELSE 
- 0000004A  EB 27	   *	    jmp    @C0004
- 0000004C		   *@C0002:
- 0000004C  66| A1		              mov ax,now ;now*=10
-	   0000025B R
- 00000052  66| BB 000A		              mov bx,10
- 00000056  52			              push edx  ;防乘法破壞edx
- 00000057  66| F7 E3		              mul bx
- 0000005A  5A			              pop edx
- 0000005B  66| A3		              mov now,ax
-	   0000025B R
- 00000061  A0 0000025D R	              mov al,now_char
- 00000066  2C 30		              sub al,'0'  ;將字元轉為數字
- 00000068  66| 0F B6 C8		              movzx cx,al 
- 0000006C  66| 01 0D		              add now, cx 
-	   0000025B R
-
-				        .ENDIF
- 00000073		   *@C0004:
- 00000073  42			        inc edx ;下一個字元
-
-
-				    .UNTIL now_char == 0
- 00000074  80 3D 0000025D R
-	   00		   *	    cmp    now_char, 000h
- 0000007B  75 97	   *	    jne    @C0001
-
- 0000007D			    done:
- 0000007D  66| 8B 1D		    mov BX,now      ;存最後一個數字
-	   0000025B R
- 00000084  66| 89 1E		    mov [esi],BX
- 00000087  66| FF 05		    inc array_index
-	   00000259 R
-
-				    ; bubble sort
- 0000008E  0F B7 0D		    movzx ecx,array_index
-	   00000259 R
-
- 00000095			    L1:
- 00000095  BE 000001F5 R	        mov esi,OFFSET array
- 0000009A  51			        push ecx
- 0000009B  0F B7 0D		        movzx ecx,array_index
-	   00000259 R
- 000000A2  49			        dec ecx
-
- 000000A3			        L2:
- 000000A3  66| 8B 06		            mov ax, [esi]
- 000000A6  66| 3B 46 02		            cmp ax, [esi + TYPE array]
-
- 000000AA  77 0B		            ja same ;不交換
-
- 000000AC  66| 8B 46 02		            mov ax, [esi + TYPE array] ;ax -> 後項
- 000000B0  66| 87 06		            XCHG [esi],ax
- 000000B3  66| 89 46 02		            mov [esi + TYPE array],ax
-
- 000000B7			            same:
- 000000B7  83 C6 02		            add esi, TYPE array
-
- 000000BA  E2 E7		            loop L2
-				        
- 000000BC  59			        pop ecx
-
- 000000BD  E2 D6		        loop L1
-
-
- 000000BF  BE 000001F5 R	    mov esi,OFFSET array
- 000000C4  0F B7 0D		    movzx ecx,array_index
-	   00000259 R
- 000000CB  B0 20		    mov al, ' '
-
-				    ;遍歷輸出array內容
- 000000CD			    L3:
- 000000CD  0F B7 06		        movzx eax, WORD PTR [esi]
- 000000D0  E8 00000000 E	        call WriteDec
- 000000D5  B0 20		        mov al, ' '
- 000000D7  E8 00000000 E	        call WriteChar
- 000000DC  83 C6 02		        add esi,TYPE array
- 000000DF  E2 EC		        loop L3
+ 00000000  B8 00000005		    mov	eax,5				
+ 00000005  83 C0 06		    add	eax,6				
 
 				    invoke ExitProcess,0
- 000000E1  6A 00	   *	    push   +000000000h
- 000000E3  E8 00000000 E   *	    call   ExitProcess
- 000000E8			main endp
+ 00000008  6A 00	   *	    push   +000000000h
+ 0000000A  E8 00000000 E   *	    call   ExitProcess
+ 0000000F			main endp
 
 				END main
-Microsoft (R) Macro Assembler Version 14.44.35219.0	    11/30/25 15:25:28
-H1_111216019.asm					     Symbols 2 - 1
+Microsoft (R) Macro Assembler Version 14.44.35219.0	    11/21/25 21:55:31
+AddTwo.asm						     Symbols 2 - 1
 
 
 
@@ -255,8 +133,8 @@ Segments and Groups:
 
 FLAT . . . . . . . . . . . . . .	GROUP
 STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
-_DATA  . . . . . . . . . . . . .	32 Bit	 0000025E Para	  Public  'DATA'	
-_TEXT  . . . . . . . . . . . . .	32 Bit	 000000E8 Para	  Public  'CODE'	
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000000 Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 0000000F Para	  Public  'CODE'	
 
 
 Procedures, parameters, and locals:
@@ -363,12 +241,7 @@ WriteStackFrame  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External
 WriteString  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteToFile  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteWindowsMsg  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
-main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 000000E8 Public STDCALL
-  done . . . . . . . . . . . . .	L Near	 0000007D _TEXT	
-  L1 . . . . . . . . . . . . . .	L Near	 00000095 _TEXT	
-  L2 . . . . . . . . . . . . . .	L Near	 000000A3 _TEXT	
-  same . . . . . . . . . . . . .	L Near	 000000B7 _TEXT	
-  L3 . . . . . . . . . . . . . .	L Near	 000000CD _TEXT	
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 0000000F Public STDCALL
 printf . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 scanf  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 wsprintfA  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
@@ -587,12 +460,9 @@ VK_UP  . . . . . . . . . . . . .	Number	 00000026h
 WINDOW_BUFFER_SIZE_EVENT . . . .	Number	 00000004h   
 WriteConsoleOutputCharacter  . .	Text   	 WriteConsoleOutputCharacterA
 WriteConsole . . . . . . . . . .	Text   	 WriteConsoleA
-array_index  . . . . . . . . . .	Word	 00000259 _DATA	
-array  . . . . . . . . . . . . .	Word	 000001F5 _DATA	
 black  . . . . . . . . . . . . .	Number	 00000000h   
 blue . . . . . . . . . . . . . .	Number	 00000001h   
 brown  . . . . . . . . . . . . .	Number	 00000006h   
-buffer . . . . . . . . . . . . .	Byte	 00000000 _DATA	
 cyan . . . . . . . . . . . . . .	Number	 00000003h   
 exit . . . . . . . . . . . . . .	Text   	 INVOKE ExitProcess,0
 gray . . . . . . . . . . . . . .	Number	 00000008h   
@@ -604,8 +474,6 @@ lightGreen . . . . . . . . . . .	Number	 0000000Ah
 lightMagenta . . . . . . . . . .	Number	 0000000Dh   
 lightRed . . . . . . . . . . . .	Number	 0000000Ch   
 magenta  . . . . . . . . . . . .	Number	 00000005h   
-now_char . . . . . . . . . . . .	Byte	 0000025D _DATA	
-now  . . . . . . . . . . . . . .	Word	 0000025B _DATA	
 red  . . . . . . . . . . . . . .	Number	 00000004h   
 white  . . . . . . . . . . . . .	Number	 0000000Fh   
 wsprintf . . . . . . . . . . . .	Text   	 wsprintfA
