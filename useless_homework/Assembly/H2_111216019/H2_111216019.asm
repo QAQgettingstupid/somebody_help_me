@@ -8,14 +8,32 @@ ExitProcess proto,dwExitCode:dword
 
 .data
 buffer BYTE 501 DUP(?) ;上限輸入500字元
-operand WORD 50 DUP(?)   ;上限輸入50數字
+operand SWORD 50 DUP(?)   ;上限輸入50數字
 operator BYTE 50 DUP(?)   ;上限輸入50數字
 operand_index WORD 0
 operator_index WORD 0
+front_operator BYTE 0
 now WORD 0
 now_char BYTE ?
-changed BYTE 0 
-temp DWORD ?
+changed BYTE 0 ;數值是否被改變過flag
+count BYTE 0 ;是否做運算flag
+
+try BYTE "here!!! ",0
+
+;運算元優先權表
+CaseTable BYTE '+',1
+          EntrySize = ($ - CaseTable)
+          BYTE '-',1
+          BYTE '*',2
+          BYTE '/',2
+          BYTE '(',0
+          BYTE ')',3
+
+NumberOfEntries = ($ - CaseTable)/EntrySize
+
+find_priority PROTO,
+    front:BYTE, 
+    back:BYTE
 
 .code
 main proc
@@ -35,15 +53,36 @@ main proc
         je done ;到結束字元跳出迴圈
 
         .IF now_char == '(' || now_char == ')' || now_char == '+' || now_char == '-' || now_char == '*' || now_char == '/'
+
+              movzx eax, front_operator
+              call WriteDec
+              mov al, '$'
+              call WriteChar
+              movzx eax, now_char
+              call WriteDec
+              call Crlf
+              
               
               mov BL,now_char
               mov [edi],BL
               add edi, TYPE operator
               inc operator_index ;operator元素+1
+
+              ;是否多於2個運算元
+              cmp front_operator,0
+
+              jz less_than_two ;少於2個運算元
+              INVOKE find_priority,front_operator,now_char
+              mov count,0
+
+              less_than_two:
+              mov front_operator, BL
+
               cmp changed,0
 
               je not_changed ;若沒變化不存入operand
 
+              ;存入數值
               mov BX,now
               mov [esi],BX 
               add esi, TYPE operand
@@ -88,8 +127,8 @@ main proc
 
     ;遍歷輸出operand內容
     L3:
-        movzx eax, WORD PTR [esi]
-        call WriteDec
+        movsx eax, WORD PTR [esi]
+        call WriteInt
         mov al, ' '
         call WriteChar
         add esi,TYPE operand
@@ -112,5 +151,56 @@ main proc
 
     invoke ExitProcess,0
 main endp
+
+; 比較當前運算元與stack top運算元優先權
+find_priority PROC,
+    front:BYTE, 
+    back:BYTE
+    
+    local f:BYTE,b:BYTE
+    
+    push ebx
+    push ecx
+
+    ;遍歷table找優先權
+    mov ebx,OFFSET CaseTable
+    mov ecx,NumberOfEntries
+
+    L5:
+        mov al,[ebx] ;取運算元
+        cmp al,front
+        jne notfound_front
+        mov ah,[ebx+1]
+        mov f,ah ;取前優先權
+
+        notfound_front:
+        cmp al,back
+        jne notfound_back
+        mov ah,[ebx+1]
+        mov b,ah ;取後優先權
+        
+        notfound_back:
+        add ebx,EntrySize
+        loop L5
+    pop ecx
+    pop ebx
+
+    ;比較優先權
+    mov al,b
+    cmp al,f
+    ja back_higher ;後項優先權較高
+    mov count,1
+    ;還沒做QAQ
+
+    back_higher:
+
+    push edx
+    mov edx, offset try
+    call WriteString
+    call Crlf
+    pop edx
+
+    ret
+find_priority ENDP
 
 END main

@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 14.44.35219.0	    11/30/25 16:09:02
+Microsoft (R) Macro Assembler Version 14.44.35219.0	    12/06/25 23:42:47
 H2_111216019.asm					     Page 1 - 1
 
 
@@ -32,7 +32,7 @@ H2_111216019.asm(5) : warning A4011:multiple .MODEL directives found : .MODEL ig
  00000000  000001F5 [		buffer BYTE 501 DUP(?) ;上限輸入500字元
 	    00
 	   ]
- 000001F5  00000032 [		operand WORD 50 DUP(?)   ;上限輸入50數字
+ 000001F5  00000032 [		operand SWORD 50 DUP(?)   ;上限輸入50數字
 	    0000
 	   ]
  00000259  00000032 [		operator BYTE 50 DUP(?)   ;上限輸入50數字
@@ -40,10 +40,29 @@ H2_111216019.asm(5) : warning A4011:multiple .MODEL directives found : .MODEL ig
 	   ]
  0000028B 0000			operand_index WORD 0
  0000028D 0000			operator_index WORD 0
- 0000028F 0000			now WORD 0
- 00000291 00			now_char BYTE ?
- 00000292 00			changed BYTE 0 
- 00000293 00000000		temp DWORD ?
+ 0000028F 00			front_operator BYTE 0
+ 00000290 0000			now WORD 0
+ 00000292 00			now_char BYTE ?
+ 00000293 00			changed BYTE 0 ;數值是否被改變過flag
+ 00000294 00			count BYTE 0 ;是否做運算flag
+
+ 00000295 68 65 72 65 21	try BYTE "here!!! ",0
+	   21 21 20 00
+
+				;運算元優先權表
+ 0000029E 2B 01			CaseTable BYTE '+',1
+ 000002A0 = 00000002		          EntrySize = ($ - CaseTable)
+ 000002A0  2D 01		          BYTE '-',1
+ 000002A2  2A 02		          BYTE '*',2
+ 000002A4  2F 02		          BYTE '/',2
+ 000002A6  28 00		          BYTE '(',0
+ 000002A8  29 03		          BYTE ')',3
+ 000002AA
+ = 00000006			NumberOfEntries = ($ - CaseTable)/EntrySize
+
+				find_priority PROTO,
+				    front:BYTE, 
+				    back:BYTE
 
  00000000			.code
  00000000			main proc
@@ -59,135 +78,222 @@ H2_111216019.asm(5) : warning A4011:multiple .MODEL directives found : .MODEL ig
  00000019		   *@C0001:
  00000019  8A 02		        mov al,[edx] ;當前字元
 
- 0000001B  A2 00000291 R	        mov now_char,al 
- 00000020  80 3D 00000291 R	        cmp now_char, 0 
+ 0000001B  A2 00000292 R	        mov now_char,al 
+ 00000020  80 3D 00000292 R	        cmp now_char, 0 
 	   00
- 00000027  0F 84 000000B3	        je done ;到結束字元跳出迴圈
+ 00000027  0F 84 00000102	        je done ;到結束字元跳出迴圈
 
 				        .IF now_char == '(' || now_char == ')' || now_char == '+' || now_char == '-' || now_char == '*' || now_char == '/'
- 0000002D  80 3D 00000291 R
+ 0000002D  80 3D 00000292 R
 	   28		   *	    cmp    now_char, '('
- 00000034  74 2D	   *	    je	@C0003
- 00000036  80 3D 00000291 R
+ 00000034  74 31	   *	    je	@C0003
+ 00000036  80 3D 00000292 R
 	   29		   *	    cmp    now_char, ')'
- 0000003D  74 24	   *	    je	@C0003
- 0000003F  80 3D 00000291 R
+ 0000003D  74 28	   *	    je	@C0003
+ 0000003F  80 3D 00000292 R
 	   2B		   *	    cmp    now_char, '+'
- 00000046  74 1B	   *	    je	@C0003
- 00000048  80 3D 00000291 R
+ 00000046  74 1F	   *	    je	@C0003
+ 00000048  80 3D 00000292 R
 	   2D		   *	    cmp    now_char, '-'
- 0000004F  74 12	   *	    je	@C0003
- 00000051  80 3D 00000291 R
+ 0000004F  74 16	   *	    je	@C0003
+ 00000051  80 3D 00000292 R
 	   2A		   *	    cmp    now_char, '*'
- 00000058  74 09	   *	    je	@C0003
- 0000005A  80 3D 00000291 R
+ 00000058  74 0D	   *	    je	@C0003
+ 0000005A  80 3D 00000292 R
 	   2F		   *	    cmp    now_char, '/'
- 00000061  75 41	   *	    jne    @C0002
- 00000063		   *@C0003:
+ 00000061  0F 85 0000008C  *	    jne    @C0002
+ 00000067		   *@C0003:
+
+ 00000067  0F B6 05		              movzx eax, front_operator
+	   0000028F R
+ 0000006E  E8 00000000 E	              call WriteDec
+ 00000073  B0 24		              mov al, '$'
+ 00000075  E8 00000000 E	              call WriteChar
+ 0000007A  0F B6 05		              movzx eax, now_char
+	   00000292 R
+ 00000081  E8 00000000 E	              call WriteDec
+ 00000086  E8 00000000 E	              call Crlf
 				              
- 00000063  8A 1D 00000291 R	              mov BL,now_char
- 00000069  88 1F		              mov [edi],BL
- 0000006B  83 C7 01		              add edi, TYPE operator
- 0000006E  66| FF 05		              inc operator_index ;operator元素+1
+				              
+ 0000008B  8A 1D 00000292 R	              mov BL,now_char
+ 00000091  88 1F		              mov [edi],BL
+ 00000093  83 C7 01		              add edi, TYPE operator
+ 00000096  66| FF 05		              inc operator_index ;operator元素+1
 	   0000028D R
- 00000075  80 3D 00000292 R	              cmp changed,0
+
+				              ;是否多於2個運算元
+ 0000009D  80 3D 0000028F R	              cmp front_operator,0
 	   00
 
- 0000007C  74 24		              je not_changed ;若沒變化不存入operand
+ 000000A4  74 18		              jz less_than_two ;少於2個運算元
+				              INVOKE find_priority,front_operator,now_char
+ 000000A6  A0 00000292 R   *	    mov    al, now_char
+ 000000AB  50		   *	    push   eax
+ 000000AC  A0 0000028F R   *	    mov    al, front_operator
+ 000000B1  50		   *	    push   eax
+ 000000B2  E8 000000E1	   *	    call   find_priority
+ 000000B7  C6 05 00000294 R	              mov count,0
+	   00
 
- 0000007E  66| 8B 1D		              mov BX,now
-	   0000028F R
- 00000085  66| 89 1E		              mov [esi],BX 
- 00000088  83 C6 02		              add esi, TYPE operand
- 0000008B  66| C7 05		              mov now, 0 ; now為暫存值
-	   0000028F R
+ 000000BE			              less_than_two:
+ 000000BE  88 1D 0000028F R	              mov front_operator, BL
+
+ 000000C4  80 3D 00000293 R	              cmp changed,0
+	   00
+
+ 000000CB  74 24		              je not_changed ;若沒變化不存入operand
+
+				              ;存入數值
+ 000000CD  66| 8B 1D		              mov BX,now
+	   00000290 R
+ 000000D4  66| 89 1E		              mov [esi],BX 
+ 000000D7  83 C6 02		              add esi, TYPE operand
+ 000000DA  66| C7 05		              mov now, 0 ; now為暫存值
+	   00000290 R
 	   0000
- 00000094  66| FF 05		              inc operand_index ;operand元素+1
+ 000000E3  66| FF 05		              inc operand_index ;operand元素+1
 	   0000028B R
- 0000009B  C6 05 00000292 R	              mov changed,0
+ 000000EA  C6 05 00000293 R	              mov changed,0
 	   00
 
- 000000A2			              not_changed:
+ 000000F1			              not_changed:
 
 				        .ELSE 
- 000000A2  EB 2E	   *	    jmp    @C0009
- 000000A4		   *@C0002:
- 000000A4  66| A1		              mov ax,now ;now*=10
-	   0000028F R
- 000000AA  66| BB 000A		              mov bx,10
- 000000AE  52			              push edx  ;防乘法破壞edx
- 000000AF  66| F7 E3		              mul bx
- 000000B2  5A			              pop edx
- 000000B3  66| A3		              mov now,ax
-	   0000028F R
- 000000B9  A0 00000291 R	              mov al,now_char
- 000000BE  2C 30		              sub al,'0'  ;將字元轉為數字
- 000000C0  66| 0F B6 C8		              movzx cx,al 
- 000000C4  66| 01 0D		              add now, cx
-	   0000028F R
- 000000CB  C6 05 00000292 R	              mov changed,1
+ 000000F1  EB 2E	   *	    jmp    @C0009
+ 000000F3		   *@C0002:
+ 000000F3  66| A1		              mov ax,now ;now*=10
+	   00000290 R
+ 000000F9  66| BB 000A		              mov bx,10
+ 000000FD  52			              push edx  ;防乘法破壞edx
+ 000000FE  66| F7 E3		              mul bx
+ 00000101  5A			              pop edx
+ 00000102  66| A3		              mov now,ax
+	   00000290 R
+ 00000108  A0 00000292 R	              mov al,now_char
+ 0000010D  2C 30		              sub al,'0'  ;將字元轉為數字
+ 0000010F  66| 0F B6 C8		              movzx cx,al 
+ 00000113  66| 01 0D		              add now, cx
+	   00000290 R
+ 0000011A  C6 05 00000293 R	              mov changed,1
 	   01
 
 				        .ENDIF
- 000000D2		   *@C0009:
- 000000D2  42			        inc edx ;下一個字元
+ 00000121		   *@C0009:
+ 00000121  42			        inc edx ;下一個字元
 
 
 				    .UNTIL now_char == 0
- 000000D3  80 3D 00000291 R
+ 00000122  80 3D 00000292 R
 	   00		   *	    cmp    now_char, 000h
- 000000DA  0F 85 FFFFFF39  *	    jne    @C0001
+ 00000129  0F 85 FFFFFEEA  *	    jne    @C0001
 
- 000000E0			    done:
- 000000E0  80 3D 00000292 R	    cmp changed,0
+ 0000012F			    done:
+ 0000012F  80 3D 00000293 R	    cmp changed,0
 	   00
 
- 000000E7  74 11		    je not_changed2 ;若沒變化不存入operand
- 000000E9  66| 8B 1D		    mov BX,now      ;存最後一個數字
-	   0000028F R
- 000000F0  66| 89 1E		    mov [esi],BX
- 000000F3  66| FF 05		    inc operand_index
+ 00000136  74 11		    je not_changed2 ;若沒變化不存入operand
+ 00000138  66| 8B 1D		    mov BX,now      ;存最後一個數字
+	   00000290 R
+ 0000013F  66| 89 1E		    mov [esi],BX
+ 00000142  66| FF 05		    inc operand_index
 	   0000028B R
 
- 000000FA			    not_changed2:
+ 00000149			    not_changed2:
 
- 000000FA  BE 000001F5 R	    mov esi,OFFSET operand
- 000000FF  0F B7 0D		    movzx ecx,operand_index
+ 00000149  BE 000001F5 R	    mov esi,OFFSET operand
+ 0000014E  0F B7 0D		    movzx ecx,operand_index
 	   0000028B R
- 00000106  B0 20		    mov al, ' '
+ 00000155  B0 20		    mov al, ' '
 
 				    ;遍歷輸出operand內容
- 00000108			    L3:
- 00000108  0F B7 06		        movzx eax, WORD PTR [esi]
- 0000010B  E8 00000000 E	        call WriteDec
- 00000110  B0 20		        mov al, ' '
- 00000112  E8 00000000 E	        call WriteChar
- 00000117  83 C6 02		        add esi,TYPE operand
- 0000011A  E2 EC		        loop L3
+ 00000157			    L3:
+ 00000157  0F BF 06		        movsx eax, WORD PTR [esi]
+ 0000015A  E8 00000000 E	        call WriteInt
+ 0000015F  B0 20		        mov al, ' '
+ 00000161  E8 00000000 E	        call WriteChar
+ 00000166  83 C6 02		        add esi,TYPE operand
+ 00000169  E2 EC		        loop L3
 
- 0000011C  E8 00000000 E	    call Crlf
+ 0000016B  E8 00000000 E	    call Crlf
 
- 00000121  BE 00000259 R	    mov esi,OFFSET operator
- 00000126  0F B7 0D		    movzx ecx,operator_index
+ 00000170  BE 00000259 R	    mov esi,OFFSET operator
+ 00000175  0F B7 0D		    movzx ecx,operator_index
 	   0000028D R
- 0000012D  B0 20		    mov al, ' '
+ 0000017C  B0 20		    mov al, ' '
 
 				    ;遍歷輸出operator內容
- 0000012F			    L4:
- 0000012F  8A 06		        mov al, BYTE PTR [esi]
- 00000131  E8 00000000 E	        call WriteChar
- 00000136  B0 20		        mov al, ' '
- 00000138  E8 00000000 E	        call WriteChar
- 0000013D  83 C6 01		        add esi,TYPE operator
- 00000140  E2 ED		        loop L4
+ 0000017E			    L4:
+ 0000017E  8A 06		        mov al, BYTE PTR [esi]
+ 00000180  E8 00000000 E	        call WriteChar
+ 00000185  B0 20		        mov al, ' '
+ 00000187  E8 00000000 E	        call WriteChar
+ 0000018C  83 C6 01		        add esi,TYPE operator
+ 0000018F  E2 ED		        loop L4
 
 				    invoke ExitProcess,0
- 00000142  6A 00	   *	    push   +000000000h
- 00000144  E8 00000000 E   *	    call   ExitProcess
- 00000149			main endp
+ 00000191  6A 00	   *	    push   +000000000h
+ 00000193  E8 00000000 E   *	    call   ExitProcess
+ 00000198			main endp
+
+				; 比較當前運算元與stack top運算元優先權
+ 00000198			find_priority PROC,
+				    front:BYTE, 
+				    back:BYTE
+				    
+				    local f:BYTE,b:BYTE
+				    
+ 00000198  55		   *	    push   ebp
+ 00000199  8B EC	   *	    mov    ebp, esp
+ 0000019B  83 C4 FC	   *	    add    esp, 0FFFFFFFCh
+ 0000019E  53			    push ebx
+ 0000019F  51			    push ecx
+
+				    ;遍歷table找優先權
+ 000001A0  BB 0000029E R	    mov ebx,OFFSET CaseTable
+ 000001A5  B9 00000006		    mov ecx,NumberOfEntries
+
+ 000001AA			    L5:
+ 000001AA  8A 03		        mov al,[ebx] ;取運算元
+ 000001AC  3A 45 08		        cmp al,front
+ 000001AF  75 06		        jne notfound_front
+ 000001B1  8A 63 01		        mov ah,[ebx+1]
+ 000001B4  88 65 FF		        mov f,ah ;取前優先權
+
+ 000001B7			        notfound_front:
+ 000001B7  3A 45 0C		        cmp al,back
+ 000001BA  75 06		        jne notfound_back
+ 000001BC  8A 63 01		        mov ah,[ebx+1]
+ 000001BF  88 65 FE		        mov b,ah ;取後優先權
+				        
+ 000001C2			        notfound_back:
+ 000001C2  81 C3 00000002	        add ebx,EntrySize
+ 000001C8  E2 E0		        loop L5
+ 000001CA  59			    pop ecx
+ 000001CB  5B			    pop ebx
+
+				    ;比較優先權
+ 000001CC  8A 45 FE		    mov al,b
+ 000001CF  3A 45 FF		    cmp al,f
+ 000001D2  77 07		    ja back_higher ;後項優先權較高
+ 000001D4  C6 05 00000294 R	    mov count,1
+	   01
+				    ;還沒做QAQ
+
+ 000001DB			    back_higher:
+
+ 000001DB  52			    push edx
+ 000001DC  BA 00000295 R	    mov edx, offset try
+ 000001E1  E8 00000000 E	    call WriteString
+ 000001E6  E8 00000000 E	    call Crlf
+ 000001EB  5A			    pop edx
+
+				    ret
+ 000001EC  C9		   *	    leave  
+ 000001ED  C2 0008	   *	    ret    00008h
+ 000001F0			find_priority ENDP
 
 				END main
-Microsoft (R) Macro Assembler Version 14.44.35219.0	    11/30/25 16:09:02
+Microsoft (R) Macro Assembler Version 14.44.35219.0	    12/06/25 23:42:47
 H2_111216019.asm					     Symbols 2 - 1
 
 
@@ -281,8 +387,8 @@ Segments and Groups:
 
 FLAT . . . . . . . . . . . . . .	GROUP
 STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
-_DATA  . . . . . . . . . . . . .	32 Bit	 00000297 Para	  Public  'DATA'	
-_TEXT  . . . . . . . . . . . . .	32 Bit	 00000149 Para	  Public  'CODE'	
+_DATA  . . . . . . . . . . . . .	32 Bit	 000002AA Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 000001F0 Para	  Public  'CODE'	
 
 
 Procedures, parameters, and locals:
@@ -389,12 +495,22 @@ WriteStackFrame  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External
 WriteString  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteToFile  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
 WriteWindowsMsg  . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
-main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000149 Public STDCALL
-  not_changed  . . . . . . . . .	L Near	 000000A2 _TEXT	
-  done . . . . . . . . . . . . .	L Near	 000000E0 _TEXT	
-  not_changed2 . . . . . . . . .	L Near	 000000FA _TEXT	
-  L3 . . . . . . . . . . . . . .	L Near	 00000108 _TEXT	
-  L4 . . . . . . . . . . . . . .	L Near	 0000012F _TEXT	
+find_priority  . . . . . . . . .	P Near	 00000198 _TEXT	Length= 00000058 Public STDCALL
+  front  . . . . . . . . . . . .	Byte	 bp + 00000008
+  back . . . . . . . . . . . . .	Byte	 bp + 0000000C
+  f  . . . . . . . . . . . . . .	Byte	 bp - 00000001
+  b  . . . . . . . . . . . . . .	Byte	 bp - 00000002
+  L5 . . . . . . . . . . . . . .	L Near	 000001AA _TEXT	
+  notfound_front . . . . . . . .	L Near	 000001B7 _TEXT	
+  notfound_back  . . . . . . . .	L Near	 000001C2 _TEXT	
+  back_higher  . . . . . . . . .	L Near	 000001DB _TEXT	
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000198 Public STDCALL
+  less_than_two  . . . . . . . .	L Near	 000000BE _TEXT	
+  not_changed  . . . . . . . . .	L Near	 000000F1 _TEXT	
+  done . . . . . . . . . . . . .	L Near	 0000012F _TEXT	
+  not_changed2 . . . . . . . . .	L Near	 00000149 _TEXT	
+  L3 . . . . . . . . . . . . . .	L Near	 00000157 _TEXT	
+  L4 . . . . . . . . . . . . . .	L Near	 0000017E _TEXT	
 printf . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 scanf  . . . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
 wsprintfA  . . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External C
@@ -418,6 +534,7 @@ CAPSLOCK_ON  . . . . . . . . . .	Number	 00000080h
 CREATE_ALWAYS  . . . . . . . . .	Number	 00000002h   
 CREATE_NEW . . . . . . . . . . .	Number	 00000001h   
 CTRL_MASK  . . . . . . . . . . .	Number	 0000000Ch   
+CaseTable  . . . . . . . . . . .	Byte	 0000029E _DATA	
 CreateFile . . . . . . . . . . .	Text   	 CreateFileA
 DO_NOT_SHARE . . . . . . . . . .	Number	 00000000h   
 ENABLE_ECHO_INPUT  . . . . . . .	Number	 00000004h   
@@ -428,6 +545,7 @@ ENABLE_PROCESSED_OUTPUT  . . . .	Number	 00000001h
 ENABLE_WINDOW_INPUT  . . . . . .	Number	 00000008h   
 ENABLE_WRAP_AT_EOL_OUTPUT  . . .	Number	 00000002h   
 ENHANCED_KEY . . . . . . . . . .	Number	 00000100h   
+EntrySize  . . . . . . . . . . .	Number	 00000002h   
 FALSE  . . . . . . . . . . . . .	Number	 00000000h   
 FILE_APPEND_DATA . . . . . . . .	Number	 00000004h   
 FILE_ATTRIBUTE_ARCHIVE . . . . .	Number	 00000020h   
@@ -515,6 +633,7 @@ MOUSE_EVENT  . . . . . . . . . .	Number	 00000002h
 MessageBox . . . . . . . . . . .	Text   	 MessageBoxA
 NULL . . . . . . . . . . . . . .	Number	 00000000h   
 NUMLOCK_ON . . . . . . . . . . .	Number	 00000020h   
+NumberOfEntries  . . . . . . . .	Number	 00000006h   
 OPEN_ALWAYS  . . . . . . . . . .	Number	 00000004h   
 OPEN_EXISTING  . . . . . . . . .	Number	 00000003h   
 PeekConsoleInput . . . . . . . .	Text   	 PeekConsoleInputA
@@ -617,9 +736,11 @@ black  . . . . . . . . . . . . .	Number	 00000000h
 blue . . . . . . . . . . . . . .	Number	 00000001h   
 brown  . . . . . . . . . . . . .	Number	 00000006h   
 buffer . . . . . . . . . . . . .	Byte	 00000000 _DATA	
-changed  . . . . . . . . . . . .	Byte	 00000292 _DATA	
+changed  . . . . . . . . . . . .	Byte	 00000293 _DATA	
+count  . . . . . . . . . . . . .	Byte	 00000294 _DATA	
 cyan . . . . . . . . . . . . . .	Number	 00000003h   
 exit . . . . . . . . . . . . . .	Text   	 INVOKE ExitProcess,0
+front_operator . . . . . . . . .	Byte	 0000028F _DATA	
 gray . . . . . . . . . . . . . .	Number	 00000008h   
 green  . . . . . . . . . . . . .	Number	 00000002h   
 lightBlue  . . . . . . . . . . .	Number	 00000009h   
@@ -629,14 +750,14 @@ lightGreen . . . . . . . . . . .	Number	 0000000Ah
 lightMagenta . . . . . . . . . .	Number	 0000000Dh   
 lightRed . . . . . . . . . . . .	Number	 0000000Ch   
 magenta  . . . . . . . . . . . .	Number	 00000005h   
-now_char . . . . . . . . . . . .	Byte	 00000291 _DATA	
-now  . . . . . . . . . . . . . .	Word	 0000028F _DATA	
+now_char . . . . . . . . . . . .	Byte	 00000292 _DATA	
+now  . . . . . . . . . . . . . .	Word	 00000290 _DATA	
 operand_index  . . . . . . . . .	Word	 0000028B _DATA	
 operand  . . . . . . . . . . . .	Word	 000001F5 _DATA	
 operator_index . . . . . . . . .	Word	 0000028D _DATA	
 operator . . . . . . . . . . . .	Byte	 00000259 _DATA	
 red  . . . . . . . . . . . . . .	Number	 00000004h   
-temp . . . . . . . . . . . . . .	DWord	 00000293 _DATA	
+try  . . . . . . . . . . . . . .	Byte	 00000295 _DATA	
 white  . . . . . . . . . . . . .	Number	 0000000Fh   
 wsprintf . . . . . . . . . . . .	Text   	 wsprintfA
 yellow . . . . . . . . . . . . .	Number	 0000000Eh   
