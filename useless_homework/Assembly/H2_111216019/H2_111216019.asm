@@ -12,13 +12,13 @@ operand SWORD 50 DUP(?)   ;上限輸入50數字
 operator BYTE 50 DUP(?)   ;上限輸入50數字
 operand_index WORD 0
 operator_index WORD 0
-front_operator BYTE 0
 now WORD 0
 now_char BYTE ?
 changed BYTE 0 ;數值是否被改變過flag
 count BYTE 0 ;是否做運算flag
+temp BYTE ? ;暫存用
 
-try BYTE "here!!! ",0
+error BYTE "divisor can't be 0 !!!",0
 
 ;運算元優先權表
 CaseTable BYTE '+',1
@@ -34,6 +34,8 @@ NumberOfEntries = ($ - CaseTable)/EntrySize
 find_priority PROTO,
     front:BYTE, 
     back:BYTE
+
+calculate PROTO
 
 .code
 main proc
@@ -52,31 +54,7 @@ main proc
         cmp now_char, 0 
         je done ;到結束字元跳出迴圈
 
-        .IF now_char == '(' || now_char == ')' || now_char == '+' || now_char == '-' || now_char == '*' || now_char == '/'
-
-              movzx eax, front_operator
-              call WriteDec
-              mov al, '$'
-              call WriteChar
-              movzx eax, now_char
-              call WriteDec
-              call Crlf
-              
-              
-              mov BL,now_char
-              mov [edi],BL
-              add edi, TYPE operator
-              inc operator_index ;operator元素+1
-
-              ;是否多於2個運算元
-              cmp front_operator,0
-
-              jz less_than_two ;少於2個運算元
-              INVOKE find_priority,front_operator,now_char
-              mov count,0
-
-              less_than_two:
-              mov front_operator, BL
+        .IF now_char == '(' || now_char == ')' || now_char == '+' || now_char == '-' || now_char == '*' || now_char == '/'          
 
               cmp changed,0
 
@@ -91,6 +69,62 @@ main proc
               mov changed,0
 
               not_changed:
+
+              ;右括號
+              .IF now_char == ')'
+
+                    ;pop到左括號為止
+                    .REPEAT 
+                        mov al,[edi - TYPE operator]
+                        .IF al != '('
+                            call calculate
+                        .ENDIF
+                        sub edi, TYPE operator 
+                        dec operator_index ;operator元素-1
+
+                    .UNTIL al == '(' 
+
+              ;左括號
+              .ELSEIF now_char == '('
+                    mov BL,now_char
+                    mov [edi],BL
+                    add edi, TYPE operator
+                    inc operator_index ;operator元素+1
+
+              ; +-*/
+              .ELSE
+                    ;做到當前優先權大於stack top可push為止
+                    .REPEAT 
+                        cmp operator_index,0
+                        jna only_one ;若只有一個運算元直接跳出
+               
+                        mov al,[edi - TYPE operator]
+                        .IF al != '('
+                            mov temp,al
+
+                            ;比較優先權
+                            INVOKE find_priority,temp,now_char
+
+                            .IF count == 1
+                                
+                                ;四則運算
+                                call calculate
+                                sub edi, TYPE operator
+                                dec operator_index ;operator元素-1
+
+                            .ENDIF
+                        .ENDIF
+                    .UNTIL al == '(' || count == 0
+
+                    only_one:
+
+                    ;存入operator
+                    mov BL,now_char
+                    mov [edi],BL
+                    add edi, TYPE operator
+                    inc operator_index ;operator元素+1
+
+              .ENDIF
 
         .ELSE 
               mov ax,now ;now*=10
@@ -117,42 +151,32 @@ main proc
     je not_changed2 ;若沒變化不存入operand
     mov BX,now      ;存最後一個數字
     mov [esi],BX
+    add esi, TYPE operand
     inc operand_index
 
     not_changed2:
 
-    mov esi,OFFSET operand
-    movzx ecx,operand_index
-    mov al, ' '
-
-    ;遍歷輸出operand內容
-    L3:
-        movsx eax, WORD PTR [esi]
-        call WriteInt
-        mov al, ' '
-        call WriteChar
-        add esi,TYPE operand
-        loop L3
-
-    call Crlf
-
-    mov esi,OFFSET operator
     movzx ecx,operator_index
-    mov al, ' '
+    ;遍歷剩餘operator做運算
+    L2:
+        call calculate
+        sub edi, TYPE operator
+        dec operator_index
+        loop L2
 
-    ;遍歷輸出operator內容
-    L4:
-        mov al, BYTE PTR [esi]
-        call WriteChar
-        mov al, ' '
-        call WriteChar
-        add esi,TYPE operator
-        loop L4
+    movsx eax,WORD PTR [operand]
+    call WriteInt
 
     invoke ExitProcess,0
 main endp
 
-; 比較當前運算元與stack top運算元優先權
+
+; -----------------------------
+; find_priority
+; 用途:比較當前運算元與stack top運算元優先權,及是否需要做四則運算
+; 回傳值: count ,1 = 需做運算,0 = 不需做運算
+; -----------------------------
+
 find_priority PROC,
     front:BYTE, 
     back:BYTE
@@ -188,19 +212,90 @@ find_priority PROC,
     ;比較優先權
     mov al,b
     cmp al,f
+
+    mov count,0 ;初始化為不需做運算
     ja back_higher ;後項優先權較高
     mov count,1
-    ;還沒做QAQ
 
     back_higher:
 
-    push edx
-    mov edx, offset try
-    call WriteString
-    call Crlf
-    pop edx
-
     ret
 find_priority ENDP
+
+; -----------------------------
+; calculate
+; 用途:實作四則運算
+; -----------------------------
+
+calculate PROC
+    Local num_f:SWORD, num_b:SWORD, operator_now:BYTE
+    
+    ;取運算元
+    push eax
+    mov al, [edi - TYPE operator]
+    mov operator_now, al
+    pop eax
+
+    ;取後數值
+    push eax
+    mov ax, [esi - TYPE operand]
+    mov num_b, ax
+    sub esi, TYPE operand
+    dec operand_index ;operand元素-1
+
+    ;取前數值
+    mov ax, [esi - TYPE operand]
+    mov num_f, ax
+    sub esi, TYPE operand
+    dec operand_index ;operand元素-1
+    pop eax
+
+    ;防值竄改
+    push eax
+    push ebx
+    push ecx
+    push edx
+
+    .IF operator_now == '+'
+        mov ax,num_f
+        add ax, num_b
+
+    .ELSEIF operator_now == '-'
+        mov ax,num_f
+        sub ax, num_b
+
+    .ELSEIF operator_now == '*'
+        mov ax,num_b
+        imul num_f
+
+    .ELSEIF operator_now == '/'
+
+        cmp num_b,0
+        je div_by_zero ;除以0錯誤處理
+
+        mov ax,num_f
+        CWD
+        idiv num_b
+    .ENDIF
+
+
+    ;存結果回operand (以上結果剛好都在ax)
+    mov [esi], ax
+    add esi, TYPE operand
+    inc operand_index
+
+    ;還原值
+    pop edx
+    pop ecx
+    pop ebx
+    pop eax
+
+    ret
+calculate ENDP
+
+div_by_zero:
+    mov edx, OFFSET error
+    call WriteString
+    invoke ExitProcess,0
 
 END main
