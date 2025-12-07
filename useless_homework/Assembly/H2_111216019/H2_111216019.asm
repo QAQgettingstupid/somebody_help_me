@@ -1,3 +1,9 @@
+; 作者: 111216019 蔡芳宇
+; 輸入說明: 單行輸入四則運算式，數字與運算元不得有空白且只能輸入正整數
+; 輸出說明: 含正負號之結果
+; 數值上限: 結果(包含中途計算上限)可為: -32768~32767，最多連續輸入50個數字、50個運算元，總字串長度不得超過 500 字元
+; 自評分數: 20%+60%+20%
+
 INCLUDE Irvine32.inc
 includelib Irvine32.lib
 
@@ -96,7 +102,7 @@ main proc
                     ;做到當前優先權大於stack top可push為止
                     .REPEAT 
                         cmp operator_index,0
-                        jna only_one ;若只有一個運算元直接跳出
+                        jna only_one ;若包含當前只有一個運算元直接跳出
                
                         mov al,[edi - TYPE operator]
                         .IF al != '('
@@ -157,6 +163,7 @@ main proc
     not_changed2:
 
     movzx ecx,operator_index
+
     ;遍歷剩餘operator做運算
     L2:
         call calculate
@@ -173,7 +180,7 @@ main endp
 
 ; -----------------------------
 ; find_priority
-; 用途:比較當前運算元與stack top運算元優先權,及是否需要做四則運算
+; 用途:比較當前運算元與 stack top 運算元優先權,及是否需要做四則運算
 ; 回傳值: count ,1 = 需做運算,0 = 不需做運算
 ; -----------------------------
 
@@ -186,20 +193,21 @@ find_priority PROC,
     push ebx
     push ecx
 
-    ;遍歷table找優先權
+    
     mov ebx,OFFSET CaseTable
     mov ecx,NumberOfEntries
 
+    ;遍歷table找優先權
     L5:
         mov al,[ebx] ;取運算元
         cmp al,front
-        jne notfound_front
+        jne notfound_front ;沒找到對應前運算元優先權
         mov ah,[ebx+1]
         mov f,ah ;取前優先權
 
         notfound_front:
         cmp al,back
-        jne notfound_back
+        jne notfound_back ;沒找到對應後運算元優先權
         mov ah,[ebx+1]
         mov b,ah ;取後優先權
         
@@ -241,13 +249,13 @@ calculate PROC
     mov ax, [esi - TYPE operand]
     mov num_b, ax
     sub esi, TYPE operand
-    dec operand_index ;operand元素-1
+    dec operand_index 
 
     ;取前數值
     mov ax, [esi - TYPE operand]
     mov num_f, ax
     sub esi, TYPE operand
-    dec operand_index ;operand元素-1
+    dec operand_index 
     pop eax
 
     ;防值竄改

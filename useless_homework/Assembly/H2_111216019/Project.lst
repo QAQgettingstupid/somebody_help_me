@@ -1,6 +1,12 @@
-Microsoft (R) Macro Assembler Version 14.44.35219.0	    12/07/25 18:15:38
+Microsoft (R) Macro Assembler Version 14.44.35219.0	    12/07/25 18:33:11
 H2_111216019.asm					     Page 1 - 1
 
+
+				; 作者: 111216019 蔡芳宇
+				; 輸入說明: 單行輸入四則運算式，數字與運算元不得有空白且只能輸入正整數
+				; 輸出說明: 含正負號之結果
+				; 數值上限: 結果(包含中途計算上限)可為: -32768~32767，最多連續輸入50個數字、50個運算元，總字串長度不得超過 500 字元
+				; 自評分數: 20%+60%+20%
 
 				INCLUDE Irvine32.inc
 			      C ; Include file for Irvine32.lib             (Irvine32.inc)
@@ -24,7 +30,7 @@ H2_111216019.asm					     Page 1 - 1
 
 				.386
 				.model flat,stdcall
-H2_111216019.asm(5) : warning A4011:multiple .MODEL directives found : .MODEL ignored
+H2_111216019.asm(11) : warning A4011:multiple .MODEL directives found : .MODEL ignored
 				.stack 4096
 				ExitProcess proto,dwExitCode:dword
 
@@ -175,7 +181,7 @@ H2_111216019.asm(5) : warning A4011:multiple .MODEL directives found : .MODEL ig
  000000DC		   *@C0013:
  000000DC  66| 83 3D		                        cmp operator_index,0
 	   0000028D R 00
- 000000E4  76 42		                        jna only_one ;若只有一個運算元直接跳出
+ 000000E4  76 42		                        jna only_one ;若包含當前只有一個運算元直接跳出
 				               
  000000E6  8A 47 FF		                        mov al,[edi - TYPE operator]
 				                        .IF al != '('
@@ -272,6 +278,7 @@ H2_111216019.asm(5) : warning A4011:multiple .MODEL directives found : .MODEL ig
 
  00000195  0F B7 0D		    movzx ecx,operator_index
 	   0000028D R
+
 				    ;遍歷剩餘operator做運算
  0000019C			    L2:
  0000019C  E8 0000006D		        call calculate
@@ -292,7 +299,7 @@ H2_111216019.asm(5) : warning A4011:multiple .MODEL directives found : .MODEL ig
 
 				; -----------------------------
 				; find_priority
-				; 用途:比較當前運算元與stack top運算元優先權,及是否需要做四則運算
+				; 用途:比較當前運算元與 stack top 運算元優先權,及是否需要做四則運算
 				; 回傳值: count ,1 = 需做運算,0 = 不需做運算
 				; -----------------------------
 
@@ -308,20 +315,21 @@ H2_111216019.asm(5) : warning A4011:multiple .MODEL directives found : .MODEL ig
  000001C6  53			    push ebx
  000001C7  51			    push ecx
 
-				    ;遍歷table找優先權
+				    
  000001C8  BB 000002AC R	    mov ebx,OFFSET CaseTable
  000001CD  B9 00000006		    mov ecx,NumberOfEntries
 
+				    ;遍歷table找優先權
  000001D2			    L5:
  000001D2  8A 03		        mov al,[ebx] ;取運算元
  000001D4  3A 45 08		        cmp al,front
- 000001D7  75 06		        jne notfound_front
+ 000001D7  75 06		        jne notfound_front ;沒找到對應前運算元優先權
  000001D9  8A 63 01		        mov ah,[ebx+1]
  000001DC  88 65 FF		        mov f,ah ;取前優先權
 
  000001DF			        notfound_front:
  000001DF  3A 45 0C		        cmp al,back
- 000001E2  75 06		        jne notfound_back
+ 000001E2  75 06		        jne notfound_back ;沒找到對應後運算元優先權
  000001E4  8A 63 01		        mov ah,[ebx+1]
  000001E7  88 65 FE		        mov b,ah ;取後優先權
 				        
@@ -370,14 +378,14 @@ H2_111216019.asm(5) : warning A4011:multiple .MODEL directives found : .MODEL ig
  0000021D  66| 8B 46 FE		    mov ax, [esi - TYPE operand]
  00000221  66| 89 45 FC		    mov num_b, ax
  00000225  83 EE 02		    sub esi, TYPE operand
- 00000228  66| FF 0D		    dec operand_index ;operand元素-1
+ 00000228  66| FF 0D		    dec operand_index 
 	   0000028B R
 
 				    ;取前數值
  0000022F  66| 8B 46 FE		    mov ax, [esi - TYPE operand]
  00000233  66| 89 45 FE		    mov num_f, ax
  00000237  83 EE 02		    sub esi, TYPE operand
- 0000023A  66| FF 0D		    dec operand_index ;operand元素-1
+ 0000023A  66| FF 0D		    dec operand_index 
 	   0000028B R
  00000241  58			    pop eax
 
@@ -454,7 +462,7 @@ H2_111216019.asm(5) : warning A4011:multiple .MODEL directives found : .MODEL ig
  000002AC  E8 00000000 E   *	    call   ExitProcess
 
 				END main
-Microsoft (R) Macro Assembler Version 14.44.35219.0	    12/07/25 18:15:38
+Microsoft (R) Macro Assembler Version 14.44.35219.0	    12/07/25 18:33:11
 H2_111216019.asm					     Symbols 2 - 1
 
 
