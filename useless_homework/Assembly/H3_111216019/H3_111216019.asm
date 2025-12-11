@@ -1,3 +1,5 @@
+;借我放一下, 還沒好
+
 INCLUDE Irvine32.inc
 includelib Irvine32.lib
 

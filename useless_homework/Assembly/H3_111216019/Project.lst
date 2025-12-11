@@ -1,6 +1,8 @@
-Microsoft (R) Macro Assembler Version 14.44.35219.0	    12/09/25 21:22:34
+Microsoft (R) Macro Assembler Version 14.44.35219.0	    12/10/25 00:24:14
 H3_111216019.asm					     Page 1 - 1
 
+
+				;借我放一下, 還沒好
 
 				INCLUDE Irvine32.inc
 			      C ; Include file for Irvine32.lib             (Irvine32.inc)
@@ -24,7 +26,7 @@ H3_111216019.asm					     Page 1 - 1
 
 				.386
 				.model flat,stdcall
-H3_111216019.asm(5) : warning A4011:multiple .MODEL directives found : .MODEL ignored
+H3_111216019.asm(7) : warning A4011:multiple .MODEL directives found : .MODEL ignored
 				.stack 4096
 				ExitProcess proto,dwExitCode:dword
 
@@ -262,7 +264,7 @@ H3_111216019.asm(5) : warning A4011:multiple .MODEL directives found : .MODEL ig
  00000151			my_DAA ENDP
 
 				END main
-Microsoft (R) Macro Assembler Version 14.44.35219.0	    12/09/25 21:22:34
+Microsoft (R) Macro Assembler Version 14.44.35219.0	    12/10/25 00:24:14
 H3_111216019.asm					     Symbols 2 - 1
 
 
