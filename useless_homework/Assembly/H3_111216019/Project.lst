@@ -1,8 +1,12 @@
-Microsoft (R) Macro Assembler Version 14.44.35219.0	    12/10/25 00:24:14
+Microsoft (R) Macro Assembler Version 14.44.35219.0	    12/13/25 13:53:11
 H3_111216019.asm					     Page 1 - 1
 
 
-				;借我放一下, 還沒好
+				; 作者: 111216019 蔡芳宇
+				; 輸出說明: 以 DumpRegs 顯示結果, 若要測試可分別改 sub 跟 add 的數值
+				; 自評分數: 10%+70%+20%
+				; 作者碎碎念:請原諒我用全域變數取flags, 因為不知道為甚麼在函式裡取EFL CF會自己0變1
+				;          但是如果刻意傳參數相加或相減覆蓋EFL感覺又不像DAA跟DAS QAQ
 
 				INCLUDE Irvine32.inc
 			      C ; Include file for Irvine32.lib             (Irvine32.inc)
@@ -26,28 +30,16 @@ H3_111216019.asm					     Page 1 - 1
 
 				.386
 				.model flat,stdcall
-H3_111216019.asm(7) : warning A4011:multiple .MODEL directives found : .MODEL ignored
+H3_111216019.asm(11) : warning A4011:multiple .MODEL directives found : .MODEL ignored
 				.stack 4096
 				ExitProcess proto,dwExitCode:dword
 
  00000000			.data
 				my_DAS PROTO
 				my_DAA PROTO
- 00000000 44 41 53 20 2D	test1 BYTE "DAS -> example : 48h - 35h",0
-	   3E 20 65 78 61
-	   6D 70 6C 65 20
-	   3A 20 34 38 68
-	   20 2D 20 33 35
-	   68 00
- 0000001B 44 41 41 20 2D	test2 BYTE "DAA -> example : 35h + 48h",0
-	   3E 20 65 78 61
-	   6D 70 6C 65 20
-	   3A 20 33 35 68
-	   20 2B 20 34 38
-	   68 00
- 00000036 68 65 72 65 21	say BYTE "here!!!",0
-	   21 21 00
- 0000003E 00000000		flags DWORD ?
+ 00000000 44 41 53 3A 00	test1 BYTE "DAS:",0
+ 00000005 44 41 41 3A 00	test2 BYTE "DAA:",0
+ 0000000A 00000000		flags DWORD ?
 
  00000000			.code
  00000000			main proc
@@ -59,7 +51,7 @@ H3_111216019.asm(7) : warning A4011:multiple .MODEL directives found : .MODEL ig
 
 				    ;取EFL到flags
  00000004  9C			    pushfd
- 00000005  8F 05 0000003E R	    pop flags
+ 00000005  8F 05 0000000A R	    pop flags
 				    
  0000000B  BA 00000000 R	    mov edx ,OFFSET test1
  00000010  E8 00000000 E	    call WriteString
@@ -74,9 +66,9 @@ H3_111216019.asm(7) : warning A4011:multiple .MODEL directives found : .MODEL ig
 
 				    ;取EFL到flags
  00000028  9C			    pushfd
- 00000029  8F 05 0000003E R	    pop flags
+ 00000029  8F 05 0000000A R	    pop flags
 				    
- 0000002F  BA 0000001B R	    mov edx ,OFFSET test2
+ 0000002F  BA 00000005 R	    mov edx ,OFFSET test2
  00000034  E8 00000000 E	    call WriteString
  00000039  E8 00000000 E	    call Crlf
  0000003E  E8 0000008D		    call my_DAA
@@ -111,7 +103,7 @@ H3_111216019.asm(7) : warning A4011:multiple .MODEL directives found : .MODEL ig
  00000073  77 0C		    ja lo_changed ;低位須改變, 條件1 -> AL(lo) > 9
 				    
  00000075  0F BA 25		    bt flags,4 ;檢查AF
-	   0000003E R 04
+	   0000000A R 04
  0000007D  72 02		    jc lo_changed ;低位須改變, 條件2 -> AF=1
 
  0000007F  EB 06		    jmp lo_not_changed ;低位不須改變
@@ -128,7 +120,7 @@ H3_111216019.asm(7) : warning A4011:multiple .MODEL directives found : .MODEL ig
  0000008B  77 0C		    ja hi_changed ;高位須改變, 條件1 -> AL(hi) > 9
 
  0000008D  0F BA 25		    bt flags,0 ;檢查CF
-	   0000003E R 00
+	   0000000A R 00
  00000095  72 02		    jc hi_changed ;高位須改變, 條件2 -> CF=1
 
  00000097  EB 06		    jmp hi_not_changed ;高位不須改變
@@ -194,7 +186,7 @@ H3_111216019.asm(7) : warning A4011:multiple .MODEL directives found : .MODEL ig
  000000E9  77 0C		    ja lo_changed ;低位須改變, 條件1 -> AL(lo) > 9
 				    
  000000EB  0F BA 25		    bt flags,4 ;檢查AF
-	   0000003E R 04
+	   0000000A R 04
  000000F3  72 02		    jc lo_changed ;低位須改變, 條件2 -> AF=1
 
  000000F5  EB 06		    jmp lo_not_changed ;低位不須改變
@@ -216,7 +208,7 @@ H3_111216019.asm(7) : warning A4011:multiple .MODEL directives found : .MODEL ig
  0000010C  77 0C		    ja hi_changed ;高位須改變, 條件1 -> AL(hi) > 9
 
  0000010E  0F BA 25		    bt flags,0 ;檢查CF
-	   0000003E R 00
+	   0000000A R 00
  00000116  72 02		    jc hi_changed ;高位須改變, 條件2 -> CF=1
 
  00000118  EB 06		    jmp hi_not_changed ;高位不須改變
@@ -264,7 +256,7 @@ H3_111216019.asm(7) : warning A4011:multiple .MODEL directives found : .MODEL ig
  00000151			my_DAA ENDP
 
 				END main
-Microsoft (R) Macro Assembler Version 14.44.35219.0	    12/10/25 00:24:14
+Microsoft (R) Macro Assembler Version 14.44.35219.0	    12/13/25 13:53:11
 H3_111216019.asm					     Symbols 2 - 1
 
 
@@ -358,7 +350,7 @@ Segments and Groups:
 
 FLAT . . . . . . . . . . . . . .	GROUP
 STACK  . . . . . . . . . . . . .	32 Bit	 00001000 Para	  Stack	  'STACK'	 
-_DATA  . . . . . . . . . . . . .	32 Bit	 00000042 Para	  Public  'DATA'	
+_DATA  . . . . . . . . . . . . .	32 Bit	 0000000E Para	  Public  'DATA'	
 _TEXT  . . . . . . . . . . . . .	32 Bit	 00000151 Para	  Public  'CODE'	
 
 
@@ -708,7 +700,7 @@ blue . . . . . . . . . . . . . .	Number	 00000001h
 brown  . . . . . . . . . . . . .	Number	 00000006h   
 cyan . . . . . . . . . . . . . .	Number	 00000003h   
 exit . . . . . . . . . . . . . .	Text   	 INVOKE ExitProcess,0
-flags  . . . . . . . . . . . . .	DWord	 0000003E _DATA	
+flags  . . . . . . . . . . . . .	DWord	 0000000A _DATA	
 gray . . . . . . . . . . . . . .	Number	 00000008h   
 green  . . . . . . . . . . . . .	Number	 00000002h   
 lightBlue  . . . . . . . . . . .	Number	 00000009h   
@@ -719,9 +711,8 @@ lightMagenta . . . . . . . . . .	Number	 0000000Dh
 lightRed . . . . . . . . . . . .	Number	 0000000Ch   
 magenta  . . . . . . . . . . . .	Number	 00000005h   
 red  . . . . . . . . . . . . . .	Number	 00000004h   
-say  . . . . . . . . . . . . . .	Byte	 00000036 _DATA	
 test1  . . . . . . . . . . . . .	Byte	 00000000 _DATA	
-test2  . . . . . . . . . . . . .	Byte	 0000001B _DATA	
+test2  . . . . . . . . . . . . .	Byte	 00000005 _DATA	
 white  . . . . . . . . . . . . .	Number	 0000000Fh   
 wsprintf . . . . . . . . . . . .	Text   	 wsprintfA
 yellow . . . . . . . . . . . . .	Number	 0000000Eh   

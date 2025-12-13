@@ -1,4 +1,8 @@
-;借我放一下, 還沒好
+; 作者: 111216019 蔡芳宇
+; 輸出說明: 以 DumpRegs 顯示結果, 若要測試可分別改 sub 跟 add 的數值
+; 自評分數: 10%+70%+20%
+; 作者碎碎念:請原諒我用全域變數取flags, 因為不知道為甚麼在函式裡取EFL CF會自己0變1
+;          但是如果刻意傳參數相加或相減覆蓋EFL感覺又不像DAA跟DAS QAQ
 
 INCLUDE Irvine32.inc
 includelib Irvine32.lib
@@ -11,9 +15,8 @@ ExitProcess proto,dwExitCode:dword
 .data
 my_DAS PROTO
 my_DAA PROTO
-test1 BYTE "DAS -> example : 48h - 35h",0
-test2 BYTE "DAA -> example : 35h + 48h",0
-say BYTE "here!!!",0
+test1 BYTE "DAS:",0
+test2 BYTE "DAA:",0
 flags DWORD ?
 
 .code
